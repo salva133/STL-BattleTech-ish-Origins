@@ -1,0 +1,27 @@
+﻿origin_tribe_confederation = {
+	is_origin = yes
+	icon = "gfx/interface/icons/origins/origins_common_ground.dds"
+	picture = GFX_origin_common_ground
+	max_once_global = yes
+
+	playable = {
+		host_has_dlc = "Federations"
+	}
+
+	possible = {
+		authority = { NOT = { value = auth_imperial } }
+		civics = {
+			value = civic_warrior_culture
+		}
+	}
+
+	description = "origin_tooltip_tribe_confederation"
+	flags = { custom_start_screen }
+
+	traits = {
+	}
+
+	random_weight = {
+		base = 5
+	}
+}

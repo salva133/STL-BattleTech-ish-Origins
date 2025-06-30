@@ -1,7 +1,7 @@
-﻿origin_tribe_confederation = {
+﻿origin_clan_confederation = {
 	is_origin = yes
-	icon = "gfx/interface/icons/origins/origins_common_ground.dds"
-	picture = GFX_origin_common_ground
+	icon = gfx/interface/icons/origins/origin_clan_confederation.dds
+	picture = GFX_origin_clan_confederation
 	max_once_global = yes
 
 	playable = {
@@ -15,7 +15,7 @@
 		}
 	}
 
-	description = "origin_tooltip_tribe_confederation"
+	description = "origin_tooltip_clan_confederation"
 	flags = { custom_start_screen }
 
 	traits = {

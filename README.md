@@ -1,2 +1,1 @@
-# triber-confederation-origin
-
+# Clan Confederation Origin

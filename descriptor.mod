@@ -3,5 +3,5 @@ tags={
 	"Gameplay"
 	"Balance"
 }
-name="Tribe Confederation Origin"
+name="Clan Confederation Origin"
 supported_version="v4.0.21"

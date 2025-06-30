@@ -1,6 +1,6 @@
 # Common Ground/Hegemon Setup
 country_event = {
-	id = origin.tco.1
+	id = origin.cco.1
 	hide_window = yes
 	is_triggered_only = yes
 

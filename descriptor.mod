@@ -3,5 +3,5 @@ tags={
 	"Gameplay"
 	"Balance"
 }
-name="Clan Confederation Origin"
+name="BattleTech-ish Origins"
 supported_version="v4.0.21"

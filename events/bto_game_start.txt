@@ -1,0 +1,21 @@
+namespace = bto_game_start
+
+### Hidden Game Start Event
+event = {
+	id = bto_game_start.1
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		# Clan Confederation & Stellar Union
+		every_playable_country = {
+			limit = {
+				OR = {
+					has_origin = origin_clan_confederation
+					has_origin = origin_stellar_union
+				}
+			}
+			country_event = { id = origin.bto.1 }
+		}
+	}
+}

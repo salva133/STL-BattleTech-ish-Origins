@@ -25,3 +25,40 @@
 		base = 5
 	}
 }
+
+origin_stellar_union = {
+	is_origin = yes
+	icon = gfx/interface/icons/origins/origin_stellar_union.dds
+	picture = GFX_origin_stellar_union
+	max_once_global = yes
+
+	playable = {
+		host_has_dlc = "Federations"
+	}
+
+	possible = {
+		authority = { value = auth_imperial }
+		ethics = {
+			OR = {
+				text = civic_tooltip_militarist
+				value = ethic_militarist
+				value = ethic_fanatic_militarist
+			}
+			NOR = {
+				text = civic_tooltip_spiritualist
+				value = ethic_spiritualist
+				value = ethic_fanatic_spiritualist
+			}
+		}
+	}
+
+	description = "origin_tooltip_stellar_union"
+	flags = { custom_start_screen }
+
+	traits = {
+	}
+
+	random_weight = {
+		base = 5
+	}
+}

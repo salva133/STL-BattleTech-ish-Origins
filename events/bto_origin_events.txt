@@ -1726,7 +1726,7 @@ country_event = {
 			set_name = random # Fixes some naming issues
 		}
 
-		event_target:fed_member_2 = {
+		event_target:fed_member_3 = {
 			create_starting_leaders = yes
 			country_event = { id = game_start.9 }
 			country_event = { id = game_start.33 days = 1 } # needs delay for system ownership to settle
@@ -1738,7 +1738,7 @@ country_event = {
 			set_name = random # Fixes some naming issues
 		}
 
-		event_target:fed_member_2 = {
+		event_target:fed_member_4 = {
 			create_starting_leaders = yes
 			country_event = { id = game_start.9 }
 			country_event = { id = game_start.33 days = 1 } # needs delay for system ownership to settle
@@ -1750,7 +1750,7 @@ country_event = {
 			set_name = random # Fixes some naming issues
 		}
 
-		event_target:fed_member_2 = {
+		event_target:fed_member_5 = {
 			create_starting_leaders = yes
 			country_event = { id = game_start.9 }
 			country_event = { id = game_start.33 days = 1 } # needs delay for system ownership to settle
@@ -1762,7 +1762,7 @@ country_event = {
 			set_name = random # Fixes some naming issues
 		}
 
-		event_target:fed_member_2 = {
+		event_target:fed_member_6 = {
 			create_starting_leaders = yes
 			country_event = { id = game_start.9 }
 			country_event = { id = game_start.33 days = 1 } # needs delay for system ownership to settle
@@ -1774,7 +1774,7 @@ country_event = {
 			set_name = random # Fixes some naming issues
 		}
 
-		event_target:fed_member_2 = {
+		event_target:fed_member_7 = {
 			create_starting_leaders = yes
 			country_event = { id = game_start.9 }
 			country_event = { id = game_start.33 days = 1 } # needs delay for system ownership to settle
@@ -1786,7 +1786,7 @@ country_event = {
 			set_name = random # Fixes some naming issues
 		}
 
-		event_target:fed_member_2 = {
+		event_target:fed_member_8 = {
 			create_starting_leaders = yes
 			country_event = { id = game_start.9 }
 			country_event = { id = game_start.33 days = 1 } # needs delay for system ownership to settle
@@ -1798,7 +1798,7 @@ country_event = {
 			set_name = random # Fixes some naming issues
 		}
 
-		event_target:fed_member_2 = {
+		event_target:fed_member_9 = {
 			create_starting_leaders = yes
 			country_event = { id = game_start.9 }
 			country_event = { id = game_start.33 days = 1 } # needs delay for system ownership to settle
@@ -1810,7 +1810,7 @@ country_event = {
 			set_name = random # Fixes some naming issues
 		}
 
-		event_target:fed_member_2 = {
+		event_target:fed_member_10 = {
 			create_starting_leaders = yes
 			country_event = { id = game_start.9 }
 			country_event = { id = game_start.33 days = 1 } # needs delay for system ownership to settle
@@ -1822,7 +1822,7 @@ country_event = {
 			set_name = random # Fixes some naming issues
 		}
 
-		event_target:fed_member_2 = {
+		event_target:fed_member_11 = {
 			create_starting_leaders = yes
 			country_event = { id = game_start.9 }
 			country_event = { id = game_start.33 days = 1 } # needs delay for system ownership to settle
@@ -1834,7 +1834,7 @@ country_event = {
 			set_name = random # Fixes some naming issues
 		}
 
-		event_target:fed_member_2 = {
+		event_target:fed_member_12 = {
 			create_starting_leaders = yes
 			country_event = { id = game_start.9 }
 			country_event = { id = game_start.33 days = 1 } # needs delay for system ownership to settle
@@ -1849,50 +1849,50 @@ country_event = {
 		# Set Intel levels, Opinion, and Federation laws
 		if = {
 			limit = { has_origin = origin_stellar_union }
-			event_target:fed_member_1 = {
-				add_opinion_modifier = {
-					who = root
-					modifier = opinion_common_ground
-				}
-				add_trust = {
-					amount = 50
-					who = root
-				}
-				add_trust = {
-					amount = 50
-					who = event_target:fed_member_2
-				}
-				add_intel = {
-					amount = 60
-					who = root
-				}
-				add_intel = {
-					amount = 60
-					who = event_target:fed_member_2
-				}
-			}
-			event_target:fed_member_2 = {
-				add_opinion_modifier = {
-					who = root
-					modifier = opinion_common_ground
-				}
-				add_trust = {
-					amount = 50
-					who = root
-				}
-				add_trust = {
-					amount = 50
-					who = event_target:fed_member_1
-				}
-				add_intel = {
-					amount = 60
-					who = root
-				}
-				add_intel = {
-					amount = 60
-					who = event_target:fed_member_1
-				}
-			}
+			# event_target:fed_member_1 = {
+			# 	add_opinion_modifier = {
+			# 		who = root
+			# 		modifier = opinion_common_ground
+			# 	}
+			# 	add_trust = {
+			# 		amount = 50
+			# 		who = root
+			# 	}
+			# 	add_trust = {
+			# 		amount = 50
+			# 		who = event_target:fed_member_2
+			# 	}
+			# 	add_intel = {
+			# 		amount = 60
+			# 		who = root
+			# 	}
+			# 	add_intel = {
+			# 		amount = 60
+			# 		who = event_target:fed_member_2
+			# 	}
+			# }
+			# event_target:fed_member_2 = {
+			# 	add_opinion_modifier = {
+			# 		who = root
+			# 		modifier = opinion_common_ground
+			# 	}
+			# 	add_trust = {
+			# 		amount = 50
+			# 		who = root
+			# 	}
+			# 	add_trust = {
+			# 		amount = 50
+			# 		who = event_target:fed_member_1
+			# 	}
+			# 	add_intel = {
+			# 		amount = 60
+			# 		who = root
+			# 	}
+			# 	add_intel = {
+			# 		amount = 60
+			# 		who = event_target:fed_member_1
+			# 	}
+			# }
 			add_opinion_modifier = {
 				who = event_target:fed_member_1
 				modifier = opinion_common_ground
@@ -1901,22 +1901,62 @@ country_event = {
 				who = event_target:fed_member_2
 				modifier = opinion_common_ground
 			}
-			add_trust = {
-				amount = 50
-				who = event_target:fed_member_1
+			add_opinion_modifier = {
+				who = event_target:fed_member_3
+				modifier = opinion_common_ground
 			}
-			add_trust = {
-				amount = 50
-				who = event_target:fed_member_2
+			add_opinion_modifier = {
+				who = event_target:fed_member_4
+				modifier = opinion_common_ground
 			}
-			add_intel = {
-				amount = 60
-				who = event_target:fed_member_1
+			add_opinion_modifier = {
+				who = event_target:fed_member_5
+				modifier = opinion_common_ground
 			}
-			add_intel = {
-				amount = 60
-				who = event_target:fed_member_2
+			add_opinion_modifier = {
+				who = event_target:fed_member_6
+				modifier = opinion_common_ground
 			}
+			add_opinion_modifier = {
+				who = event_target:fed_member_7
+				modifier = opinion_common_ground
+			}
+			add_opinion_modifier = {
+				who = event_target:fed_member_8
+				modifier = opinion_common_ground
+			}
+			add_opinion_modifier = {
+				who = event_target:fed_member_9
+				modifier = opinion_common_ground
+			}
+			add_opinion_modifier = {
+				who = event_target:fed_member_10
+				modifier = opinion_common_ground
+			}
+			add_opinion_modifier = {
+				who = event_target:fed_member_11
+				modifier = opinion_common_ground
+			}
+			add_opinion_modifier = {
+				who = event_target:fed_member_12
+				modifier = opinion_common_ground
+			}
+			# add_trust = {
+			# 	amount = 50
+			# 	who = event_target:fed_member_1
+			# }
+			# add_trust = {
+			# 	amount = 50
+			# 	who = event_target:fed_member_2
+			# }
+			# add_intel = {
+			# 	amount = 60
+			# 	who = event_target:fed_member_1
+			# }
+			# add_intel = {
+			# 	amount = 60
+			# 	who = event_target:fed_member_2
+			# }
 			set_federation_leader = root
 			country_event = { id = origin.57 days = 2 }
 		}

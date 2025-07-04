@@ -302,25 +302,25 @@ country_event = {
 						}
 					}
 				}
-				create_fed_planet_2_species = { CLASS = random }
+				create_fed_planet_3_species = { CLASS = random }
 			}
 			else = {
 				root = {
 					switch = {
 						trigger = is_species_class
-						HUM =		{ create_fed_planet_2_species = { CLASS = HUM } }
-						MAM =		{ create_fed_planet_2_species = { CLASS = MAM } }
-						FUN =		{ create_fed_planet_2_species = { CLASS = FUN } }
-						AVI =		{ create_fed_planet_2_species = { CLASS = AVI } }
-						PLANT =		{ create_fed_planet_2_species = { CLASS = PLANT } }
-						ART =		{ create_fed_planet_2_species = { CLASS = ART } }
-						REP =		{ create_fed_planet_2_species = { CLASS = REP } }
-						MOL =		{ create_fed_planet_2_species = { CLASS = MOL } }
-						LITHOID =	{ create_fed_planet_2_species = { CLASS = LITHOID } }
-						NECROID =	{ create_fed_planet_2_species = { CLASS = NECROID } }
-						AQUATIC =	{ create_fed_planet_2_species = { CLASS = AQUATIC } }
-						TOX =		{ create_fed_planet_2_species = { CLASS = TOX } }
-						default =	{ create_fed_planet_2_species = { CLASS = HUM } }
+						HUM =		{ create_fed_planet_3_species = { CLASS = HUM } }
+						MAM =		{ create_fed_planet_3_species = { CLASS = MAM } }
+						FUN =		{ create_fed_planet_3_species = { CLASS = FUN } }
+						AVI =		{ create_fed_planet_3_species = { CLASS = AVI } }
+						PLANT =		{ create_fed_planet_3_species = { CLASS = PLANT } }
+						ART =		{ create_fed_planet_3_species = { CLASS = ART } }
+						REP =		{ create_fed_planet_3_species = { CLASS = REP } }
+						MOL =		{ create_fed_planet_3_species = { CLASS = MOL } }
+						LITHOID =	{ create_fed_planet_3_species = { CLASS = LITHOID } }
+						NECROID =	{ create_fed_planet_3_species = { CLASS = NECROID } }
+						AQUATIC =	{ create_fed_planet_3_species = { CLASS = AQUATIC } }
+						TOX =		{ create_fed_planet_3_species = { CLASS = TOX } }
+						default =	{ create_fed_planet_3_species = { CLASS = HUM } }
 					}
 				}
 			}
@@ -343,7 +343,7 @@ country_event = {
 				}
 			}
 			create_colony = {
-				owner = event_target:fed_member_2
+				owner = event_target:fed_member_3
 			}
 			generate_start_deposits_and_blockers = yes
 			generate_start_buildings_and_districts = yes
@@ -369,7 +369,7 @@ country_event = {
 				}
 			}
 			generate_start_pops = yes
-			event_target:fed_member_2 = {
+			event_target:fed_member_3 = {
 				country_event = { id = game_start.8 }
 				give_starting_resources_effect = yes
 				give_technology = { tech = tech_federation_code message = no }
@@ -377,7 +377,7 @@ country_event = {
 			solar_system = {
 				if = {
 					limit = {
-						event_target:fed_member_2 = {
+						event_target:fed_member_3 = {
 							is_gestalt = no
 						}
 					}
@@ -385,7 +385,7 @@ country_event = {
 						size = starbase_starport
 						module = shipyard
 						building = crew_quarters
-						owner = event_target:fed_member_2
+						owner = event_target:fed_member_3
 						effect = {
 							set_starbase_module = {
 								slot = 1
@@ -403,11 +403,11 @@ country_event = {
 						size = starbase_starport
 						module = shipyard
 						building = crew_quarters
-						owner = event_target:fed_member_2
+						owner = event_target:fed_member_3
 						effect = {
 							if = {
 								limit = {
-									event_target:fed_member_2 = {
+									event_target:fed_member_3 = {
 										has_valid_civic = civic_machine_astromining_drones
 									}
 								}
@@ -443,25 +443,25 @@ country_event = {
 						}
 					}
 				}
-				create_fed_planet_2_species = { CLASS = random }
+				create_fed_planet_4_species = { CLASS = random }
 			}
 			else = {
 				root = {
 					switch = {
 						trigger = is_species_class
-						HUM =		{ create_fed_planet_2_species = { CLASS = HUM } }
-						MAM =		{ create_fed_planet_2_species = { CLASS = MAM } }
-						FUN =		{ create_fed_planet_2_species = { CLASS = FUN } }
-						AVI =		{ create_fed_planet_2_species = { CLASS = AVI } }
-						PLANT =		{ create_fed_planet_2_species = { CLASS = PLANT } }
-						ART =		{ create_fed_planet_2_species = { CLASS = ART } }
-						REP =		{ create_fed_planet_2_species = { CLASS = REP } }
-						MOL =		{ create_fed_planet_2_species = { CLASS = MOL } }
-						LITHOID =	{ create_fed_planet_2_species = { CLASS = LITHOID } }
-						NECROID =	{ create_fed_planet_2_species = { CLASS = NECROID } }
-						AQUATIC =	{ create_fed_planet_2_species = { CLASS = AQUATIC } }
-						TOX =		{ create_fed_planet_2_species = { CLASS = TOX } }
-						default =	{ create_fed_planet_2_species = { CLASS = HUM } }
+						HUM =		{ create_fed_planet_4_species = { CLASS = HUM } }
+						MAM =		{ create_fed_planet_4_species = { CLASS = MAM } }
+						FUN =		{ create_fed_planet_4_species = { CLASS = FUN } }
+						AVI =		{ create_fed_planet_4_species = { CLASS = AVI } }
+						PLANT =		{ create_fed_planet_4_species = { CLASS = PLANT } }
+						ART =		{ create_fed_planet_4_species = { CLASS = ART } }
+						REP =		{ create_fed_planet_4_species = { CLASS = REP } }
+						MOL =		{ create_fed_planet_4_species = { CLASS = MOL } }
+						LITHOID =	{ create_fed_planet_4_species = { CLASS = LITHOID } }
+						NECROID =	{ create_fed_planet_4_species = { CLASS = NECROID } }
+						AQUATIC =	{ create_fed_planet_4_species = { CLASS = AQUATIC } }
+						TOX =		{ create_fed_planet_4_species = { CLASS = TOX } }
+						default =	{ create_fed_planet_4_species = { CLASS = HUM } }
 					}
 				}
 			}
@@ -484,7 +484,7 @@ country_event = {
 				}
 			}
 			create_colony = {
-				owner = event_target:fed_member_2
+				owner = event_target:fed_member_4
 			}
 			generate_start_deposits_and_blockers = yes
 			generate_start_buildings_and_districts = yes
@@ -510,7 +510,7 @@ country_event = {
 				}
 			}
 			generate_start_pops = yes
-			event_target:fed_member_2 = {
+			event_target:fed_member_4 = {
 				country_event = { id = game_start.8 }
 				give_starting_resources_effect = yes
 				give_technology = { tech = tech_federation_code message = no }
@@ -518,7 +518,7 @@ country_event = {
 			solar_system = {
 				if = {
 					limit = {
-						event_target:fed_member_2 = {
+						event_target:fed_member_4 = {
 							is_gestalt = no
 						}
 					}
@@ -526,7 +526,7 @@ country_event = {
 						size = starbase_starport
 						module = shipyard
 						building = crew_quarters
-						owner = event_target:fed_member_2
+						owner = event_target:fed_member_4
 						effect = {
 							set_starbase_module = {
 								slot = 1
@@ -544,11 +544,11 @@ country_event = {
 						size = starbase_starport
 						module = shipyard
 						building = crew_quarters
-						owner = event_target:fed_member_2
+						owner = event_target:fed_member_4
 						effect = {
 							if = {
 								limit = {
-									event_target:fed_member_2 = {
+									event_target:fed_member_4 = {
 										has_valid_civic = civic_machine_astromining_drones
 									}
 								}
@@ -584,25 +584,25 @@ country_event = {
 						}
 					}
 				}
-				create_fed_planet_2_species = { CLASS = random }
+				create_fed_planet_5_species = { CLASS = random }
 			}
 			else = {
 				root = {
 					switch = {
 						trigger = is_species_class
-						HUM =		{ create_fed_planet_2_species = { CLASS = HUM } }
-						MAM =		{ create_fed_planet_2_species = { CLASS = MAM } }
-						FUN =		{ create_fed_planet_2_species = { CLASS = FUN } }
-						AVI =		{ create_fed_planet_2_species = { CLASS = AVI } }
-						PLANT =		{ create_fed_planet_2_species = { CLASS = PLANT } }
-						ART =		{ create_fed_planet_2_species = { CLASS = ART } }
-						REP =		{ create_fed_planet_2_species = { CLASS = REP } }
-						MOL =		{ create_fed_planet_2_species = { CLASS = MOL } }
-						LITHOID =	{ create_fed_planet_2_species = { CLASS = LITHOID } }
-						NECROID =	{ create_fed_planet_2_species = { CLASS = NECROID } }
-						AQUATIC =	{ create_fed_planet_2_species = { CLASS = AQUATIC } }
-						TOX =		{ create_fed_planet_2_species = { CLASS = TOX } }
-						default =	{ create_fed_planet_2_species = { CLASS = HUM } }
+						HUM =		{ create_fed_planet_5_species = { CLASS = HUM } }
+						MAM =		{ create_fed_planet_5_species = { CLASS = MAM } }
+						FUN =		{ create_fed_planet_5_species = { CLASS = FUN } }
+						AVI =		{ create_fed_planet_5_species = { CLASS = AVI } }
+						PLANT =		{ create_fed_planet_5_species = { CLASS = PLANT } }
+						ART =		{ create_fed_planet_5_species = { CLASS = ART } }
+						REP =		{ create_fed_planet_5_species = { CLASS = REP } }
+						MOL =		{ create_fed_planet_5_species = { CLASS = MOL } }
+						LITHOID =	{ create_fed_planet_5_species = { CLASS = LITHOID } }
+						NECROID =	{ create_fed_planet_5_species = { CLASS = NECROID } }
+						AQUATIC =	{ create_fed_planet_5_species = { CLASS = AQUATIC } }
+						TOX =		{ create_fed_planet_5_species = { CLASS = TOX } }
+						default =	{ create_fed_planet_5_species = { CLASS = HUM } }
 					}
 				}
 			}
@@ -625,7 +625,7 @@ country_event = {
 				}
 			}
 			create_colony = {
-				owner = event_target:fed_member_2
+				owner = event_target:fed_member_5
 			}
 			generate_start_deposits_and_blockers = yes
 			generate_start_buildings_and_districts = yes
@@ -651,7 +651,7 @@ country_event = {
 				}
 			}
 			generate_start_pops = yes
-			event_target:fed_member_2 = {
+			event_target:fed_member_5 = {
 				country_event = { id = game_start.8 }
 				give_starting_resources_effect = yes
 				give_technology = { tech = tech_federation_code message = no }
@@ -659,7 +659,7 @@ country_event = {
 			solar_system = {
 				if = {
 					limit = {
-						event_target:fed_member_2 = {
+						event_target:fed_member_5 = {
 							is_gestalt = no
 						}
 					}
@@ -667,7 +667,7 @@ country_event = {
 						size = starbase_starport
 						module = shipyard
 						building = crew_quarters
-						owner = event_target:fed_member_2
+						owner = event_target:fed_member_5
 						effect = {
 							set_starbase_module = {
 								slot = 1
@@ -685,11 +685,11 @@ country_event = {
 						size = starbase_starport
 						module = shipyard
 						building = crew_quarters
-						owner = event_target:fed_member_2
+						owner = event_target:fed_member_5
 						effect = {
 							if = {
 								limit = {
-									event_target:fed_member_2 = {
+									event_target:fed_member_5 = {
 										has_valid_civic = civic_machine_astromining_drones
 									}
 								}
@@ -725,34 +725,27 @@ country_event = {
 						}
 					}
 				}
-				create_fed_planet_2_species = { CLASS = random }
+				create_fed_planet_6_species = { CLASS = random }
 			}
 			else = {
 				root = {
 					switch = {
 						trigger = is_species_class
-						HUM =		{ create_fed_planet_2_species = { CLASS = HUM } }
-						MAM =		{ create_fed_planet_2_species = { CLASS = MAM } }
-						FUN =		{ create_fed_planet_2_species = { CLASS = FUN } }
-						AVI =		{ create_fed_planet_2_species = { CLASS = AVI } }
-						PLANT =		{ create_fed_planet_2_species = { CLASS = PLANT } }
-						ART =		{ create_fed_planet_2_species = { CLASS = ART } }
-						REP =		{ create_fed_planet_2_species = { CLASS = REP } }
-						MOL =		{ create_fed_planet_2_species = { CLASS = MOL } }
-						LITHOID =	{ create_fed_planet_2_species = { CLASS = LITHOID } }
-						NECROID =	{ create_fed_planet_2_species = { CLASS = NECROID } }
-						AQUATIC =	{ create_fed_planet_2_species = { CLASS = AQUATIC } }
-						TOX =		{ create_fed_planet_2_species = { CLASS = TOX } }
-						default =	{ create_fed_planet_2_species = { CLASS = HUM } }
+						HUM =		{ create_fed_planet_6_species = { CLASS = HUM } }
+						MAM =		{ create_fed_planet_6_species = { CLASS = MAM } }
+						FUN =		{ create_fed_planet_6_species = { CLASS = FUN } }
+						AVI =		{ create_fed_planet_6_species = { CLASS = AVI } }
+						PLANT =		{ create_fed_planet_6_species = { CLASS = PLANT } }
+						ART =		{ create_fed_planet_6_species = { CLASS = ART } }
+						REP =		{ create_fed_planet_6_species = { CLASS = REP } }
+						MOL =		{ create_fed_planet_6_species = { CLASS = MOL } }
+						LITHOID =	{ create_fed_planet_6_species = { CLASS = LITHOID } }
+						NECROID =	{ create_fed_planet_6_species = { CLASS = NECROID } }
+						AQUATIC =	{ create_fed_planet_6_species = { CLASS = AQUATIC } }
+						TOX =		{ create_fed_planet_6_species = { CLASS = TOX } }
+						default =	{ create_fed_planet_6_species = { CLASS = HUM } }
 					}
 				}
-			}
-			# Stellar Union
-			if = {
-				limit = {
-					root = { has_origin = origin_stellar_union }
-				}
-				create_common_ground_member = { NUM = 2 }
 			}
 			# Clan Confederation
 			if = {
@@ -766,7 +759,7 @@ country_event = {
 				}
 			}
 			create_colony = {
-				owner = event_target:fed_member_2
+				owner = event_target:fed_member_6
 			}
 			generate_start_deposits_and_blockers = yes
 			generate_start_buildings_and_districts = yes
@@ -792,7 +785,7 @@ country_event = {
 				}
 			}
 			generate_start_pops = yes
-			event_target:fed_member_2 = {
+			event_target:fed_member_6 = {
 				country_event = { id = game_start.8 }
 				give_starting_resources_effect = yes
 				give_technology = { tech = tech_federation_code message = no }
@@ -800,7 +793,7 @@ country_event = {
 			solar_system = {
 				if = {
 					limit = {
-						event_target:fed_member_2 = {
+						event_target:fed_member_6 = {
 							is_gestalt = no
 						}
 					}
@@ -808,7 +801,7 @@ country_event = {
 						size = starbase_starport
 						module = shipyard
 						building = crew_quarters
-						owner = event_target:fed_member_2
+						owner = event_target:fed_member_6
 						effect = {
 							set_starbase_module = {
 								slot = 1
@@ -826,11 +819,11 @@ country_event = {
 						size = starbase_starport
 						module = shipyard
 						building = crew_quarters
-						owner = event_target:fed_member_2
+						owner = event_target:fed_member_6
 						effect = {
 							if = {
 								limit = {
-									event_target:fed_member_2 = {
+									event_target:fed_member_6 = {
 										has_valid_civic = civic_machine_astromining_drones
 									}
 								}
@@ -866,34 +859,27 @@ country_event = {
 						}
 					}
 				}
-				create_fed_planet_2_species = { CLASS = random }
+				create_fed_planet_7_species = { CLASS = random }
 			}
 			else = {
 				root = {
 					switch = {
 						trigger = is_species_class
-						HUM =		{ create_fed_planet_2_species = { CLASS = HUM } }
-						MAM =		{ create_fed_planet_2_species = { CLASS = MAM } }
-						FUN =		{ create_fed_planet_2_species = { CLASS = FUN } }
-						AVI =		{ create_fed_planet_2_species = { CLASS = AVI } }
-						PLANT =		{ create_fed_planet_2_species = { CLASS = PLANT } }
-						ART =		{ create_fed_planet_2_species = { CLASS = ART } }
-						REP =		{ create_fed_planet_2_species = { CLASS = REP } }
-						MOL =		{ create_fed_planet_2_species = { CLASS = MOL } }
-						LITHOID =	{ create_fed_planet_2_species = { CLASS = LITHOID } }
-						NECROID =	{ create_fed_planet_2_species = { CLASS = NECROID } }
-						AQUATIC =	{ create_fed_planet_2_species = { CLASS = AQUATIC } }
-						TOX =		{ create_fed_planet_2_species = { CLASS = TOX } }
-						default =	{ create_fed_planet_2_species = { CLASS = HUM } }
+						HUM =		{ create_fed_planet_7_species = { CLASS = HUM } }
+						MAM =		{ create_fed_planet_7_species = { CLASS = MAM } }
+						FUN =		{ create_fed_planet_7_species = { CLASS = FUN } }
+						AVI =		{ create_fed_planet_7_species = { CLASS = AVI } }
+						PLANT =		{ create_fed_planet_7_species = { CLASS = PLANT } }
+						ART =		{ create_fed_planet_7_species = { CLASS = ART } }
+						REP =		{ create_fed_planet_7_species = { CLASS = REP } }
+						MOL =		{ create_fed_planet_7_species = { CLASS = MOL } }
+						LITHOID =	{ create_fed_planet_7_species = { CLASS = LITHOID } }
+						NECROID =	{ create_fed_planet_7_species = { CLASS = NECROID } }
+						AQUATIC =	{ create_fed_planet_7_species = { CLASS = AQUATIC } }
+						TOX =		{ create_fed_planet_7_species = { CLASS = TOX } }
+						default =	{ create_fed_planet_7_species = { CLASS = HUM } }
 					}
 				}
-			}
-			# Stellar Union
-			if = {
-				limit = {
-					root = { has_origin = origin_stellar_union }
-				}
-				create_common_ground_member = { NUM = 2 }
 			}
 			# Clan Confederation
 			if = {
@@ -907,7 +893,7 @@ country_event = {
 				}
 			}
 			create_colony = {
-				owner = event_target:fed_member_2
+				owner = event_target:fed_member_7
 			}
 			generate_start_deposits_and_blockers = yes
 			generate_start_buildings_and_districts = yes
@@ -933,7 +919,7 @@ country_event = {
 				}
 			}
 			generate_start_pops = yes
-			event_target:fed_member_2 = {
+			event_target:fed_member_7 = {
 				country_event = { id = game_start.8 }
 				give_starting_resources_effect = yes
 				give_technology = { tech = tech_federation_code message = no }
@@ -941,7 +927,7 @@ country_event = {
 			solar_system = {
 				if = {
 					limit = {
-						event_target:fed_member_2 = {
+						event_target:fed_member_7 = {
 							is_gestalt = no
 						}
 					}
@@ -949,7 +935,7 @@ country_event = {
 						size = starbase_starport
 						module = shipyard
 						building = crew_quarters
-						owner = event_target:fed_member_2
+						owner = event_target:fed_member_7
 						effect = {
 							set_starbase_module = {
 								slot = 1
@@ -967,11 +953,11 @@ country_event = {
 						size = starbase_starport
 						module = shipyard
 						building = crew_quarters
-						owner = event_target:fed_member_2
+						owner = event_target:fed_member_7
 						effect = {
 							if = {
 								limit = {
-									event_target:fed_member_2 = {
+									event_target:fed_member_7 = {
 										has_valid_civic = civic_machine_astromining_drones
 									}
 								}
@@ -1007,34 +993,27 @@ country_event = {
 						}
 					}
 				}
-				create_fed_planet_2_species = { CLASS = random }
+				create_fed_planet_8_species = { CLASS = random }
 			}
 			else = {
 				root = {
 					switch = {
 						trigger = is_species_class
-						HUM =		{ create_fed_planet_2_species = { CLASS = HUM } }
-						MAM =		{ create_fed_planet_2_species = { CLASS = MAM } }
-						FUN =		{ create_fed_planet_2_species = { CLASS = FUN } }
-						AVI =		{ create_fed_planet_2_species = { CLASS = AVI } }
-						PLANT =		{ create_fed_planet_2_species = { CLASS = PLANT } }
-						ART =		{ create_fed_planet_2_species = { CLASS = ART } }
-						REP =		{ create_fed_planet_2_species = { CLASS = REP } }
-						MOL =		{ create_fed_planet_2_species = { CLASS = MOL } }
-						LITHOID =	{ create_fed_planet_2_species = { CLASS = LITHOID } }
-						NECROID =	{ create_fed_planet_2_species = { CLASS = NECROID } }
-						AQUATIC =	{ create_fed_planet_2_species = { CLASS = AQUATIC } }
-						TOX =		{ create_fed_planet_2_species = { CLASS = TOX } }
-						default =	{ create_fed_planet_2_species = { CLASS = HUM } }
+						HUM =		{ create_fed_planet_8_species = { CLASS = HUM } }
+						MAM =		{ create_fed_planet_8_species = { CLASS = MAM } }
+						FUN =		{ create_fed_planet_8_species = { CLASS = FUN } }
+						AVI =		{ create_fed_planet_8_species = { CLASS = AVI } }
+						PLANT =		{ create_fed_planet_8_species = { CLASS = PLANT } }
+						ART =		{ create_fed_planet_8_species = { CLASS = ART } }
+						REP =		{ create_fed_planet_8_species = { CLASS = REP } }
+						MOL =		{ create_fed_planet_8_species = { CLASS = MOL } }
+						LITHOID =	{ create_fed_planet_8_species = { CLASS = LITHOID } }
+						NECROID =	{ create_fed_planet_8_species = { CLASS = NECROID } }
+						AQUATIC =	{ create_fed_planet_8_species = { CLASS = AQUATIC } }
+						TOX =		{ create_fed_planet_8_species = { CLASS = TOX } }
+						default =	{ create_fed_planet_8_species = { CLASS = HUM } }
 					}
 				}
-			}
-			# Stellar Union
-			if = {
-				limit = {
-					root = { has_origin = origin_stellar_union }
-				}
-				create_common_ground_member = { NUM = 2 }
 			}
 			# Clan Confederation
 			if = {
@@ -1048,7 +1027,7 @@ country_event = {
 				}
 			}
 			create_colony = {
-				owner = event_target:fed_member_2
+				owner = event_target:fed_member_8
 			}
 			generate_start_deposits_and_blockers = yes
 			generate_start_buildings_and_districts = yes
@@ -1074,7 +1053,7 @@ country_event = {
 				}
 			}
 			generate_start_pops = yes
-			event_target:fed_member_2 = {
+			event_target:fed_member_8 = {
 				country_event = { id = game_start.8 }
 				give_starting_resources_effect = yes
 				give_technology = { tech = tech_federation_code message = no }
@@ -1082,7 +1061,7 @@ country_event = {
 			solar_system = {
 				if = {
 					limit = {
-						event_target:fed_member_2 = {
+						event_target:fed_member_8 = {
 							is_gestalt = no
 						}
 					}
@@ -1090,7 +1069,7 @@ country_event = {
 						size = starbase_starport
 						module = shipyard
 						building = crew_quarters
-						owner = event_target:fed_member_2
+						owner = event_target:fed_member_8
 						effect = {
 							set_starbase_module = {
 								slot = 1
@@ -1108,11 +1087,11 @@ country_event = {
 						size = starbase_starport
 						module = shipyard
 						building = crew_quarters
-						owner = event_target:fed_member_2
+						owner = event_target:fed_member_8
 						effect = {
 							if = {
 								limit = {
-									event_target:fed_member_2 = {
+									event_target:fed_member_8 = {
 										has_valid_civic = civic_machine_astromining_drones
 									}
 								}
@@ -1148,34 +1127,27 @@ country_event = {
 						}
 					}
 				}
-				create_fed_planet_2_species = { CLASS = random }
+				create_fed_planet_9_species = { CLASS = random }
 			}
 			else = {
 				root = {
 					switch = {
 						trigger = is_species_class
-						HUM =		{ create_fed_planet_2_species = { CLASS = HUM } }
-						MAM =		{ create_fed_planet_2_species = { CLASS = MAM } }
-						FUN =		{ create_fed_planet_2_species = { CLASS = FUN } }
-						AVI =		{ create_fed_planet_2_species = { CLASS = AVI } }
-						PLANT =		{ create_fed_planet_2_species = { CLASS = PLANT } }
-						ART =		{ create_fed_planet_2_species = { CLASS = ART } }
-						REP =		{ create_fed_planet_2_species = { CLASS = REP } }
-						MOL =		{ create_fed_planet_2_species = { CLASS = MOL } }
-						LITHOID =	{ create_fed_planet_2_species = { CLASS = LITHOID } }
-						NECROID =	{ create_fed_planet_2_species = { CLASS = NECROID } }
-						AQUATIC =	{ create_fed_planet_2_species = { CLASS = AQUATIC } }
-						TOX =		{ create_fed_planet_2_species = { CLASS = TOX } }
-						default =	{ create_fed_planet_2_species = { CLASS = HUM } }
+						HUM =		{ create_fed_planet_9_species = { CLASS = HUM } }
+						MAM =		{ create_fed_planet_9_species = { CLASS = MAM } }
+						FUN =		{ create_fed_planet_9_species = { CLASS = FUN } }
+						AVI =		{ create_fed_planet_9_species = { CLASS = AVI } }
+						PLANT =		{ create_fed_planet_9_species = { CLASS = PLANT } }
+						ART =		{ create_fed_planet_9_species = { CLASS = ART } }
+						REP =		{ create_fed_planet_9_species = { CLASS = REP } }
+						MOL =		{ create_fed_planet_9_species = { CLASS = MOL } }
+						LITHOID =	{ create_fed_planet_9_species = { CLASS = LITHOID } }
+						NECROID =	{ create_fed_planet_9_species = { CLASS = NECROID } }
+						AQUATIC =	{ create_fed_planet_9_species = { CLASS = AQUATIC } }
+						TOX =		{ create_fed_planet_9_species = { CLASS = TOX } }
+						default =	{ create_fed_planet_9_species = { CLASS = HUM } }
 					}
 				}
-			}
-			# Stellar Union
-			if = {
-				limit = {
-					root = { has_origin = origin_stellar_union }
-				}
-				create_common_ground_member = { NUM = 2 }
 			}
 			# Clan Confederation
 			if = {
@@ -1189,7 +1161,7 @@ country_event = {
 				}
 			}
 			create_colony = {
-				owner = event_target:fed_member_2
+				owner = event_target:fed_member_9
 			}
 			generate_start_deposits_and_blockers = yes
 			generate_start_buildings_and_districts = yes
@@ -1215,7 +1187,7 @@ country_event = {
 				}
 			}
 			generate_start_pops = yes
-			event_target:fed_member_2 = {
+			event_target:fed_member_9 = {
 				country_event = { id = game_start.8 }
 				give_starting_resources_effect = yes
 				give_technology = { tech = tech_federation_code message = no }
@@ -1223,7 +1195,7 @@ country_event = {
 			solar_system = {
 				if = {
 					limit = {
-						event_target:fed_member_2 = {
+						event_target:fed_member_9 = {
 							is_gestalt = no
 						}
 					}
@@ -1231,7 +1203,7 @@ country_event = {
 						size = starbase_starport
 						module = shipyard
 						building = crew_quarters
-						owner = event_target:fed_member_2
+						owner = event_target:fed_member_9
 						effect = {
 							set_starbase_module = {
 								slot = 1
@@ -1249,11 +1221,11 @@ country_event = {
 						size = starbase_starport
 						module = shipyard
 						building = crew_quarters
-						owner = event_target:fed_member_2
+						owner = event_target:fed_member_9
 						effect = {
 							if = {
 								limit = {
-									event_target:fed_member_2 = {
+									event_target:fed_member_9 = {
 										has_valid_civic = civic_machine_astromining_drones
 									}
 								}
@@ -1289,34 +1261,27 @@ country_event = {
 						}
 					}
 				}
-				create_fed_planet_2_species = { CLASS = random }
+				create_fed_planet_10_species = { CLASS = random }
 			}
 			else = {
 				root = {
 					switch = {
 						trigger = is_species_class
-						HUM =		{ create_fed_planet_2_species = { CLASS = HUM } }
-						MAM =		{ create_fed_planet_2_species = { CLASS = MAM } }
-						FUN =		{ create_fed_planet_2_species = { CLASS = FUN } }
-						AVI =		{ create_fed_planet_2_species = { CLASS = AVI } }
-						PLANT =		{ create_fed_planet_2_species = { CLASS = PLANT } }
-						ART =		{ create_fed_planet_2_species = { CLASS = ART } }
-						REP =		{ create_fed_planet_2_species = { CLASS = REP } }
-						MOL =		{ create_fed_planet_2_species = { CLASS = MOL } }
-						LITHOID =	{ create_fed_planet_2_species = { CLASS = LITHOID } }
-						NECROID =	{ create_fed_planet_2_species = { CLASS = NECROID } }
-						AQUATIC =	{ create_fed_planet_2_species = { CLASS = AQUATIC } }
-						TOX =		{ create_fed_planet_2_species = { CLASS = TOX } }
-						default =	{ create_fed_planet_2_species = { CLASS = HUM } }
+						HUM =		{ create_fed_planet_10_species = { CLASS = HUM } }
+						MAM =		{ create_fed_planet_10_species = { CLASS = MAM } }
+						FUN =		{ create_fed_planet_10_species = { CLASS = FUN } }
+						AVI =		{ create_fed_planet_10_species = { CLASS = AVI } }
+						PLANT =		{ create_fed_planet_10_species = { CLASS = PLANT } }
+						ART =		{ create_fed_planet_10_species = { CLASS = ART } }
+						REP =		{ create_fed_planet_10_species = { CLASS = REP } }
+						MOL =		{ create_fed_planet_10_species = { CLASS = MOL } }
+						LITHOID =	{ create_fed_planet_10_species = { CLASS = LITHOID } }
+						NECROID =	{ create_fed_planet_10_species = { CLASS = NECROID } }
+						AQUATIC =	{ create_fed_planet_10_species = { CLASS = AQUATIC } }
+						TOX =		{ create_fed_planet_10_species = { CLASS = TOX } }
+						default =	{ create_fed_planet_10_species = { CLASS = HUM } }
 					}
 				}
-			}
-			# Stellar Union
-			if = {
-				limit = {
-					root = { has_origin = origin_stellar_union }
-				}
-				create_common_ground_member = { NUM = 2 }
 			}
 			# Clan Confederation
 			if = {
@@ -1330,7 +1295,7 @@ country_event = {
 				}
 			}
 			create_colony = {
-				owner = event_target:fed_member_2
+				owner = event_target:fed_member_10
 			}
 			generate_start_deposits_and_blockers = yes
 			generate_start_buildings_and_districts = yes
@@ -1356,7 +1321,7 @@ country_event = {
 				}
 			}
 			generate_start_pops = yes
-			event_target:fed_member_2 = {
+			event_target:fed_member_10 = {
 				country_event = { id = game_start.8 }
 				give_starting_resources_effect = yes
 				give_technology = { tech = tech_federation_code message = no }
@@ -1364,7 +1329,7 @@ country_event = {
 			solar_system = {
 				if = {
 					limit = {
-						event_target:fed_member_2 = {
+						event_target:fed_member_10 = {
 							is_gestalt = no
 						}
 					}
@@ -1372,7 +1337,7 @@ country_event = {
 						size = starbase_starport
 						module = shipyard
 						building = crew_quarters
-						owner = event_target:fed_member_2
+						owner = event_target:fed_member_10
 						effect = {
 							set_starbase_module = {
 								slot = 1
@@ -1390,11 +1355,11 @@ country_event = {
 						size = starbase_starport
 						module = shipyard
 						building = crew_quarters
-						owner = event_target:fed_member_2
+						owner = event_target:fed_member_10
 						effect = {
 							if = {
 								limit = {
-									event_target:fed_member_2 = {
+									event_target:fed_member_10 = {
 										has_valid_civic = civic_machine_astromining_drones
 									}
 								}
@@ -1430,34 +1395,27 @@ country_event = {
 						}
 					}
 				}
-				create_fed_planet_2_species = { CLASS = random }
+				create_fed_planet_11_species = { CLASS = random }
 			}
 			else = {
 				root = {
 					switch = {
 						trigger = is_species_class
-						HUM =		{ create_fed_planet_2_species = { CLASS = HUM } }
-						MAM =		{ create_fed_planet_2_species = { CLASS = MAM } }
-						FUN =		{ create_fed_planet_2_species = { CLASS = FUN } }
-						AVI =		{ create_fed_planet_2_species = { CLASS = AVI } }
-						PLANT =		{ create_fed_planet_2_species = { CLASS = PLANT } }
-						ART =		{ create_fed_planet_2_species = { CLASS = ART } }
-						REP =		{ create_fed_planet_2_species = { CLASS = REP } }
-						MOL =		{ create_fed_planet_2_species = { CLASS = MOL } }
-						LITHOID =	{ create_fed_planet_2_species = { CLASS = LITHOID } }
-						NECROID =	{ create_fed_planet_2_species = { CLASS = NECROID } }
-						AQUATIC =	{ create_fed_planet_2_species = { CLASS = AQUATIC } }
-						TOX =		{ create_fed_planet_2_species = { CLASS = TOX } }
-						default =	{ create_fed_planet_2_species = { CLASS = HUM } }
+						HUM =		{ create_fed_planet_11_species = { CLASS = HUM } }
+						MAM =		{ create_fed_planet_11_species = { CLASS = MAM } }
+						FUN =		{ create_fed_planet_11_species = { CLASS = FUN } }
+						AVI =		{ create_fed_planet_11_species = { CLASS = AVI } }
+						PLANT =		{ create_fed_planet_11_species = { CLASS = PLANT } }
+						ART =		{ create_fed_planet_11_species = { CLASS = ART } }
+						REP =		{ create_fed_planet_11_species = { CLASS = REP } }
+						MOL =		{ create_fed_planet_11_species = { CLASS = MOL } }
+						LITHOID =	{ create_fed_planet_11_species = { CLASS = LITHOID } }
+						NECROID =	{ create_fed_planet_11_species = { CLASS = NECROID } }
+						AQUATIC =	{ create_fed_planet_11_species = { CLASS = AQUATIC } }
+						TOX =		{ create_fed_planet_11_species = { CLASS = TOX } }
+						default =	{ create_fed_planet_11_species = { CLASS = HUM } }
 					}
 				}
-			}
-			# Stellar Union
-			if = {
-				limit = {
-					root = { has_origin = origin_stellar_union }
-				}
-				create_common_ground_member = { NUM = 2 }
 			}
 			# Clan Confederation
 			if = {
@@ -1471,7 +1429,7 @@ country_event = {
 				}
 			}
 			create_colony = {
-				owner = event_target:fed_member_2
+				owner = event_target:fed_member_11
 			}
 			generate_start_deposits_and_blockers = yes
 			generate_start_buildings_and_districts = yes
@@ -1497,7 +1455,7 @@ country_event = {
 				}
 			}
 			generate_start_pops = yes
-			event_target:fed_member_2 = {
+			event_target:fed_member_11 = {
 				country_event = { id = game_start.8 }
 				give_starting_resources_effect = yes
 				give_technology = { tech = tech_federation_code message = no }
@@ -1505,7 +1463,7 @@ country_event = {
 			solar_system = {
 				if = {
 					limit = {
-						event_target:fed_member_2 = {
+						event_target:fed_member_11 = {
 							is_gestalt = no
 						}
 					}
@@ -1513,7 +1471,7 @@ country_event = {
 						size = starbase_starport
 						module = shipyard
 						building = crew_quarters
-						owner = event_target:fed_member_2
+						owner = event_target:fed_member_11
 						effect = {
 							set_starbase_module = {
 								slot = 1
@@ -1531,11 +1489,11 @@ country_event = {
 						size = starbase_starport
 						module = shipyard
 						building = crew_quarters
-						owner = event_target:fed_member_2
+						owner = event_target:fed_member_11
 						effect = {
 							if = {
 								limit = {
-									event_target:fed_member_2 = {
+									event_target:fed_member_11 = {
 										has_valid_civic = civic_machine_astromining_drones
 									}
 								}
@@ -1571,34 +1529,27 @@ country_event = {
 						}
 					}
 				}
-				create_fed_planet_2_species = { CLASS = random }
+				create_fed_planet_12_species = { CLASS = random }
 			}
 			else = {
 				root = {
 					switch = {
 						trigger = is_species_class
-						HUM =		{ create_fed_planet_2_species = { CLASS = HUM } }
-						MAM =		{ create_fed_planet_2_species = { CLASS = MAM } }
-						FUN =		{ create_fed_planet_2_species = { CLASS = FUN } }
-						AVI =		{ create_fed_planet_2_species = { CLASS = AVI } }
-						PLANT =		{ create_fed_planet_2_species = { CLASS = PLANT } }
-						ART =		{ create_fed_planet_2_species = { CLASS = ART } }
-						REP =		{ create_fed_planet_2_species = { CLASS = REP } }
-						MOL =		{ create_fed_planet_2_species = { CLASS = MOL } }
-						LITHOID =	{ create_fed_planet_2_species = { CLASS = LITHOID } }
-						NECROID =	{ create_fed_planet_2_species = { CLASS = NECROID } }
-						AQUATIC =	{ create_fed_planet_2_species = { CLASS = AQUATIC } }
-						TOX =		{ create_fed_planet_2_species = { CLASS = TOX } }
-						default =	{ create_fed_planet_2_species = { CLASS = HUM } }
+						HUM =		{ create_fed_planet_12_species = { CLASS = HUM } }
+						MAM =		{ create_fed_planet_12_species = { CLASS = MAM } }
+						FUN =		{ create_fed_planet_12_species = { CLASS = FUN } }
+						AVI =		{ create_fed_planet_12_species = { CLASS = AVI } }
+						PLANT =		{ create_fed_planet_12_species = { CLASS = PLANT } }
+						ART =		{ create_fed_planet_12_species = { CLASS = ART } }
+						REP =		{ create_fed_planet_12_species = { CLASS = REP } }
+						MOL =		{ create_fed_planet_12_species = { CLASS = MOL } }
+						LITHOID =	{ create_fed_planet_12_species = { CLASS = LITHOID } }
+						NECROID =	{ create_fed_planet_12_species = { CLASS = NECROID } }
+						AQUATIC =	{ create_fed_planet_12_species = { CLASS = AQUATIC } }
+						TOX =		{ create_fed_planet_12_species = { CLASS = TOX } }
+						default =	{ create_fed_planet_12_species = { CLASS = HUM } }
 					}
 				}
-			}
-			# Stellar Union
-			if = {
-				limit = {
-					root = { has_origin = origin_stellar_union }
-				}
-				create_common_ground_member = { NUM = 2 }
 			}
 			# Clan Confederation
 			if = {
@@ -1608,11 +1559,11 @@ country_event = {
 					}
 				}
 				create_hegemon_member = {
-					NUM = 2
+					NUM = 12
 				}
 			}
 			create_colony = {
-				owner = event_target:fed_member_2
+				owner = event_target:fed_member_12
 			}
 			generate_start_deposits_and_blockers = yes
 			generate_start_buildings_and_districts = yes
@@ -1638,7 +1589,7 @@ country_event = {
 				}
 			}
 			generate_start_pops = yes
-			event_target:fed_member_2 = {
+			event_target:fed_member_12 = {
 				country_event = { id = game_start.8 }
 				give_starting_resources_effect = yes
 				give_technology = { tech = tech_federation_code message = no }
@@ -1646,7 +1597,7 @@ country_event = {
 			solar_system = {
 				if = {
 					limit = {
-						event_target:fed_member_2 = {
+						event_target:fed_member_12 = {
 							is_gestalt = no
 						}
 					}
@@ -1654,7 +1605,7 @@ country_event = {
 						size = starbase_starport
 						module = shipyard
 						building = crew_quarters
-						owner = event_target:fed_member_2
+						owner = event_target:fed_member_12
 						effect = {
 							set_starbase_module = {
 								slot = 1
@@ -1672,11 +1623,11 @@ country_event = {
 						size = starbase_starport
 						module = shipyard
 						building = crew_quarters
-						owner = event_target:fed_member_2
+						owner = event_target:fed_member_12
 						effect = {
 							if = {
 								limit = {
-									event_target:fed_member_2 = {
+									event_target:fed_member_12 = {
 										has_valid_civic = civic_machine_astromining_drones
 									}
 								}

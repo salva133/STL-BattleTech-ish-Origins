@@ -1,7 +1,9 @@
-﻿origin_clan_confederation = {
+### BTO Origins
+
+origin_clan_confederation = {
 	is_origin = yes
-	icon = gfx/interface/icons/origins/origin_clan_confederation.dds
-	picture = GFX_origin_clan_confederation
+	icon = "gfx/interface/icons/origins/origins_bto_clan_confederation.dds"
+	picture = GFX_origin_bto_clan_confederation
 	max_once_global = yes
 
 	playable = {
@@ -28,8 +30,8 @@
 
 origin_stellar_union = {
 	is_origin = yes
-	icon = gfx/interface/icons/origins/origin_stellar_union.dds
-	picture = GFX_origin_stellar_union
+	icon = "gfx/interface/icons/origins/origins_bto_stellar_union.dds"
+	picture = GFX_origin_bto_stellar_union
 	max_once_global = yes
 
 	playable = {
@@ -45,7 +47,7 @@ origin_stellar_union = {
 				value = ethic_fanatic_militarist
 			}
 			NOR = {
-				text = civic_tooltip_spiritualist
+				text = civic_tooltip_not_spiritualist
 				value = ethic_spiritualist
 				value = ethic_fanatic_spiritualist
 			}

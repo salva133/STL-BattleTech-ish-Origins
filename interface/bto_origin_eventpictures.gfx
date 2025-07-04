@@ -1,0 +1,14 @@
+spriteTypes = {
+	
+	spriteType = {
+		name = "GFX_origin_bto_clan_confederation"
+		texturefile = "gfx/event_pictures/origins/origin_clan_confederation.dds"
+		alwaystransparent = yes
+	}
+
+	spriteType = {
+		name = "GFX_origin_bto_stellar_union"
+		texturefile = "gfx/event_pictures/origins/origin_stellar_union.dds"
+		alwaystransparent = yes
+	}
+}

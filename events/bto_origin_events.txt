@@ -1,4 +1,4 @@
-# Common Ground/Hegemon Setup
+# Stellar Union/Clan Confederation Setup
 country_event = {
 	id = origin.bto.1
 	hide_window = yes
@@ -42,14 +42,14 @@ country_event = {
 					}
 				}
 			}
-			# Common Ground
+			# Stellar Union
 			if = {
 				limit = {
 					root = { has_origin = origin_stellar_union }
 				}
 				create_common_ground_member = { NUM = 1 }
 			}
-			# Hegemon
+			# Clan Confederation
 			if = {
 				limit = {
 					root = {
@@ -324,14 +324,14 @@ country_event = {
 					}
 				}
 			}
-			# Common Ground
+			# Stellar Union
 			if = {
 				limit = {
 					root = { has_origin = origin_stellar_union }
 				}
 				create_common_ground_member = { NUM = 2 }
 			}
-			# Hegemon
+			# Clan Confederation
 			if = {
 				limit = {
 					root = {
@@ -465,14 +465,14 @@ country_event = {
 					}
 				}
 			}
-			# Common Ground
+			# Stellar Union
 			if = {
 				limit = {
 					root = { has_origin = origin_stellar_union }
 				}
 				create_common_ground_member = { NUM = 2 }
 			}
-			# Hegemon
+			# Clan Confederation
 			if = {
 				limit = {
 					root = {
@@ -606,14 +606,14 @@ country_event = {
 					}
 				}
 			}
-			# Common Ground
+			# Stellar Union
 			if = {
 				limit = {
 					root = { has_origin = origin_stellar_union }
 				}
 				create_common_ground_member = { NUM = 2 }
 			}
-			# Hegemon
+			# Clan Confederation
 			if = {
 				limit = {
 					root = {
@@ -747,14 +747,14 @@ country_event = {
 					}
 				}
 			}
-			# Common Ground
+			# Stellar Union
 			if = {
 				limit = {
 					root = { has_origin = origin_stellar_union }
 				}
 				create_common_ground_member = { NUM = 2 }
 			}
-			# Hegemon
+			# Clan Confederation
 			if = {
 				limit = {
 					root = {
@@ -888,14 +888,14 @@ country_event = {
 					}
 				}
 			}
-			# Common Ground
+			# Stellar Union
 			if = {
 				limit = {
 					root = { has_origin = origin_stellar_union }
 				}
 				create_common_ground_member = { NUM = 2 }
 			}
-			# Hegemon
+			# Clan Confederation
 			if = {
 				limit = {
 					root = {
@@ -1029,14 +1029,14 @@ country_event = {
 					}
 				}
 			}
-			# Common Ground
+			# Stellar Union
 			if = {
 				limit = {
 					root = { has_origin = origin_stellar_union }
 				}
 				create_common_ground_member = { NUM = 2 }
 			}
-			# Hegemon
+			# Clan Confederation
 			if = {
 				limit = {
 					root = {
@@ -1170,14 +1170,14 @@ country_event = {
 					}
 				}
 			}
-			# Common Ground
+			# Stellar Union
 			if = {
 				limit = {
 					root = { has_origin = origin_stellar_union }
 				}
 				create_common_ground_member = { NUM = 2 }
 			}
-			# Hegemon
+			# Clan Confederation
 			if = {
 				limit = {
 					root = {
@@ -1311,14 +1311,14 @@ country_event = {
 					}
 				}
 			}
-			# Common Ground
+			# Stellar Union
 			if = {
 				limit = {
 					root = { has_origin = origin_stellar_union }
 				}
 				create_common_ground_member = { NUM = 2 }
 			}
-			# Hegemon
+			# Clan Confederation
 			if = {
 				limit = {
 					root = {
@@ -1452,14 +1452,14 @@ country_event = {
 					}
 				}
 			}
-			# Common Ground
+			# Stellar Union
 			if = {
 				limit = {
 					root = { has_origin = origin_stellar_union }
 				}
 				create_common_ground_member = { NUM = 2 }
 			}
-			# Hegemon
+			# Clan Confederation
 			if = {
 				limit = {
 					root = {
@@ -1593,14 +1593,14 @@ country_event = {
 					}
 				}
 			}
-			# Common Ground
+			# Stellar Union
 			if = {
 				limit = {
 					root = { has_origin = origin_stellar_union }
 				}
 				create_common_ground_member = { NUM = 2 }
 			}
-			# Hegemon
+			# Clan Confederation
 			if = {
 				limit = {
 					root = {

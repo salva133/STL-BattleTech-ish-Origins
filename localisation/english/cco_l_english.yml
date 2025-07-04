@@ -1,4 +1,8 @@
 ﻿l_english:
-  origin_clan_confederation: "Clans Confederation"
-  origin_clan_confederation_desc: "A confederation of ze Clans, dummkopf!"
+  origin_clan_confederation: "Clan Confederation"
+  origin_clan_confederation_desc: "A Confederation of ze Clanz, dummkopf!"
   origin_tooltip_clan_confederation: "A Confederation of Warrior Cultures."
+
+  origin_stellar_union: "Stellar Union"
+  origin_stellar_union: "A Union of ze Stellarz, kummdopf!"
+  origin_tooltip_stellar_union: "Stellar Union"

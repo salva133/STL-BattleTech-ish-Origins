@@ -1,4 +1,7 @@
 # Stellar Union/Clan Confederation Setup
+# Supposed size of Stellar Union = max 5
+# Supposed size of Clan Confederation = max 12
+
 country_event = {
 	id = origin.bto.1
 	hide_window = yes
@@ -573,7 +576,7 @@ country_event = {
 			}
 		}
 
-		# Create fifth member
+		# Create fifth member (Clan Confederation only)
 		event_target:fed_planet_5 = {
 			solar_system = { generate_home_system_resources = yes }
 			if = {
@@ -605,13 +608,6 @@ country_event = {
 						default =	{ create_fed_planet_5_species = { CLASS = HUM } }
 					}
 				}
-			}
-			# Stellar Union
-			if = {
-				limit = {
-					root = { has_origin = origin_stellar_union }
-				}
-				create_stellar_union_member = { NUM = 5 }
 			}
 			# Clan Confederation
 			if = {
@@ -714,7 +710,7 @@ country_event = {
 			}
 		}
 
-		# Create sixth member
+		# Create sixth member (Clan Confederation only)
 		event_target:fed_planet_6 = {
 			solar_system = { generate_home_system_resources = yes }
 			if = {
@@ -848,7 +844,7 @@ country_event = {
 			}
 		}
 
-		# Create seventh member
+		# Create seventh member (Clan Confederation only)
 		event_target:fed_planet_7 = {
 			solar_system = { generate_home_system_resources = yes }
 			if = {
@@ -982,7 +978,7 @@ country_event = {
 			}
 		}
 
-		# Create eighth member
+		# Create eighth member (Clan Confederation only)
 		event_target:fed_planet_8 = {
 			solar_system = { generate_home_system_resources = yes }
 			if = {
@@ -1116,7 +1112,7 @@ country_event = {
 			}
 		}
 
-		# Create nineth member
+		# Create nineth member (Clan Confederation only)
 		event_target:fed_planet_9 = {
 			solar_system = { generate_home_system_resources = yes }
 			if = {
@@ -1250,7 +1246,7 @@ country_event = {
 			}
 		}
 
-		# Create tenth member
+		# Create tenth member (Clan Confederation only)
 		event_target:fed_planet_10 = {
 			solar_system = { generate_home_system_resources = yes }
 			if = {
@@ -1384,7 +1380,7 @@ country_event = {
 			}
 		}
 
-		# Create eleventh member
+		# Create eleventh member (Clan Confederation only)
 		event_target:fed_planet_11 = {
 			solar_system = { generate_home_system_resources = yes }
 			if = {
@@ -1494,140 +1490,6 @@ country_event = {
 							if = {
 								limit = {
 									event_target:fed_member_11 = {
-										has_valid_civic = civic_machine_astromining_drones
-									}
-								}
-								set_starbase_module = {
-									slot = 1
-									module = astromining_bay
-								}
-							}
-							else = {
-								set_starbase_module = {
-									slot = 1
-									module = solar_panel_network
-								}
-							}
-							set_starbase_module = {
-								slot = 2
-								module = shipyard
-							}
-						}
-					}
-				}
-			}
-		}
-
-		# Create twelveth member
-		event_target:fed_planet_12 = {
-			solar_system = { generate_home_system_resources = yes }
-			if = {
-				limit = {
-					root = {
-						NOT = {
-							has_valid_civic = civic_selective_kinship
-						}
-					}
-				}
-				create_fed_planet_12_species = { CLASS = random }
-			}
-			else = {
-				root = {
-					switch = {
-						trigger = is_species_class
-						HUM =		{ create_fed_planet_12_species = { CLASS = HUM } }
-						MAM =		{ create_fed_planet_12_species = { CLASS = MAM } }
-						FUN =		{ create_fed_planet_12_species = { CLASS = FUN } }
-						AVI =		{ create_fed_planet_12_species = { CLASS = AVI } }
-						PLANT =		{ create_fed_planet_12_species = { CLASS = PLANT } }
-						ART =		{ create_fed_planet_12_species = { CLASS = ART } }
-						REP =		{ create_fed_planet_12_species = { CLASS = REP } }
-						MOL =		{ create_fed_planet_12_species = { CLASS = MOL } }
-						LITHOID =	{ create_fed_planet_12_species = { CLASS = LITHOID } }
-						NECROID =	{ create_fed_planet_12_species = { CLASS = NECROID } }
-						AQUATIC =	{ create_fed_planet_12_species = { CLASS = AQUATIC } }
-						TOX =		{ create_fed_planet_12_species = { CLASS = TOX } }
-						default =	{ create_fed_planet_12_species = { CLASS = HUM } }
-					}
-				}
-			}
-			# Clan Confederation
-			if = {
-				limit = {
-					root = {
-						has_origin = origin_clan_confederation
-					}
-				}
-				create_clan_confederation_member = {
-					NUM = 12
-				}
-			}
-			create_colony = {
-				owner = event_target:fed_member_12
-			}
-			generate_start_deposits_and_blockers = yes
-			generate_start_buildings_and_districts = yes
-			if = {
-				limit = {
-					owner = { 
-						any_owned_planet = {
-							has_building = building_hive_capital
-						}
-					}
-				}
-				owner = {
-					every_owned_planet = {
-						remove_building = building_hive_capital
-					}
-				}
-			}
-			else = {
-				owner = {
-					every_owned_planet = {
-						remove_building = building_colony_shelter
-					}
-				}
-			}
-			generate_start_pops = yes
-			event_target:fed_member_12 = {
-				country_event = { id = game_start.8 }
-				give_starting_resources_effect = yes
-				give_technology = { tech = tech_federation_code message = no }
-			}
-			solar_system = {
-				if = {
-					limit = {
-						event_target:fed_member_12 = {
-							is_gestalt = no
-						}
-					}
-					create_starbase = {
-						size = starbase_starport
-						module = shipyard
-						building = crew_quarters
-						owner = event_target:fed_member_12
-						effect = {
-							set_starbase_module = {
-								slot = 1
-								module = trading_hub
-							}
-							set_starbase_module = {
-								slot = 2
-								module = shipyard
-							}
-						}
-					}
-				}
-				else = {
-					create_starbase = {
-						size = starbase_starport
-						module = shipyard
-						building = crew_quarters
-						owner = event_target:fed_member_12
-						effect = {
-							if = {
-								limit = {
-									event_target:fed_member_12 = {
 										has_valid_civic = civic_machine_astromining_drones
 									}
 								}
@@ -1785,18 +1647,6 @@ country_event = {
 			set_name = random # Fixes some naming issues
 		}
 
-		event_target:fed_member_12 = {
-			create_starting_leaders = yes
-			country_event = { id = game_start.9 }
-			country_event = { id = game_start.33 days = 1 } # needs delay for system ownership to settle
-			country_event = { id = origin.58 days = 1 } # delayed for federation assignment to settle
-			join_alliance = {
-				who = root
-				override_requirements = yes
-			}
-			set_name = random # Fixes some naming issues
-		}
-
 		# Set Intel levels, Opinion, and Federation laws
 		if = {
 			limit = { has_origin = origin_stellar_union }
@@ -1886,10 +1736,6 @@ country_event = {
 			}
 			add_opinion_modifier = {
 				who = event_target:fed_member_11
-				modifier = opinion_common_ground
-			}
-			add_opinion_modifier = {
-				who = event_target:fed_member_12
 				modifier = opinion_common_ground
 			}
 			# add_trust = {

@@ -336,7 +336,6 @@ country_event = {
 				limit = {
 					root = {
 						has_origin = origin_clan_confederation
-						
 					}
 				}
 				create_hegemon_member = {
@@ -478,7 +477,6 @@ country_event = {
 				limit = {
 					root = {
 						has_origin = origin_clan_confederation
-						
 					}
 				}
 				create_hegemon_member = {
@@ -620,7 +618,6 @@ country_event = {
 				limit = {
 					root = {
 						has_origin = origin_clan_confederation
-						
 					}
 				}
 				create_hegemon_member = {
@@ -762,7 +759,6 @@ country_event = {
 				limit = {
 					root = {
 						has_origin = origin_clan_confederation
-						
 					}
 				}
 				create_hegemon_member = {
@@ -904,7 +900,6 @@ country_event = {
 				limit = {
 					root = {
 						has_origin = origin_clan_confederation
-						
 					}
 				}
 				create_hegemon_member = {
@@ -1046,7 +1041,6 @@ country_event = {
 				limit = {
 					root = {
 						has_origin = origin_clan_confederation
-						
 					}
 				}
 				create_hegemon_member = {
@@ -1188,7 +1182,6 @@ country_event = {
 				limit = {
 					root = {
 						has_origin = origin_clan_confederation
-						
 					}
 				}
 				create_hegemon_member = {
@@ -1330,7 +1323,6 @@ country_event = {
 				limit = {
 					root = {
 						has_origin = origin_clan_confederation
-						
 					}
 				}
 				create_hegemon_member = {
@@ -1472,7 +1464,6 @@ country_event = {
 				limit = {
 					root = {
 						has_origin = origin_clan_confederation
-						
 					}
 				}
 				create_hegemon_member = {
@@ -1614,7 +1605,6 @@ country_event = {
 				limit = {
 					root = {
 						has_origin = origin_clan_confederation
-						
 					}
 				}
 				create_hegemon_member = {
@@ -1940,58 +1930,58 @@ country_event = {
 				add_federation_experience = 600
 				add_cohesion = 100
 			}
-			event_target:fed_member_1 = {
-				add_intel = {
-					amount = 40
-					who = root
-				}
-				add_intel = {
-					amount = 40
-					who = event_target:fed_member_2
-				}
-				set_closed_borders = {
-					who = root
-					status = no
-				}
-				set_closed_borders = {
-					who = event_target:fed_member_2
-					status = no
-				}
-			}
-			event_target:fed_member_2 = {
-				add_intel = {
-					amount = 40
-					who = root
-				}
-				add_intel = {
-					amount = 40
-					who = event_target:fed_member_1
-				}
-				set_closed_borders = {
-					who = root
-					status = no
-				}
-				set_closed_borders = {
-					who = event_target:fed_member_1
-					status = no
-				}
-			}
-			add_intel = {
-				amount = 40
-				who = event_target:fed_member_1
-			}
-			set_closed_borders = {
-				who = event_target:fed_member_1
-				status = no
-			}
-			add_intel = {
-				amount = 40
-				who = event_target:fed_member_2
-			}
-			set_closed_borders = {
-				who = event_target:fed_member_2
-				status = no
-			}
+			# event_target:fed_member_1 = {
+			# 	add_intel = {
+			# 		amount = 40
+			# 		who = root
+			# 	}
+			# 	add_intel = {
+			# 		amount = 40
+			# 		who = event_target:fed_member_2
+			# 	}
+			# 	set_closed_borders = {
+			# 		who = root
+			# 		status = no
+			# 	}
+			# 	set_closed_borders = {
+			# 		who = event_target:fed_member_2
+			# 		status = no
+			# 	}
+			# }
+			# event_target:fed_member_2 = {
+			# 	add_intel = {
+			# 		amount = 40
+			# 		who = root
+			# 	}
+			# 	add_intel = {
+			# 		amount = 40
+			# 		who = event_target:fed_member_1
+			# 	}
+			# 	set_closed_borders = {
+			# 		who = root
+			# 		status = no
+			# 	}
+			# 	set_closed_borders = {
+			# 		who = event_target:fed_member_1
+			# 		status = no
+			# 	}
+			# }
+			# add_intel = {
+			# 	amount = 40
+			# 	who = event_target:fed_member_1
+			# }
+			# set_closed_borders = {
+			# 	who = event_target:fed_member_1
+			# 	status = no
+			# }
+			# add_intel = {
+			# 	amount = 40
+			# 	who = event_target:fed_member_2
+			# }
+			# set_closed_borders = {
+			# 	who = event_target:fed_member_2
+			# 	status = no
+			# }
 		}
 	}
 }

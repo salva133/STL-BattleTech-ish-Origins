@@ -1,1 +1,1 @@
-# Clan Confederation Origin
+# BattleTech-ish Origins

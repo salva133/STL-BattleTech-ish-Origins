@@ -15,151 +15,148 @@ country_event = {
 		give_technology = { tech = tech_federation_code message = no }
 
 		# Replace prescripted ideal planets with barren worlds and spawn federation partners.
-		if = {
-			limit = { num_guaranteed_colonies > 0 }
-			capital_scope = {
-				solar_system = {
-					closest_system = {
-						limit = { has_star_flag = neighbor_t1_first_colony }
-						random_system_planet = {
-							limit = { has_planet_flag = prescripted_ideal }
-							change_pc = pc_barren
-						}
-						spawn_random_home_system = yes
-						last_created_system = {
-							federation_origin_planet_setup = {
-								NUM = 1
-							}
+		capital_scope = {
+			solar_system = {
+				closest_system = {
+					limit = { has_star_flag = neighbor_t1_first_colony }
+					random_system_planet = {
+						limit = { has_planet_flag = prescripted_ideal }
+						change_pc = pc_barren
+					}
+					spawn_random_home_system = yes
+					last_created_system = {
+						federation_origin_planet_setup = {
+							NUM = 1
 						}
 					}
-					closest_system = {
-						limit = { has_star_flag = neighbor_t2_second_colony }
-						random_system_planet = {
-							limit = { has_planet_flag = prescripted_ideal }
-							change_pc = pc_barren
-						}
-						spawn_random_home_system = yes
-						last_created_system = {
-							federation_origin_planet_setup = {
-								NUM = 2
-							}
+				}
+				closest_system = {
+					limit = { has_star_flag = neighbor_t2_second_colony }
+					random_system_planet = {
+						limit = { has_planet_flag = prescripted_ideal }
+						change_pc = pc_barren
+					}
+					spawn_random_home_system = yes
+					last_created_system = {
+						federation_origin_planet_setup = {
+							NUM = 2
 						}
 					}
-					closest_system = {
-						limit = { has_star_flag = neighbor_t3_third_colony }
-						random_system_planet = {
-							limit = { has_planet_flag = prescripted_ideal }
-							change_pc = pc_barren
-						}
-						spawn_random_home_system = yes
-						last_created_system = {
-							federation_origin_planet_setup = {
-								NUM = 3
-							}
+				}
+				closest_system = {
+					limit = { has_star_flag = neighbor_t3_third_colony }
+					random_system_planet = {
+						limit = { has_planet_flag = prescripted_ideal }
+						change_pc = pc_barren
+					}
+					spawn_random_home_system = yes
+					last_created_system = {
+						federation_origin_planet_setup = {
+							NUM = 3
 						}
 					}
-					closest_system = {
-						limit = { has_star_flag = neighbor_t4_fourth_colony }
-						random_system_planet = {
-							limit = { has_planet_flag = prescripted_ideal }
-							change_pc = pc_barren
-						}
-						spawn_random_home_system = yes
-						last_created_system = {
-							federation_origin_planet_setup = {
-								NUM = 4
-							}
+				}
+				closest_system = {
+					limit = { has_star_flag = neighbor_t4_fourth_colony }
+					random_system_planet = {
+						limit = { has_planet_flag = prescripted_ideal }
+						change_pc = pc_barren
+					}
+					spawn_random_home_system = yes
+					last_created_system = {
+						federation_origin_planet_setup = {
+							NUM = 4
 						}
 					}
-					closest_system = {
-						limit = { has_star_flag = neighbor_t5_fifth_colony }
-						random_system_planet = {
-							limit = { has_planet_flag = prescripted_ideal }
-							change_pc = pc_barren
-						}
-						spawn_random_home_system = yes
-						last_created_system = {
-							federation_origin_planet_setup = {
-								NUM = 5
-							}
+				}
+				closest_system = {
+					limit = { has_star_flag = neighbor_t5_fifth_colony }
+					random_system_planet = {
+						limit = { has_planet_flag = prescripted_ideal }
+						change_pc = pc_barren
+					}
+					spawn_random_home_system = yes
+					last_created_system = {
+						federation_origin_planet_setup = {
+							NUM = 5
 						}
 					}
-					closest_system = {
-						limit = { has_star_flag = neighbor_t6_sixth_colony }
-						random_system_planet = {
-							limit = { has_planet_flag = prescripted_ideal }
-							change_pc = pc_barren
-						}
-						spawn_random_home_system = yes
-						last_created_system = {
-							federation_origin_planet_setup = {
-								NUM = 6
-							}
+				}
+				closest_system = {
+					limit = { has_star_flag = neighbor_t6_sixth_colony }
+					random_system_planet = {
+						limit = { has_planet_flag = prescripted_ideal }
+						change_pc = pc_barren
+					}
+					spawn_random_home_system = yes
+					last_created_system = {
+						federation_origin_planet_setup = {
+							NUM = 6
 						}
 					}
-					closest_system = {
-						limit = { has_star_flag = neighbor_t7_seventh_colony }
-						random_system_planet = {
-							limit = { has_planet_flag = prescripted_ideal }
-							change_pc = pc_barren
-						}
-						spawn_random_home_system = yes
-						last_created_system = {
-							federation_origin_planet_setup = {
-								NUM = 7
-							}
+				}
+				closest_system = {
+					limit = { has_star_flag = neighbor_t7_seventh_colony }
+					random_system_planet = {
+						limit = { has_planet_flag = prescripted_ideal }
+						change_pc = pc_barren
+					}
+					spawn_random_home_system = yes
+					last_created_system = {
+						federation_origin_planet_setup = {
+							NUM = 7
 						}
 					}
-					closest_system = {
-						limit = { has_star_flag = neighbor_t8_eighth_colony }
-						random_system_planet = {
-							limit = { has_planet_flag = prescripted_ideal }
-							change_pc = pc_barren
-						}
-						spawn_random_home_system = yes
-						last_created_system = {
-							federation_origin_planet_setup = {
-								NUM = 8
-							}
+				}
+				closest_system = {
+					limit = { has_star_flag = neighbor_t8_eighth_colony }
+					random_system_planet = {
+						limit = { has_planet_flag = prescripted_ideal }
+						change_pc = pc_barren
+					}
+					spawn_random_home_system = yes
+					last_created_system = {
+						federation_origin_planet_setup = {
+							NUM = 8
 						}
 					}
-					closest_system = {
-						limit = { has_star_flag = neighbor_t9_nineth_colony }
-						random_system_planet = {
-							limit = { has_planet_flag = prescripted_ideal }
-							change_pc = pc_barren
-						}
-						spawn_random_home_system = yes
-						last_created_system = {
-							federation_origin_planet_setup = {
-								NUM = 9
-							}
+				}
+				closest_system = {
+					limit = { has_star_flag = neighbor_t9_nineth_colony }
+					random_system_planet = {
+						limit = { has_planet_flag = prescripted_ideal }
+						change_pc = pc_barren
+					}
+					spawn_random_home_system = yes
+					last_created_system = {
+						federation_origin_planet_setup = {
+							NUM = 9
 						}
 					}
-					closest_system = {
-						limit = { has_star_flag = neighbor_t10_tenth_colony }
-						random_system_planet = {
-							limit = { has_planet_flag = prescripted_ideal }
-							change_pc = pc_barren
-						}
-						spawn_random_home_system = yes
-						last_created_system = {
-							federation_origin_planet_setup = {
-								NUM = 10
-							}
+				}
+				closest_system = {
+					limit = { has_star_flag = neighbor_t10_tenth_colony }
+					random_system_planet = {
+						limit = { has_planet_flag = prescripted_ideal }
+						change_pc = pc_barren
+					}
+					spawn_random_home_system = yes
+					last_created_system = {
+						federation_origin_planet_setup = {
+							NUM = 10
 						}
 					}
-					closest_system = {
-						limit = { has_star_flag = neighbor_t11_eleventh_colony }
-						random_system_planet = {
-							limit = { has_planet_flag = prescripted_ideal }
-							change_pc = pc_barren
-						}
-						spawn_random_home_system = yes
-						last_created_system = {
-							federation_origin_planet_setup = {
-								NUM = 11
-							}
+				}
+				closest_system = {
+					limit = { has_star_flag = neighbor_t11_eleventh_colony }
+					random_system_planet = {
+						limit = { has_planet_flag = prescripted_ideal }
+						change_pc = pc_barren
+					}
+					spawn_random_home_system = yes
+					last_created_system = {
+						federation_origin_planet_setup = {
+							NUM = 11
 						}
 					}
 				}

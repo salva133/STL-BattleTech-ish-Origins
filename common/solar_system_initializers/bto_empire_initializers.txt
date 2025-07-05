@@ -1,3 +1,6 @@
+### NEIGHBORING SYSTEMS
+
+# Neighbor Tier 3 Third Colony
 neighbor_t3_second_colony = {
 	class = "rl_standard_stars"
 	flags = { neighbor_t3_second_colony }
@@ -69,6 +72,7 @@ neighbor_t3_second_colony = {
 	}
 }
 
+# Neighbor Tier 4 Fourth Colony
 neighbor_t4_second_colony = {
 	class = "rl_standard_stars"
 	flags = { neighbor_t4_second_colony }
@@ -140,6 +144,7 @@ neighbor_t4_second_colony = {
 	}
 }
 
+# Neighbor Tier 5 Fifth Colony
 neighbor_t5_second_colony = {
 	class = "rl_standard_stars"
 	flags = { neighbor_t5_second_colony }
@@ -211,6 +216,7 @@ neighbor_t5_second_colony = {
 	}
 }
 
+# Neighbor Tier 6 Sixth Colony
 neighbor_t6_second_colony = {
 	class = "rl_standard_stars"
 	flags = { neighbor_t6_second_colony }
@@ -282,6 +288,7 @@ neighbor_t6_second_colony = {
 	}
 }
 
+# Neighbor Tier 7 Seventh Colony
 neighbor_t7_second_colony = {
 	class = "rl_standard_stars"
 	flags = { neighbor_t7_second_colony }
@@ -353,6 +360,7 @@ neighbor_t7_second_colony = {
 	}
 }
 
+# Neighbor Tier 8 Eighth Colony
 neighbor_t8_second_colony = {
 	class = "rl_standard_stars"
 	flags = { neighbor_t8_second_colony }
@@ -424,6 +432,7 @@ neighbor_t8_second_colony = {
 	}
 }
 
+# Neighbor Tier 9 Nineth Colony
 neighbor_t9_second_colony = {
 	class = "rl_standard_stars"
 	flags = { neighbor_t9_second_colony }
@@ -495,6 +504,7 @@ neighbor_t9_second_colony = {
 	}
 }
 
+# Neighbor Tier 10 Tenth Colony
 neighbor_t10_second_colony = {
 	class = "rl_standard_stars"
 	flags = { neighbor_t10_second_colony }
@@ -566,6 +576,7 @@ neighbor_t10_second_colony = {
 	}
 }
 
+# Neighbor Tier 11 Eleventh Colony
 neighbor_t11_second_colony = {
 	class = "rl_standard_stars"
 	flags = { neighbor_t11_second_colony }

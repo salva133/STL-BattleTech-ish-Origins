@@ -15,7 +15,7 @@ event = {
 					has_origin = origin_stellar_union
 				}
 			}
-			country_event = { id = origin.bto.1 }
+			country_event = { id = bto_origin.55 }
 		}
 	}
 }

@@ -3,7 +3,7 @@
 # Supposed size of Clan Confederation = max 12
 
 country_event = {
-	id = origin.bto.1
+	id = bto_origin.55
 	hide_window = yes
 	is_triggered_only = yes
 

@@ -506,3 +506,381 @@ create_clan_confederation_member = {
 		}
 	}
 }
+
+create_fed_planet_3_species = {
+	if = {
+		limit = {
+			root = {
+				is_machine_empire = yes
+			}
+		}
+		random_list = {
+			50 = {
+				create_species = {
+					name = random
+					class = MACHINE
+					portrait = random
+					traits = random
+					homeworld = this
+				}
+			}
+			50 = {
+				create_species = {
+					name = random
+					class = $CLASS$
+					portrait = random
+					traits = random
+					homeworld = this
+				}
+			}
+		}
+	}
+	else = {
+		create_species = {
+			name = random
+			class = $CLASS$
+			portrait = random
+			traits = random
+			homeworld = this
+		}
+	}
+	last_created_species = {
+		save_event_target_as = fed_planet_3_species
+	}
+}
+
+create_fed_planet_4_species = {
+	if = {
+		limit = {
+			root = {
+				is_machine_empire = yes
+			}
+		}
+		random_list = {
+			50 = {
+				create_species = {
+					name = random
+					class = MACHINE
+					portrait = random
+					traits = random
+					homeworld = this
+				}
+			}
+			50 = {
+				create_species = {
+					name = random
+					class = $CLASS$
+					portrait = random
+					traits = random
+					homeworld = this
+				}
+			}
+		}
+	}
+	else = {
+		create_species = {
+			name = random
+			class = $CLASS$
+			portrait = random
+			traits = random
+			homeworld = this
+		}
+	}
+	last_created_species = {
+		save_event_target_as = fed_planet_4_species
+	}
+}
+
+create_fed_planet_5_species = {
+	if = {
+		limit = {
+			root = {
+				is_machine_empire = yes
+			}
+		}
+		random_list = {
+			50 = {
+				create_species = {
+					name = random
+					class = MACHINE
+					portrait = random
+					traits = random
+					homeworld = this
+				}
+			}
+			50 = {
+				create_species = {
+					name = random
+					class = $CLASS$
+					portrait = random
+					traits = random
+					homeworld = this
+				}
+			}
+		}
+	}
+	else = {
+		create_species = {
+			name = random
+			class = $CLASS$
+			portrait = random
+			traits = random
+			homeworld = this
+		}
+	}
+	last_created_species = {
+		save_event_target_as = fed_planet_5_species
+	}
+}
+
+create_fed_planet_6_species = {
+	if = {
+		limit = {
+			root = {
+				is_machine_empire = yes
+			}
+		}
+		random_list = {
+			50 = {
+				create_species = {
+					name = random
+					class = MACHINE
+					portrait = random
+					traits = random
+					homeworld = this
+				}
+			}
+			50 = {
+				create_species = {
+					name = random
+					class = $CLASS$
+					portrait = random
+					traits = random
+					homeworld = this
+				}
+			}
+		}
+	}
+	else = {
+		create_species = {
+			name = random
+			class = $CLASS$
+			portrait = random
+			traits = random
+			homeworld = this
+		}
+	}
+	last_created_species = {
+		save_event_target_as = fed_planet_6_species
+	}
+}
+
+create_fed_planet_7_species = {
+	if = {
+		limit = {
+			root = {
+				is_machine_empire = yes
+			}
+		}
+		random_list = {
+			50 = {
+				create_species = {
+					name = random
+					class = MACHINE
+					portrait = random
+					traits = random
+					homeworld = this
+				}
+			}
+			50 = {
+				create_species = {
+					name = random
+					class = $CLASS$
+					portrait = random
+					traits = random
+					homeworld = this
+				}
+			}
+		}
+	}
+	else = {
+		create_species = {
+			name = random
+			class = $CLASS$
+			portrait = random
+			traits = random
+			homeworld = this
+		}
+	}
+	last_created_species = {
+		save_event_target_as = fed_planet_7_species
+	}
+}
+
+create_fed_planet_8_species = {
+	if = {
+		limit = {
+			root = {
+				is_machine_empire = yes
+			}
+		}
+		random_list = {
+			50 = {
+				create_species = {
+					name = random
+					class = MACHINE
+					portrait = random
+					traits = random
+					homeworld = this
+				}
+			}
+			50 = {
+				create_species = {
+					name = random
+					class = $CLASS$
+					portrait = random
+					traits = random
+					homeworld = this
+				}
+			}
+		}
+	}
+	else = {
+		create_species = {
+			name = random
+			class = $CLASS$
+			portrait = random
+			traits = random
+			homeworld = this
+		}
+	}
+	last_created_species = {
+		save_event_target_as = fed_planet_8_species
+	}
+}
+
+create_fed_planet_9_species = {
+	if = {
+		limit = {
+			root = {
+				is_machine_empire = yes
+			}
+		}
+		random_list = {
+			50 = {
+				create_species = {
+					name = random
+					class = MACHINE
+					portrait = random
+					traits = random
+					homeworld = this
+				}
+			}
+			50 = {
+				create_species = {
+					name = random
+					class = $CLASS$
+					portrait = random
+					traits = random
+					homeworld = this
+				}
+			}
+		}
+	}
+	else = {
+		create_species = {
+			name = random
+			class = $CLASS$
+			portrait = random
+			traits = random
+			homeworld = this
+		}
+	}
+	last_created_species = {
+		save_event_target_as = fed_planet_9_species
+	}
+}
+
+create_fed_planet_10_species = {
+	if = {
+		limit = {
+			root = {
+				is_machine_empire = yes
+			}
+		}
+		random_list = {
+			50 = {
+				create_species = {
+					name = random
+					class = MACHINE
+					portrait = random
+					traits = random
+					homeworld = this
+				}
+			}
+			50 = {
+				create_species = {
+					name = random
+					class = $CLASS$
+					portrait = random
+					traits = random
+					homeworld = this
+				}
+			}
+		}
+	}
+	else = {
+		create_species = {
+			name = random
+			class = $CLASS$
+			portrait = random
+			traits = random
+			homeworld = this
+		}
+	}
+	last_created_species = {
+		save_event_target_as = fed_planet_10_species
+	}
+}
+
+create_fed_planet_11_species = {
+	if = {
+		limit = {
+			root = {
+				is_machine_empire = yes
+			}
+		}
+		random_list = {
+			50 = {
+				create_species = {
+					name = random
+					class = MACHINE
+					portrait = random
+					traits = random
+					homeworld = this
+				}
+			}
+			50 = {
+				create_species = {
+					name = random
+					class = $CLASS$
+					portrait = random
+					traits = random
+					homeworld = this
+				}
+			}
+		}
+	}
+	else = {
+		create_species = {
+			name = random
+			class = $CLASS$
+			portrait = random
+			traits = random
+			homeworld = this
+		}
+	}
+	last_created_species = {
+		save_event_target_as = fed_planet_11_species
+	}
+}

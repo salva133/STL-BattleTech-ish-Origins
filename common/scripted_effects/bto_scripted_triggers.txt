@@ -1,13 +1,13 @@
 has_special_bto_star_flag_trigger = {
 	OR = {
-		has_star_flag =  neighbor_t3_third_colony
-		has_star_flag =  neighbor_t4_third_colony
-		has_star_flag =  neighbor_t5_third_colony
-		has_star_flag =  neighbor_t6_third_colony
-		has_star_flag =  neighbor_t7_third_colony
-		has_star_flag =  neighbor_t8_third_colony
-		has_star_flag =  neighbor_t9_third_colony
-		has_star_flag = neighbor_t10_third_colony
-		has_star_flag = neighbor_t11_third_colony
+		has_star_flag = neighbor_t3_third_colony
+		has_star_flag = neighbor_t4_fourth_colony
+		has_star_flag = neighbor_t5_fifth_colony
+		has_star_flag = neighbor_t6_sixth_colony
+		has_star_flag = neighbor_t7_seventh_colony
+		has_star_flag = neighbor_t8_eighth_colony
+		has_star_flag = neighbor_t9_nineth_colony
+		has_star_flag = neighbor_t10_tenth_colony
+		has_star_flag = neighbor_t11_eleventh_colony
 	}
 }

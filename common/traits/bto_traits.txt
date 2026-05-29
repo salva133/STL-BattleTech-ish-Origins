@@ -1,0 +1,14 @@
+# BTO Species Traits
+
+# Locked trait granted by origin_clan_confederation.
+# Represents the Clans' advanced selective breeding programme (iron womb, eugenics programme).
+# cost = -2 → frees up 2 trait points for the player to spend on custom traits.
+trait_bto_clan_trueborn = {
+	cost = -2
+	allowed_archetypes = { BIOLOGICAL }
+	immortal_leaders = no
+	ai_weight = { weight = 0 }
+	modifier = {
+		army_damage_mult = 0.10
+	}
+}

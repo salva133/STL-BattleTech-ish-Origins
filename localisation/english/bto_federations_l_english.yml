@@ -3,6 +3,9 @@
   origin_clan_confederation_desc: "A Confederation of ze Clanz, dummkopf!"
   origin_tooltip_clan_confederation: "A Confederation of Warrior Cultures."
 
+  trait_bto_clan_trueborn: "Trueborn"
+  trait_bto_clan_trueborn_desc: "This species was bred through a rigorous eugenics programme. Generations of selective breeding have honed them into superior warriors."
+
   origin_stellar_union: "Stellar Union"
   origin_stellar_union_desc: "A Union of ze Stellarz, kummdopf!"
   origin_tooltip_stellar_union: "Stellar Union"

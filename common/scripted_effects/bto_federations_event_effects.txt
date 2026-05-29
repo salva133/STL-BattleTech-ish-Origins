@@ -1012,15 +1012,70 @@ bto_finalize_fed_member = {
 bto_spawn_rival_empire = {
 	# Rival shares the player's species (same lineage, different political path)
 	species = { save_event_target_as = bto_rival_species }
-	random_system = {
-		limit = {
-			has_owner = no
-			NOT = { has_star_flag = empire_cluster }
-			NOT = { has_star_flag = bto_fed_origin_used }
+	# Pick a distant system; min_distance scales with galaxy size.
+	if = {
+		limit = { galaxy_size = tiny }
+		random_system = {
+			limit = {
+				has_owner = no
+				NOT = { has_star_flag = empire_cluster }
+				NOT = { has_star_flag = bto_fed_origin_used }
+				distance = { source = root.capital_scope  min_distance >= 50 }
+			}
+			spawn_random_home_system = yes
+			last_created_system = { federation_origin_planet_setup = { NUM = 99 } }
 		}
-		spawn_random_home_system = yes
-		last_created_system = {
-			federation_origin_planet_setup = { NUM = 99 }
+	}
+	else_if = {
+		limit = { galaxy_size = small }
+		random_system = {
+			limit = {
+				has_owner = no
+				NOT = { has_star_flag = empire_cluster }
+				NOT = { has_star_flag = bto_fed_origin_used }
+				distance = { source = root.capital_scope  min_distance >= 80 }
+			}
+			spawn_random_home_system = yes
+			last_created_system = { federation_origin_planet_setup = { NUM = 99 } }
+		}
+	}
+	else_if = {
+		limit = { galaxy_size = medium }
+		random_system = {
+			limit = {
+				has_owner = no
+				NOT = { has_star_flag = empire_cluster }
+				NOT = { has_star_flag = bto_fed_origin_used }
+				distance = { source = root.capital_scope  min_distance >= 100 }
+			}
+			spawn_random_home_system = yes
+			last_created_system = { federation_origin_planet_setup = { NUM = 99 } }
+		}
+	}
+	else_if = {
+		limit = { galaxy_size = large }
+		random_system = {
+			limit = {
+				has_owner = no
+				NOT = { has_star_flag = empire_cluster }
+				NOT = { has_star_flag = bto_fed_origin_used }
+				distance = { source = root.capital_scope  min_distance >= 130 }
+			}
+			spawn_random_home_system = yes
+			last_created_system = { federation_origin_planet_setup = { NUM = 99 } }
+		}
+	}
+	else = {
+		# huge or any unrecognised size
+		random_system = {
+			limit = {
+				has_owner = no
+				NOT = { has_star_flag = empire_cluster }
+				NOT = { has_star_flag = bto_fed_origin_used }
+				distance = { source = root.capital_scope  min_distance >= 150 }
+			}
+			spawn_random_home_system = yes
+			last_created_system = { federation_origin_planet_setup = { NUM = 99 } }
 		}
 	}
 	event_target:fed_planet_99 = {

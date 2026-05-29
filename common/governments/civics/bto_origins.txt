@@ -11,6 +11,9 @@ origin_clan_confederation = {
 	}
 
 	possible = {
+		species = {
+			NOT = { is_species_class = MACHINE }
+		}
 		authority = { NOT = { value = auth_imperial } }
 		civics = {
 			value = civic_warrior_culture
@@ -20,11 +23,19 @@ origin_clan_confederation = {
 	description = "origin_tooltip_clan_confederation"
 	flags = { custom_start_screen }
 
+	species = {
+		trait = trait_bto_clan_trueborn
+	}
+
 	traits = {
 	}
 
 	random_weight = {
 		base = 5
+		modifier = {
+			factor = 0.00001
+			is_ai = yes
+		}
 	}
 }
 
@@ -39,6 +50,9 @@ origin_stellar_union = {
 	}
 
 	possible = {
+		species = {
+			NOT = { is_species_class = MACHINE }
+		}
 		authority = { value = auth_imperial }
 		ethics = {
 			OR = {
@@ -62,5 +76,9 @@ origin_stellar_union = {
 
 	random_weight = {
 		base = 5
+		modifier = {
+			factor = 0.00001
+			is_ai = yes
+		}
 	}
 }

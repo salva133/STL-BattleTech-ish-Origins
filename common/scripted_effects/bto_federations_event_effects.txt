@@ -884,3 +884,200 @@ create_fed_planet_11_species = {
 		save_event_target_as = fed_planet_11_species
 	}
 }
+
+### BTO Setup Helpers
+
+# Called from planet scope (event_target:fed_planet_$NUM$).
+# Creates species, spawns the member empire, colonises the planet, builds deposits/pops/starbase.
+bto_setup_fed_member = {
+	solar_system = { generate_home_system_resources = yes }
+	if = {
+		limit = {
+			root = {
+				NOT = { has_valid_civic = civic_selective_kinship }
+			}
+		}
+		create_fed_planet_$NUM$_species = { CLASS = random }
+	}
+	else = {
+		root = {
+			switch = {
+				trigger = is_species_class
+				HUM =		{ create_fed_planet_$NUM$_species = { CLASS = HUM } }
+				MAM =		{ create_fed_planet_$NUM$_species = { CLASS = MAM } }
+				FUN =		{ create_fed_planet_$NUM$_species = { CLASS = FUN } }
+				AVI =		{ create_fed_planet_$NUM$_species = { CLASS = AVI } }
+				PLANT =		{ create_fed_planet_$NUM$_species = { CLASS = PLANT } }
+				ART =		{ create_fed_planet_$NUM$_species = { CLASS = ART } }
+				REP =		{ create_fed_planet_$NUM$_species = { CLASS = REP } }
+				MOL =		{ create_fed_planet_$NUM$_species = { CLASS = MOL } }
+				LITHOID =	{ create_fed_planet_$NUM$_species = { CLASS = LITHOID } }
+				NECROID =	{ create_fed_planet_$NUM$_species = { CLASS = NECROID } }
+				AQUATIC =	{ create_fed_planet_$NUM$_species = { CLASS = AQUATIC } }
+				TOX =		{ create_fed_planet_$NUM$_species = { CLASS = TOX } }
+				default =	{ create_fed_planet_$NUM$_species = { CLASS = HUM } }
+			}
+		}
+	}
+	if = {
+		limit = { root = { has_origin = origin_stellar_union } }
+		create_stellar_union_member = { NUM = $NUM$ }
+	}
+	if = {
+		limit = { root = { has_origin = origin_clan_confederation } }
+		create_clan_confederation_member = { NUM = $NUM$ }
+	}
+	create_colony = { owner = event_target:fed_member_$NUM$ }
+	generate_start_deposits_and_blockers = yes
+	generate_start_buildings_and_districts = yes
+	if = {
+		limit = {
+			owner = {
+				any_owned_planet = { has_building = building_hive_capital }
+			}
+		}
+		owner = {
+			every_owned_planet = { remove_building = building_hive_capital }
+		}
+	}
+	else = {
+		owner = {
+			every_owned_planet = { remove_building = building_colony_shelter }
+		}
+	}
+	generate_start_pops = yes
+	event_target:fed_member_$NUM$ = {
+		country_event = { id = game_start.8 }
+		give_starting_resources_effect = yes
+		give_technology = { tech = tech_federation_code message = no }
+	}
+	solar_system = {
+		if = {
+			limit = {
+				event_target:fed_member_$NUM$ = { is_gestalt = no }
+			}
+			create_starbase = {
+				size = starbase_starport
+				module = shipyard
+				building = crew_quarters
+				owner = event_target:fed_member_$NUM$
+				effect = {
+					set_starbase_module = { slot = 1 module = trading_hub }
+					set_starbase_module = { slot = 2 module = shipyard }
+				}
+			}
+		}
+		else = {
+			create_starbase = {
+				size = starbase_starport
+				module = shipyard
+				building = crew_quarters
+				owner = event_target:fed_member_$NUM$
+				effect = {
+					if = {
+						limit = {
+							event_target:fed_member_$NUM$ = {
+								has_valid_civic = civic_machine_astromining_drones
+							}
+						}
+						set_starbase_module = { slot = 1 module = astromining_bay }
+					}
+					else = {
+						set_starbase_module = { slot = 1 module = solar_panel_network }
+					}
+					set_starbase_module = { slot = 2 module = shipyard }
+				}
+			}
+		}
+	}
+}
+
+# Called from country scope (event_target:fed_member_N).
+# Leaders, ships, federation join, name randomisation.
+bto_finalize_fed_member = {
+	create_starting_leaders = yes
+	country_event = { id = game_start.9 }
+	country_event = { id = game_start.33 days = 1 } # needs delay for system ownership to settle
+	country_event = { id = origin.58 days = 1 } # delayed for federation assignment to settle
+	join_alliance = {
+		who = root
+		override_requirements = yes
+	}
+	set_name = random # Fixes some naming issues
+}
+
+# Spawns a distant rival empire with the opposing BTO origin.
+# Called from country scope (root = the BTO-origin empire).
+# Parameters: ORIGIN, AUTH, CIVIC1, CIVIC2
+bto_spawn_rival_empire = {
+	# Rival shares the player's species (same lineage, different political path)
+	species = { save_event_target_as = bto_rival_species }
+	random_system = {
+		limit = {
+			has_owner = no
+			NOT = { has_star_flag = empire_cluster }
+			NOT = { has_star_flag = bto_fed_origin_used }
+		}
+		spawn_random_home_system = yes
+		last_created_system = {
+			federation_origin_planet_setup = { NUM = 99 }
+		}
+	}
+	event_target:fed_planet_99 = {
+		create_country = {
+			name = random
+			name_list = random
+			species = event_target:bto_rival_species
+			type = default
+			origin = "$ORIGIN$"
+			ignore_initial_colony_error = yes
+			day_zero_contact = no
+			ethos = {
+				ethic = "ethic_fanatic_militarist"
+				ethic = "ethic_authoritarian"
+			}
+			authority = $AUTH$
+			civics = {
+				civic = $CIVIC1$
+				civic = $CIVIC2$
+			}
+			effect = {
+				save_event_target_as = bto_rival_empire
+				establish_communications_no_message = root
+				set_country_flag = bto_is_rival_empire
+			}
+		}
+		create_colony = { owner = event_target:bto_rival_empire }
+		generate_start_deposits_and_blockers = yes
+		generate_start_buildings_and_districts = yes
+		if = {
+			limit = { owner = { any_owned_planet = { has_building = building_hive_capital } } }
+			owner = { every_owned_planet = { remove_building = building_hive_capital } }
+		}
+		else = {
+			owner = { every_owned_planet = { remove_building = building_colony_shelter } }
+		}
+		generate_start_pops = yes
+		solar_system = { generate_home_system_resources = yes }
+		solar_system = {
+			create_starbase = {
+				size = starbase_starport
+				module = shipyard
+				building = crew_quarters
+				owner = event_target:bto_rival_empire
+				effect = {
+					set_starbase_module = { slot = 1 module = trading_hub }
+					set_starbase_module = { slot = 2 module = shipyard }
+				}
+			}
+		}
+	}
+	event_target:bto_rival_empire = {
+		country_event = { id = game_start.8 }
+		give_starting_resources_effect = yes
+		give_technology = { tech = tech_federation_code message = no }
+		create_starting_leaders = yes
+		country_event = { id = game_start.9 }
+		country_event = { id = bto_origin.55 }
+	}
+}

@@ -10,11 +10,37 @@ country_event = {
 	is_triggered_only = yes
 
 	immediate = {
+		# Spawn rival empire with opposing BTO origin (guard prevents recursion)
+		if = {
+			limit = { NOT = { has_country_flag = bto_is_rival_empire } }
+			if = {
+				limit = { has_origin = origin_clan_confederation }
+				bto_spawn_rival_empire = {
+					ORIGIN = origin_stellar_union
+					AUTH = auth_imperial
+					CIVIC1 = civic_aristocratic_elite
+					CIVIC2 = civic_distinguished_admiralty
+				}
+			}
+			if = {
+				limit = { has_origin = origin_stellar_union }
+				bto_spawn_rival_empire = {
+					ORIGIN = origin_clan_confederation
+					AUTH = auth_oligarchic
+					CIVIC1 = civic_warrior_culture
+					CIVIC2 = civic_distinguished_admiralty
+				}
+			}
+		}
+
 		set_country_flag = first_contact_event
 		set_country_flag = Story2 # Already encountered spacefarers
 		give_technology = { tech = tech_federation_code message = no }
 
-		# Replace prescripted ideal planets with barren worlds and spawn federation partners.
+		# Spawn federation partner home systems.
+		# Slots 1–2: vanilla anchor systems (always spawned by standard empire initializers).
+		# Slots 3–4: dynamic — nearest unowned system (both origins need 4 partners).
+		# Slots 5–11: dynamic — Clan Confederation only (needs 11 partners).
 		capital_scope = {
 			solar_system = {
 				closest_system = {
@@ -23,11 +49,10 @@ country_event = {
 						limit = { has_planet_flag = prescripted_ideal }
 						change_pc = pc_barren
 					}
+					set_star_flag = bto_fed_origin_used
 					spawn_random_home_system = yes
 					last_created_system = {
-						federation_origin_planet_setup = {
-							NUM = 1
-						}
+						federation_origin_planet_setup = { NUM = 1 }
 					}
 				}
 				closest_system = {
@@ -36,1875 +61,161 @@ country_event = {
 						limit = { has_planet_flag = prescripted_ideal }
 						change_pc = pc_barren
 					}
+					set_star_flag = bto_fed_origin_used
 					spawn_random_home_system = yes
 					last_created_system = {
-						federation_origin_planet_setup = {
-							NUM = 2
-						}
+						federation_origin_planet_setup = { NUM = 2 }
 					}
 				}
 				closest_system = {
-					limit = { has_star_flag = neighbor_t3_third_colony }
-					random_system_planet = {
-						limit = { has_planet_flag = prescripted_ideal }
-						change_pc = pc_barren
+					limit = {
+						has_owner = no
+						NOT = { has_star_flag = bto_fed_origin_used }
 					}
+					set_star_flag = bto_fed_origin_used
 					spawn_random_home_system = yes
 					last_created_system = {
-						federation_origin_planet_setup = {
-							NUM = 3
-						}
+						federation_origin_planet_setup = { NUM = 3 }
 					}
 				}
 				closest_system = {
-					limit = { has_star_flag = neighbor_t4_fourth_colony }
-					random_system_planet = {
-						limit = { has_planet_flag = prescripted_ideal }
-						change_pc = pc_barren
+					limit = {
+						has_owner = no
+						NOT = { has_star_flag = bto_fed_origin_used }
 					}
+					set_star_flag = bto_fed_origin_used
 					spawn_random_home_system = yes
 					last_created_system = {
-						federation_origin_planet_setup = {
-							NUM = 4
-						}
+						federation_origin_planet_setup = { NUM = 4 }
 					}
 				}
-				closest_system = {
-					limit = { has_star_flag = neighbor_t5_fifth_colony }
-					random_system_planet = {
-						limit = { has_planet_flag = prescripted_ideal }
-						change_pc = pc_barren
-					}
-					spawn_random_home_system = yes
-					last_created_system = {
-						federation_origin_planet_setup = {
-							NUM = 5
+			}
+		}
+		if = {
+			limit = { has_origin = origin_clan_confederation }
+			capital_scope = {
+				solar_system = {
+					closest_system = {
+						limit = {
+							has_owner = no
+							NOT = { has_star_flag = bto_fed_origin_used }
+						}
+						set_star_flag = bto_fed_origin_used
+						spawn_random_home_system = yes
+						last_created_system = {
+							federation_origin_planet_setup = { NUM = 5 }
 						}
 					}
-				}
-				closest_system = {
-					limit = { has_star_flag = neighbor_t6_sixth_colony }
-					random_system_planet = {
-						limit = { has_planet_flag = prescripted_ideal }
-						change_pc = pc_barren
-					}
-					spawn_random_home_system = yes
-					last_created_system = {
-						federation_origin_planet_setup = {
-							NUM = 6
+					closest_system = {
+						limit = {
+							has_owner = no
+							NOT = { has_star_flag = bto_fed_origin_used }
+						}
+						set_star_flag = bto_fed_origin_used
+						spawn_random_home_system = yes
+						last_created_system = {
+							federation_origin_planet_setup = { NUM = 6 }
 						}
 					}
-				}
-				closest_system = {
-					limit = { has_star_flag = neighbor_t7_seventh_colony }
-					random_system_planet = {
-						limit = { has_planet_flag = prescripted_ideal }
-						change_pc = pc_barren
-					}
-					spawn_random_home_system = yes
-					last_created_system = {
-						federation_origin_planet_setup = {
-							NUM = 7
+					closest_system = {
+						limit = {
+							has_owner = no
+							NOT = { has_star_flag = bto_fed_origin_used }
+						}
+						set_star_flag = bto_fed_origin_used
+						spawn_random_home_system = yes
+						last_created_system = {
+							federation_origin_planet_setup = { NUM = 7 }
 						}
 					}
-				}
-				closest_system = {
-					limit = { has_star_flag = neighbor_t8_eighth_colony }
-					random_system_planet = {
-						limit = { has_planet_flag = prescripted_ideal }
-						change_pc = pc_barren
-					}
-					spawn_random_home_system = yes
-					last_created_system = {
-						federation_origin_planet_setup = {
-							NUM = 8
+					closest_system = {
+						limit = {
+							has_owner = no
+							NOT = { has_star_flag = bto_fed_origin_used }
+						}
+						set_star_flag = bto_fed_origin_used
+						spawn_random_home_system = yes
+						last_created_system = {
+							federation_origin_planet_setup = { NUM = 8 }
 						}
 					}
-				}
-				closest_system = {
-					limit = { has_star_flag = neighbor_t9_nineth_colony }
-					random_system_planet = {
-						limit = { has_planet_flag = prescripted_ideal }
-						change_pc = pc_barren
-					}
-					spawn_random_home_system = yes
-					last_created_system = {
-						federation_origin_planet_setup = {
-							NUM = 9
+					closest_system = {
+						limit = {
+							has_owner = no
+							NOT = { has_star_flag = bto_fed_origin_used }
+						}
+						set_star_flag = bto_fed_origin_used
+						spawn_random_home_system = yes
+						last_created_system = {
+							federation_origin_planet_setup = { NUM = 9 }
 						}
 					}
-				}
-				closest_system = {
-					limit = { has_star_flag = neighbor_t10_tenth_colony }
-					random_system_planet = {
-						limit = { has_planet_flag = prescripted_ideal }
-						change_pc = pc_barren
-					}
-					spawn_random_home_system = yes
-					last_created_system = {
-						federation_origin_planet_setup = {
-							NUM = 10
+					closest_system = {
+						limit = {
+							has_owner = no
+							NOT = { has_star_flag = bto_fed_origin_used }
+						}
+						set_star_flag = bto_fed_origin_used
+						spawn_random_home_system = yes
+						last_created_system = {
+							federation_origin_planet_setup = { NUM = 10 }
 						}
 					}
-				}
-				closest_system = {
-					limit = { has_star_flag = neighbor_t11_eleventh_colony }
-					random_system_planet = {
-						limit = { has_planet_flag = prescripted_ideal }
-						change_pc = pc_barren
-					}
-					spawn_random_home_system = yes
-					last_created_system = {
-						federation_origin_planet_setup = {
-							NUM = 11
+					closest_system = {
+						limit = {
+							has_owner = no
+							NOT = { has_star_flag = bto_fed_origin_used }
+						}
+						set_star_flag = bto_fed_origin_used
+						spawn_random_home_system = yes
+						last_created_system = {
+							federation_origin_planet_setup = { NUM = 11 }
 						}
 					}
 				}
 			}
 		}
 
-		# Create first member
-		event_target:fed_planet_1 = {
-			solar_system = { generate_home_system_resources = yes }
-			if = {
-				limit = {
-					root = {
-						NOT = {
-							has_valid_civic = civic_selective_kinship
-						}
-					}
-				}
-				create_fed_planet_1_species = { CLASS = random }
-			}
-			else = {
-				root = {
-					switch = {
-						trigger = is_species_class
-						HUM =		{ create_fed_planet_1_species = { CLASS = HUM } }
-						MAM =		{ create_fed_planet_1_species = { CLASS = MAM } }
-						FUN =		{ create_fed_planet_1_species = { CLASS = FUN } }
-						AVI =		{ create_fed_planet_1_species = { CLASS = AVI } }
-						PLANT =		{ create_fed_planet_1_species = { CLASS = PLANT } }
-						ART =		{ create_fed_planet_1_species = { CLASS = ART } }
-						REP =		{ create_fed_planet_1_species = { CLASS = REP } }
-						MOL =		{ create_fed_planet_1_species = { CLASS = MOL } }
-						LITHOID =	{ create_fed_planet_1_species = { CLASS = LITHOID } }
-						NECROID =	{ create_fed_planet_1_species = { CLASS = NECROID } }
-						AQUATIC =	{ create_fed_planet_1_species = { CLASS = AQUATIC } }
-						TOX =		{ create_fed_planet_1_species = { CLASS = TOX } }
-						default =	{ create_fed_planet_1_species = { CLASS = HUM } }
-					}
-				}
-			}
-			# Stellar Union
-			if = {
-				limit = {
-					root = { has_origin = origin_stellar_union }
-				}
-				create_stellar_union_member = { NUM = 1 }
-			}
-			# Clan Confederation
-			if = {
-				limit = {
-					root = {
-						has_origin = origin_clan_confederation
-					}
-				}
-				create_clan_confederation_member = {
-					NUM = 1
-				}
-			}
-			create_colony = {
-				owner = event_target:fed_member_1
-			}
-			generate_start_deposits_and_blockers = yes
-			generate_start_buildings_and_districts = yes
-			if = {
-				limit = {
-					owner = { 
-						any_owned_planet = {
-							has_building = building_hive_capital
-						}
-					}
-				}
-				owner = {
-					every_owned_planet = {
-						remove_building = building_hive_capital
-					}
-				}
-			}
-			else = {
-				owner = {
-					every_owned_planet = {
-						remove_building = building_colony_shelter
-					}
-				}
-			}
-			generate_start_pops = yes
-			event_target:fed_member_1 = {
-				country_event = { id = game_start.8 }
-				give_starting_resources_effect = yes
-				give_technology = { tech = tech_federation_code message = no }
-			}
-			solar_system = {
-				if = {
-					limit = {
-						event_target:fed_member_1 = {
-							is_gestalt = no
-						}
-					}
-					create_starbase = {
-						size = starbase_starport
-						module = shipyard
-						building = crew_quarters
-						owner = event_target:fed_member_1
-						effect = {
-							set_starbase_module = {
-								slot = 1
-								module = trading_hub
-							}
-							set_starbase_module = {
-								slot = 2
-								module = shipyard
-							}
-						}
-					}
-				}
-				else = {
-					create_starbase = {
-						size = starbase_starport
-						module = shipyard
-						building = crew_quarters
-						owner = event_target:fed_member_1
-						effect = {
-							if = {
-								limit = {
-									event_target:fed_member_1 = {
-										has_valid_civic = civic_machine_astromining_drones
-									}
-								}
-								set_starbase_module = {
-									slot = 1
-									module = astromining_bay
-								}
-							}
-							else = {
-								set_starbase_module = {
-									slot = 1
-									module = solar_panel_network
-								}
-							}
-							set_starbase_module = {
-								slot = 2
-								module = shipyard
-							}
-						}
-					}
-				}
-			}
+		# Species, empire, colony, deposits, pops, starbase — one call per slot.
+		event_target:fed_planet_1 = { bto_setup_fed_member = { NUM = 1 } }
+		event_target:fed_planet_2 = { bto_setup_fed_member = { NUM = 2 } }
+		event_target:fed_planet_3 = { bto_setup_fed_member = { NUM = 3 } }
+		event_target:fed_planet_4 = { bto_setup_fed_member = { NUM = 4 } }
+		if = {
+			limit = { has_origin = origin_clan_confederation }
+			event_target:fed_planet_5  = { bto_setup_fed_member = { NUM = 5  } }
+			event_target:fed_planet_6  = { bto_setup_fed_member = { NUM = 6  } }
+			event_target:fed_planet_7  = { bto_setup_fed_member = { NUM = 7  } }
+			event_target:fed_planet_8  = { bto_setup_fed_member = { NUM = 8  } }
+			event_target:fed_planet_9  = { bto_setup_fed_member = { NUM = 9  } }
+			event_target:fed_planet_10 = { bto_setup_fed_member = { NUM = 10 } }
+			event_target:fed_planet_11 = { bto_setup_fed_member = { NUM = 11 } }
 		}
 
-		# Create second member
-		event_target:fed_planet_2 = {
-			solar_system = { generate_home_system_resources = yes }
-			if = {
-				limit = {
-					root = {
-						NOT = {
-							has_valid_civic = civic_selective_kinship
-						}
-					}
-				}
-				create_fed_planet_2_species = { CLASS = random }
-			}
-			else = {
-				root = {
-					switch = {
-						trigger = is_species_class
-						HUM =		{ create_fed_planet_2_species = { CLASS = HUM } }
-						MAM =		{ create_fed_planet_2_species = { CLASS = MAM } }
-						FUN =		{ create_fed_planet_2_species = { CLASS = FUN } }
-						AVI =		{ create_fed_planet_2_species = { CLASS = AVI } }
-						PLANT =		{ create_fed_planet_2_species = { CLASS = PLANT } }
-						ART =		{ create_fed_planet_2_species = { CLASS = ART } }
-						REP =		{ create_fed_planet_2_species = { CLASS = REP } }
-						MOL =		{ create_fed_planet_2_species = { CLASS = MOL } }
-						LITHOID =	{ create_fed_planet_2_species = { CLASS = LITHOID } }
-						NECROID =	{ create_fed_planet_2_species = { CLASS = NECROID } }
-						AQUATIC =	{ create_fed_planet_2_species = { CLASS = AQUATIC } }
-						TOX =		{ create_fed_planet_2_species = { CLASS = TOX } }
-						default =	{ create_fed_planet_2_species = { CLASS = HUM } }
-					}
-				}
-			}
-			# Stellar Union
-			if = {
-				limit = {
-					root = { has_origin = origin_stellar_union }
-				}
-				create_stellar_union_member = { NUM = 2 }
-			}
-			# Clan Confederation
-			if = {
-				limit = {
-					root = {
-						has_origin = origin_clan_confederation
-					}
-				}
-				create_clan_confederation_member = {
-					NUM = 2
-				}
-			}
-			create_colony = {
-				owner = event_target:fed_member_2
-			}
-			generate_start_deposits_and_blockers = yes
-			generate_start_buildings_and_districts = yes
-			if = {
-				limit = {
-					owner = { 
-						any_owned_planet = {
-							has_building = building_hive_capital
-						}
-					}
-				}
-				owner = {
-					every_owned_planet = {
-						remove_building = building_hive_capital
-					}
-				}
-			}
-			else = {
-				owner = {
-					every_owned_planet = {
-						remove_building = building_colony_shelter
-					}
-				}
-			}
-			generate_start_pops = yes
-			event_target:fed_member_2 = {
-				country_event = { id = game_start.8 }
-				give_starting_resources_effect = yes
-				give_technology = { tech = tech_federation_code message = no }
-			}
-			solar_system = {
-				if = {
-					limit = {
-						event_target:fed_member_2 = {
-							is_gestalt = no
-						}
-					}
-					create_starbase = {
-						size = starbase_starport
-						module = shipyard
-						building = crew_quarters
-						owner = event_target:fed_member_2
-						effect = {
-							set_starbase_module = {
-								slot = 1
-								module = trading_hub
-							}
-							set_starbase_module = {
-								slot = 2
-								module = shipyard
-							}
-						}
-					}
-				}
-				else = {
-					create_starbase = {
-						size = starbase_starport
-						module = shipyard
-						building = crew_quarters
-						owner = event_target:fed_member_2
-						effect = {
-							if = {
-								limit = {
-									event_target:fed_member_2 = {
-										has_valid_civic = civic_machine_astromining_drones
-									}
-								}
-								set_starbase_module = {
-									slot = 1
-									module = astromining_bay
-								}
-							}
-							else = {
-								set_starbase_module = {
-									slot = 1
-									module = solar_panel_network
-								}
-							}
-							set_starbase_module = {
-								slot = 2
-								module = shipyard
-							}
-						}
-					}
-				}
-			}
-		}
-
-		# Create third member
-		event_target:fed_planet_3 = {
-			solar_system = { generate_home_system_resources = yes }
-			if = {
-				limit = {
-					root = {
-						NOT = {
-							has_valid_civic = civic_selective_kinship
-						}
-					}
-				}
-				create_fed_planet_3_species = { CLASS = random }
-			}
-			else = {
-				root = {
-					switch = {
-						trigger = is_species_class
-						HUM =		{ create_fed_planet_3_species = { CLASS = HUM } }
-						MAM =		{ create_fed_planet_3_species = { CLASS = MAM } }
-						FUN =		{ create_fed_planet_3_species = { CLASS = FUN } }
-						AVI =		{ create_fed_planet_3_species = { CLASS = AVI } }
-						PLANT =		{ create_fed_planet_3_species = { CLASS = PLANT } }
-						ART =		{ create_fed_planet_3_species = { CLASS = ART } }
-						REP =		{ create_fed_planet_3_species = { CLASS = REP } }
-						MOL =		{ create_fed_planet_3_species = { CLASS = MOL } }
-						LITHOID =	{ create_fed_planet_3_species = { CLASS = LITHOID } }
-						NECROID =	{ create_fed_planet_3_species = { CLASS = NECROID } }
-						AQUATIC =	{ create_fed_planet_3_species = { CLASS = AQUATIC } }
-						TOX =		{ create_fed_planet_3_species = { CLASS = TOX } }
-						default =	{ create_fed_planet_3_species = { CLASS = HUM } }
-					}
-				}
-			}
-			# Stellar Union
-			if = {
-				limit = {
-					root = { has_origin = origin_stellar_union }
-				}
-				create_stellar_union_member = { NUM = 3 }
-			}
-			# Clan Confederation
-			if = {
-				limit = {
-					root = {
-						has_origin = origin_clan_confederation
-					}
-				}
-				create_clan_confederation_member = {
-					NUM = 3
-				}
-			}
-			create_colony = {
-				owner = event_target:fed_member_3
-			}
-			generate_start_deposits_and_blockers = yes
-			generate_start_buildings_and_districts = yes
-			if = {
-				limit = {
-					owner = { 
-						any_owned_planet = {
-							has_building = building_hive_capital
-						}
-					}
-				}
-				owner = {
-					every_owned_planet = {
-						remove_building = building_hive_capital
-					}
-				}
-			}
-			else = {
-				owner = {
-					every_owned_planet = {
-						remove_building = building_colony_shelter
-					}
-				}
-			}
-			generate_start_pops = yes
-			event_target:fed_member_3 = {
-				country_event = { id = game_start.8 }
-				give_starting_resources_effect = yes
-				give_technology = { tech = tech_federation_code message = no }
-			}
-			solar_system = {
-				if = {
-					limit = {
-						event_target:fed_member_3 = {
-							is_gestalt = no
-						}
-					}
-					create_starbase = {
-						size = starbase_starport
-						module = shipyard
-						building = crew_quarters
-						owner = event_target:fed_member_3
-						effect = {
-							set_starbase_module = {
-								slot = 1
-								module = trading_hub
-							}
-							set_starbase_module = {
-								slot = 2
-								module = shipyard
-							}
-						}
-					}
-				}
-				else = {
-					create_starbase = {
-						size = starbase_starport
-						module = shipyard
-						building = crew_quarters
-						owner = event_target:fed_member_3
-						effect = {
-							if = {
-								limit = {
-									event_target:fed_member_3 = {
-										has_valid_civic = civic_machine_astromining_drones
-									}
-								}
-								set_starbase_module = {
-									slot = 1
-									module = astromining_bay
-								}
-							}
-							else = {
-								set_starbase_module = {
-									slot = 1
-									module = solar_panel_network
-								}
-							}
-							set_starbase_module = {
-								slot = 2
-								module = shipyard
-							}
-						}
-					}
-				}
-			}
-		}
-
-		# Create fourth member
-		event_target:fed_planet_4 = {
-			solar_system = { generate_home_system_resources = yes }
-			if = {
-				limit = {
-					root = {
-						NOT = {
-							has_valid_civic = civic_selective_kinship
-						}
-					}
-				}
-				create_fed_planet_4_species = { CLASS = random }
-			}
-			else = {
-				root = {
-					switch = {
-						trigger = is_species_class
-						HUM =		{ create_fed_planet_4_species = { CLASS = HUM } }
-						MAM =		{ create_fed_planet_4_species = { CLASS = MAM } }
-						FUN =		{ create_fed_planet_4_species = { CLASS = FUN } }
-						AVI =		{ create_fed_planet_4_species = { CLASS = AVI } }
-						PLANT =		{ create_fed_planet_4_species = { CLASS = PLANT } }
-						ART =		{ create_fed_planet_4_species = { CLASS = ART } }
-						REP =		{ create_fed_planet_4_species = { CLASS = REP } }
-						MOL =		{ create_fed_planet_4_species = { CLASS = MOL } }
-						LITHOID =	{ create_fed_planet_4_species = { CLASS = LITHOID } }
-						NECROID =	{ create_fed_planet_4_species = { CLASS = NECROID } }
-						AQUATIC =	{ create_fed_planet_4_species = { CLASS = AQUATIC } }
-						TOX =		{ create_fed_planet_4_species = { CLASS = TOX } }
-						default =	{ create_fed_planet_4_species = { CLASS = HUM } }
-					}
-				}
-			}
-			# Stellar Union
-			if = {
-				limit = {
-					root = { has_origin = origin_stellar_union }
-				}
-				create_stellar_union_member = { NUM = 4 }
-			}
-			# Clan Confederation
-			if = {
-				limit = {
-					root = {
-						has_origin = origin_clan_confederation
-					}
-				}
-				create_clan_confederation_member = {
-					NUM = 4
-				}
-			}
-			create_colony = {
-				owner = event_target:fed_member_4
-			}
-			generate_start_deposits_and_blockers = yes
-			generate_start_buildings_and_districts = yes
-			if = {
-				limit = {
-					owner = { 
-						any_owned_planet = {
-							has_building = building_hive_capital
-						}
-					}
-				}
-				owner = {
-					every_owned_planet = {
-						remove_building = building_hive_capital
-					}
-				}
-			}
-			else = {
-				owner = {
-					every_owned_planet = {
-						remove_building = building_colony_shelter
-					}
-				}
-			}
-			generate_start_pops = yes
-			event_target:fed_member_4 = {
-				country_event = { id = game_start.8 }
-				give_starting_resources_effect = yes
-				give_technology = { tech = tech_federation_code message = no }
-			}
-			solar_system = {
-				if = {
-					limit = {
-						event_target:fed_member_4 = {
-							is_gestalt = no
-						}
-					}
-					create_starbase = {
-						size = starbase_starport
-						module = shipyard
-						building = crew_quarters
-						owner = event_target:fed_member_4
-						effect = {
-							set_starbase_module = {
-								slot = 1
-								module = trading_hub
-							}
-							set_starbase_module = {
-								slot = 2
-								module = shipyard
-							}
-						}
-					}
-				}
-				else = {
-					create_starbase = {
-						size = starbase_starport
-						module = shipyard
-						building = crew_quarters
-						owner = event_target:fed_member_4
-						effect = {
-							if = {
-								limit = {
-									event_target:fed_member_4 = {
-										has_valid_civic = civic_machine_astromining_drones
-									}
-								}
-								set_starbase_module = {
-									slot = 1
-									module = astromining_bay
-								}
-							}
-							else = {
-								set_starbase_module = {
-									slot = 1
-									module = solar_panel_network
-								}
-							}
-							set_starbase_module = {
-								slot = 2
-								module = shipyard
-							}
-						}
-					}
-				}
-			}
-		}
-
-		# Create fifth member (Clan Confederation only)
-		event_target:fed_planet_5 = {
-			solar_system = { generate_home_system_resources = yes }
-			if = {
-				limit = {
-					root = {
-						NOT = {
-							has_valid_civic = civic_selective_kinship
-						}
-					}
-				}
-				create_fed_planet_5_species = { CLASS = random }
-			}
-			else = {
-				root = {
-					switch = {
-						trigger = is_species_class
-						HUM =		{ create_fed_planet_5_species = { CLASS = HUM } }
-						MAM =		{ create_fed_planet_5_species = { CLASS = MAM } }
-						FUN =		{ create_fed_planet_5_species = { CLASS = FUN } }
-						AVI =		{ create_fed_planet_5_species = { CLASS = AVI } }
-						PLANT =		{ create_fed_planet_5_species = { CLASS = PLANT } }
-						ART =		{ create_fed_planet_5_species = { CLASS = ART } }
-						REP =		{ create_fed_planet_5_species = { CLASS = REP } }
-						MOL =		{ create_fed_planet_5_species = { CLASS = MOL } }
-						LITHOID =	{ create_fed_planet_5_species = { CLASS = LITHOID } }
-						NECROID =	{ create_fed_planet_5_species = { CLASS = NECROID } }
-						AQUATIC =	{ create_fed_planet_5_species = { CLASS = AQUATIC } }
-						TOX =		{ create_fed_planet_5_species = { CLASS = TOX } }
-						default =	{ create_fed_planet_5_species = { CLASS = HUM } }
-					}
-				}
-			}
-			# Clan Confederation
-			if = {
-				limit = {
-					root = {
-						has_origin = origin_clan_confederation
-					}
-				}
-				create_clan_confederation_member = {
-					NUM = 5
-				}
-			}
-			create_colony = {
-				owner = event_target:fed_member_5
-			}
-			generate_start_deposits_and_blockers = yes
-			generate_start_buildings_and_districts = yes
-			if = {
-				limit = {
-					owner = { 
-						any_owned_planet = {
-							has_building = building_hive_capital
-						}
-					}
-				}
-				owner = {
-					every_owned_planet = {
-						remove_building = building_hive_capital
-					}
-				}
-			}
-			else = {
-				owner = {
-					every_owned_planet = {
-						remove_building = building_colony_shelter
-					}
-				}
-			}
-			generate_start_pops = yes
-			event_target:fed_member_5 = {
-				country_event = { id = game_start.8 }
-				give_starting_resources_effect = yes
-				give_technology = { tech = tech_federation_code message = no }
-			}
-			solar_system = {
-				if = {
-					limit = {
-						event_target:fed_member_5 = {
-							is_gestalt = no
-						}
-					}
-					create_starbase = {
-						size = starbase_starport
-						module = shipyard
-						building = crew_quarters
-						owner = event_target:fed_member_5
-						effect = {
-							set_starbase_module = {
-								slot = 1
-								module = trading_hub
-							}
-							set_starbase_module = {
-								slot = 2
-								module = shipyard
-							}
-						}
-					}
-				}
-				else = {
-					create_starbase = {
-						size = starbase_starport
-						module = shipyard
-						building = crew_quarters
-						owner = event_target:fed_member_5
-						effect = {
-							if = {
-								limit = {
-									event_target:fed_member_5 = {
-										has_valid_civic = civic_machine_astromining_drones
-									}
-								}
-								set_starbase_module = {
-									slot = 1
-									module = astromining_bay
-								}
-							}
-							else = {
-								set_starbase_module = {
-									slot = 1
-									module = solar_panel_network
-								}
-							}
-							set_starbase_module = {
-								slot = 2
-								module = shipyard
-							}
-						}
-					}
-				}
-			}
-		}
-
-		# Create sixth member (Clan Confederation only)
-		event_target:fed_planet_6 = {
-			solar_system = { generate_home_system_resources = yes }
-			if = {
-				limit = {
-					root = {
-						NOT = {
-							has_valid_civic = civic_selective_kinship
-						}
-					}
-				}
-				create_fed_planet_6_species = { CLASS = random }
-			}
-			else = {
-				root = {
-					switch = {
-						trigger = is_species_class
-						HUM =		{ create_fed_planet_6_species = { CLASS = HUM } }
-						MAM =		{ create_fed_planet_6_species = { CLASS = MAM } }
-						FUN =		{ create_fed_planet_6_species = { CLASS = FUN } }
-						AVI =		{ create_fed_planet_6_species = { CLASS = AVI } }
-						PLANT =		{ create_fed_planet_6_species = { CLASS = PLANT } }
-						ART =		{ create_fed_planet_6_species = { CLASS = ART } }
-						REP =		{ create_fed_planet_6_species = { CLASS = REP } }
-						MOL =		{ create_fed_planet_6_species = { CLASS = MOL } }
-						LITHOID =	{ create_fed_planet_6_species = { CLASS = LITHOID } }
-						NECROID =	{ create_fed_planet_6_species = { CLASS = NECROID } }
-						AQUATIC =	{ create_fed_planet_6_species = { CLASS = AQUATIC } }
-						TOX =		{ create_fed_planet_6_species = { CLASS = TOX } }
-						default =	{ create_fed_planet_6_species = { CLASS = HUM } }
-					}
-				}
-			}
-			# Clan Confederation
-			if = {
-				limit = {
-					root = {
-						has_origin = origin_clan_confederation
-					}
-				}
-				create_clan_confederation_member = {
-					NUM = 6
-				}
-			}
-			create_colony = {
-				owner = event_target:fed_member_6
-			}
-			generate_start_deposits_and_blockers = yes
-			generate_start_buildings_and_districts = yes
-			if = {
-				limit = {
-					owner = { 
-						any_owned_planet = {
-							has_building = building_hive_capital
-						}
-					}
-				}
-				owner = {
-					every_owned_planet = {
-						remove_building = building_hive_capital
-					}
-				}
-			}
-			else = {
-				owner = {
-					every_owned_planet = {
-						remove_building = building_colony_shelter
-					}
-				}
-			}
-			generate_start_pops = yes
-			event_target:fed_member_6 = {
-				country_event = { id = game_start.8 }
-				give_starting_resources_effect = yes
-				give_technology = { tech = tech_federation_code message = no }
-			}
-			solar_system = {
-				if = {
-					limit = {
-						event_target:fed_member_6 = {
-							is_gestalt = no
-						}
-					}
-					create_starbase = {
-						size = starbase_starport
-						module = shipyard
-						building = crew_quarters
-						owner = event_target:fed_member_6
-						effect = {
-							set_starbase_module = {
-								slot = 1
-								module = trading_hub
-							}
-							set_starbase_module = {
-								slot = 2
-								module = shipyard
-							}
-						}
-					}
-				}
-				else = {
-					create_starbase = {
-						size = starbase_starport
-						module = shipyard
-						building = crew_quarters
-						owner = event_target:fed_member_6
-						effect = {
-							if = {
-								limit = {
-									event_target:fed_member_6 = {
-										has_valid_civic = civic_machine_astromining_drones
-									}
-								}
-								set_starbase_module = {
-									slot = 1
-									module = astromining_bay
-								}
-							}
-							else = {
-								set_starbase_module = {
-									slot = 1
-									module = solar_panel_network
-								}
-							}
-							set_starbase_module = {
-								slot = 2
-								module = shipyard
-							}
-						}
-					}
-				}
-			}
-		}
-
-		# Create seventh member (Clan Confederation only)
-		event_target:fed_planet_7 = {
-			solar_system = { generate_home_system_resources = yes }
-			if = {
-				limit = {
-					root = {
-						NOT = {
-							has_valid_civic = civic_selective_kinship
-						}
-					}
-				}
-				create_fed_planet_7_species = { CLASS = random }
-			}
-			else = {
-				root = {
-					switch = {
-						trigger = is_species_class
-						HUM =		{ create_fed_planet_7_species = { CLASS = HUM } }
-						MAM =		{ create_fed_planet_7_species = { CLASS = MAM } }
-						FUN =		{ create_fed_planet_7_species = { CLASS = FUN } }
-						AVI =		{ create_fed_planet_7_species = { CLASS = AVI } }
-						PLANT =		{ create_fed_planet_7_species = { CLASS = PLANT } }
-						ART =		{ create_fed_planet_7_species = { CLASS = ART } }
-						REP =		{ create_fed_planet_7_species = { CLASS = REP } }
-						MOL =		{ create_fed_planet_7_species = { CLASS = MOL } }
-						LITHOID =	{ create_fed_planet_7_species = { CLASS = LITHOID } }
-						NECROID =	{ create_fed_planet_7_species = { CLASS = NECROID } }
-						AQUATIC =	{ create_fed_planet_7_species = { CLASS = AQUATIC } }
-						TOX =		{ create_fed_planet_7_species = { CLASS = TOX } }
-						default =	{ create_fed_planet_7_species = { CLASS = HUM } }
-					}
-				}
-			}
-			# Clan Confederation
-			if = {
-				limit = {
-					root = {
-						has_origin = origin_clan_confederation
-					}
-				}
-				create_clan_confederation_member = {
-					NUM = 7
-				}
-			}
-			create_colony = {
-				owner = event_target:fed_member_7
-			}
-			generate_start_deposits_and_blockers = yes
-			generate_start_buildings_and_districts = yes
-			if = {
-				limit = {
-					owner = { 
-						any_owned_planet = {
-							has_building = building_hive_capital
-						}
-					}
-				}
-				owner = {
-					every_owned_planet = {
-						remove_building = building_hive_capital
-					}
-				}
-			}
-			else = {
-				owner = {
-					every_owned_planet = {
-						remove_building = building_colony_shelter
-					}
-				}
-			}
-			generate_start_pops = yes
-			event_target:fed_member_7 = {
-				country_event = { id = game_start.8 }
-				give_starting_resources_effect = yes
-				give_technology = { tech = tech_federation_code message = no }
-			}
-			solar_system = {
-				if = {
-					limit = {
-						event_target:fed_member_7 = {
-							is_gestalt = no
-						}
-					}
-					create_starbase = {
-						size = starbase_starport
-						module = shipyard
-						building = crew_quarters
-						owner = event_target:fed_member_7
-						effect = {
-							set_starbase_module = {
-								slot = 1
-								module = trading_hub
-							}
-							set_starbase_module = {
-								slot = 2
-								module = shipyard
-							}
-						}
-					}
-				}
-				else = {
-					create_starbase = {
-						size = starbase_starport
-						module = shipyard
-						building = crew_quarters
-						owner = event_target:fed_member_7
-						effect = {
-							if = {
-								limit = {
-									event_target:fed_member_7 = {
-										has_valid_civic = civic_machine_astromining_drones
-									}
-								}
-								set_starbase_module = {
-									slot = 1
-									module = astromining_bay
-								}
-							}
-							else = {
-								set_starbase_module = {
-									slot = 1
-									module = solar_panel_network
-								}
-							}
-							set_starbase_module = {
-								slot = 2
-								module = shipyard
-							}
-						}
-					}
-				}
-			}
-		}
-
-		# Create eighth member (Clan Confederation only)
-		event_target:fed_planet_8 = {
-			solar_system = { generate_home_system_resources = yes }
-			if = {
-				limit = {
-					root = {
-						NOT = {
-							has_valid_civic = civic_selective_kinship
-						}
-					}
-				}
-				create_fed_planet_8_species = { CLASS = random }
-			}
-			else = {
-				root = {
-					switch = {
-						trigger = is_species_class
-						HUM =		{ create_fed_planet_8_species = { CLASS = HUM } }
-						MAM =		{ create_fed_planet_8_species = { CLASS = MAM } }
-						FUN =		{ create_fed_planet_8_species = { CLASS = FUN } }
-						AVI =		{ create_fed_planet_8_species = { CLASS = AVI } }
-						PLANT =		{ create_fed_planet_8_species = { CLASS = PLANT } }
-						ART =		{ create_fed_planet_8_species = { CLASS = ART } }
-						REP =		{ create_fed_planet_8_species = { CLASS = REP } }
-						MOL =		{ create_fed_planet_8_species = { CLASS = MOL } }
-						LITHOID =	{ create_fed_planet_8_species = { CLASS = LITHOID } }
-						NECROID =	{ create_fed_planet_8_species = { CLASS = NECROID } }
-						AQUATIC =	{ create_fed_planet_8_species = { CLASS = AQUATIC } }
-						TOX =		{ create_fed_planet_8_species = { CLASS = TOX } }
-						default =	{ create_fed_planet_8_species = { CLASS = HUM } }
-					}
-				}
-			}
-			# Clan Confederation
-			if = {
-				limit = {
-					root = {
-						has_origin = origin_clan_confederation
-					}
-				}
-				create_clan_confederation_member = {
-					NUM = 8
-				}
-			}
-			create_colony = {
-				owner = event_target:fed_member_8
-			}
-			generate_start_deposits_and_blockers = yes
-			generate_start_buildings_and_districts = yes
-			if = {
-				limit = {
-					owner = { 
-						any_owned_planet = {
-							has_building = building_hive_capital
-						}
-					}
-				}
-				owner = {
-					every_owned_planet = {
-						remove_building = building_hive_capital
-					}
-				}
-			}
-			else = {
-				owner = {
-					every_owned_planet = {
-						remove_building = building_colony_shelter
-					}
-				}
-			}
-			generate_start_pops = yes
-			event_target:fed_member_8 = {
-				country_event = { id = game_start.8 }
-				give_starting_resources_effect = yes
-				give_technology = { tech = tech_federation_code message = no }
-			}
-			solar_system = {
-				if = {
-					limit = {
-						event_target:fed_member_8 = {
-							is_gestalt = no
-						}
-					}
-					create_starbase = {
-						size = starbase_starport
-						module = shipyard
-						building = crew_quarters
-						owner = event_target:fed_member_8
-						effect = {
-							set_starbase_module = {
-								slot = 1
-								module = trading_hub
-							}
-							set_starbase_module = {
-								slot = 2
-								module = shipyard
-							}
-						}
-					}
-				}
-				else = {
-					create_starbase = {
-						size = starbase_starport
-						module = shipyard
-						building = crew_quarters
-						owner = event_target:fed_member_8
-						effect = {
-							if = {
-								limit = {
-									event_target:fed_member_8 = {
-										has_valid_civic = civic_machine_astromining_drones
-									}
-								}
-								set_starbase_module = {
-									slot = 1
-									module = astromining_bay
-								}
-							}
-							else = {
-								set_starbase_module = {
-									slot = 1
-									module = solar_panel_network
-								}
-							}
-							set_starbase_module = {
-								slot = 2
-								module = shipyard
-							}
-						}
-					}
-				}
-			}
-		}
-
-		# Create nineth member (Clan Confederation only)
-		event_target:fed_planet_9 = {
-			solar_system = { generate_home_system_resources = yes }
-			if = {
-				limit = {
-					root = {
-						NOT = {
-							has_valid_civic = civic_selective_kinship
-						}
-					}
-				}
-				create_fed_planet_9_species = { CLASS = random }
-			}
-			else = {
-				root = {
-					switch = {
-						trigger = is_species_class
-						HUM =		{ create_fed_planet_9_species = { CLASS = HUM } }
-						MAM =		{ create_fed_planet_9_species = { CLASS = MAM } }
-						FUN =		{ create_fed_planet_9_species = { CLASS = FUN } }
-						AVI =		{ create_fed_planet_9_species = { CLASS = AVI } }
-						PLANT =		{ create_fed_planet_9_species = { CLASS = PLANT } }
-						ART =		{ create_fed_planet_9_species = { CLASS = ART } }
-						REP =		{ create_fed_planet_9_species = { CLASS = REP } }
-						MOL =		{ create_fed_planet_9_species = { CLASS = MOL } }
-						LITHOID =	{ create_fed_planet_9_species = { CLASS = LITHOID } }
-						NECROID =	{ create_fed_planet_9_species = { CLASS = NECROID } }
-						AQUATIC =	{ create_fed_planet_9_species = { CLASS = AQUATIC } }
-						TOX =		{ create_fed_planet_9_species = { CLASS = TOX } }
-						default =	{ create_fed_planet_9_species = { CLASS = HUM } }
-					}
-				}
-			}
-			# Clan Confederation
-			if = {
-				limit = {
-					root = {
-						has_origin = origin_clan_confederation
-					}
-				}
-				create_clan_confederation_member = {
-					NUM = 9
-				}
-			}
-			create_colony = {
-				owner = event_target:fed_member_9
-			}
-			generate_start_deposits_and_blockers = yes
-			generate_start_buildings_and_districts = yes
-			if = {
-				limit = {
-					owner = { 
-						any_owned_planet = {
-							has_building = building_hive_capital
-						}
-					}
-				}
-				owner = {
-					every_owned_planet = {
-						remove_building = building_hive_capital
-					}
-				}
-			}
-			else = {
-				owner = {
-					every_owned_planet = {
-						remove_building = building_colony_shelter
-					}
-				}
-			}
-			generate_start_pops = yes
-			event_target:fed_member_9 = {
-				country_event = { id = game_start.8 }
-				give_starting_resources_effect = yes
-				give_technology = { tech = tech_federation_code message = no }
-			}
-			solar_system = {
-				if = {
-					limit = {
-						event_target:fed_member_9 = {
-							is_gestalt = no
-						}
-					}
-					create_starbase = {
-						size = starbase_starport
-						module = shipyard
-						building = crew_quarters
-						owner = event_target:fed_member_9
-						effect = {
-							set_starbase_module = {
-								slot = 1
-								module = trading_hub
-							}
-							set_starbase_module = {
-								slot = 2
-								module = shipyard
-							}
-						}
-					}
-				}
-				else = {
-					create_starbase = {
-						size = starbase_starport
-						module = shipyard
-						building = crew_quarters
-						owner = event_target:fed_member_9
-						effect = {
-							if = {
-								limit = {
-									event_target:fed_member_9 = {
-										has_valid_civic = civic_machine_astromining_drones
-									}
-								}
-								set_starbase_module = {
-									slot = 1
-									module = astromining_bay
-								}
-							}
-							else = {
-								set_starbase_module = {
-									slot = 1
-									module = solar_panel_network
-								}
-							}
-							set_starbase_module = {
-								slot = 2
-								module = shipyard
-							}
-						}
-					}
-				}
-			}
-		}
-
-		# Create tenth member (Clan Confederation only)
-		event_target:fed_planet_10 = {
-			solar_system = { generate_home_system_resources = yes }
-			if = {
-				limit = {
-					root = {
-						NOT = {
-							has_valid_civic = civic_selective_kinship
-						}
-					}
-				}
-				create_fed_planet_10_species = { CLASS = random }
-			}
-			else = {
-				root = {
-					switch = {
-						trigger = is_species_class
-						HUM =		{ create_fed_planet_10_species = { CLASS = HUM } }
-						MAM =		{ create_fed_planet_10_species = { CLASS = MAM } }
-						FUN =		{ create_fed_planet_10_species = { CLASS = FUN } }
-						AVI =		{ create_fed_planet_10_species = { CLASS = AVI } }
-						PLANT =		{ create_fed_planet_10_species = { CLASS = PLANT } }
-						ART =		{ create_fed_planet_10_species = { CLASS = ART } }
-						REP =		{ create_fed_planet_10_species = { CLASS = REP } }
-						MOL =		{ create_fed_planet_10_species = { CLASS = MOL } }
-						LITHOID =	{ create_fed_planet_10_species = { CLASS = LITHOID } }
-						NECROID =	{ create_fed_planet_10_species = { CLASS = NECROID } }
-						AQUATIC =	{ create_fed_planet_10_species = { CLASS = AQUATIC } }
-						TOX =		{ create_fed_planet_10_species = { CLASS = TOX } }
-						default =	{ create_fed_planet_10_species = { CLASS = HUM } }
-					}
-				}
-			}
-			# Clan Confederation
-			if = {
-				limit = {
-					root = {
-						has_origin = origin_clan_confederation
-					}
-				}
-				create_clan_confederation_member = {
-					NUM = 10
-				}
-			}
-			create_colony = {
-				owner = event_target:fed_member_10
-			}
-			generate_start_deposits_and_blockers = yes
-			generate_start_buildings_and_districts = yes
-			if = {
-				limit = {
-					owner = { 
-						any_owned_planet = {
-							has_building = building_hive_capital
-						}
-					}
-				}
-				owner = {
-					every_owned_planet = {
-						remove_building = building_hive_capital
-					}
-				}
-			}
-			else = {
-				owner = {
-					every_owned_planet = {
-						remove_building = building_colony_shelter
-					}
-				}
-			}
-			generate_start_pops = yes
-			event_target:fed_member_10 = {
-				country_event = { id = game_start.8 }
-				give_starting_resources_effect = yes
-				give_technology = { tech = tech_federation_code message = no }
-			}
-			solar_system = {
-				if = {
-					limit = {
-						event_target:fed_member_10 = {
-							is_gestalt = no
-						}
-					}
-					create_starbase = {
-						size = starbase_starport
-						module = shipyard
-						building = crew_quarters
-						owner = event_target:fed_member_10
-						effect = {
-							set_starbase_module = {
-								slot = 1
-								module = trading_hub
-							}
-							set_starbase_module = {
-								slot = 2
-								module = shipyard
-							}
-						}
-					}
-				}
-				else = {
-					create_starbase = {
-						size = starbase_starport
-						module = shipyard
-						building = crew_quarters
-						owner = event_target:fed_member_10
-						effect = {
-							if = {
-								limit = {
-									event_target:fed_member_10 = {
-										has_valid_civic = civic_machine_astromining_drones
-									}
-								}
-								set_starbase_module = {
-									slot = 1
-									module = astromining_bay
-								}
-							}
-							else = {
-								set_starbase_module = {
-									slot = 1
-									module = solar_panel_network
-								}
-							}
-							set_starbase_module = {
-								slot = 2
-								module = shipyard
-							}
-						}
-					}
-				}
-			}
-		}
-
-		# Create eleventh member (Clan Confederation only)
-		event_target:fed_planet_11 = {
-			solar_system = { generate_home_system_resources = yes }
-			if = {
-				limit = {
-					root = {
-						NOT = {
-							has_valid_civic = civic_selective_kinship
-						}
-					}
-				}
-				create_fed_planet_11_species = { CLASS = random }
-			}
-			else = {
-				root = {
-					switch = {
-						trigger = is_species_class
-						HUM =		{ create_fed_planet_11_species = { CLASS = HUM } }
-						MAM =		{ create_fed_planet_11_species = { CLASS = MAM } }
-						FUN =		{ create_fed_planet_11_species = { CLASS = FUN } }
-						AVI =		{ create_fed_planet_11_species = { CLASS = AVI } }
-						PLANT =		{ create_fed_planet_11_species = { CLASS = PLANT } }
-						ART =		{ create_fed_planet_11_species = { CLASS = ART } }
-						REP =		{ create_fed_planet_11_species = { CLASS = REP } }
-						MOL =		{ create_fed_planet_11_species = { CLASS = MOL } }
-						LITHOID =	{ create_fed_planet_11_species = { CLASS = LITHOID } }
-						NECROID =	{ create_fed_planet_11_species = { CLASS = NECROID } }
-						AQUATIC =	{ create_fed_planet_11_species = { CLASS = AQUATIC } }
-						TOX =		{ create_fed_planet_11_species = { CLASS = TOX } }
-						default =	{ create_fed_planet_11_species = { CLASS = HUM } }
-					}
-				}
-			}
-			# Clan Confederation
-			if = {
-				limit = {
-					root = {
-						has_origin = origin_clan_confederation
-					}
-				}
-				create_clan_confederation_member = {
-					NUM = 11
-				}
-			}
-			create_colony = {
-				owner = event_target:fed_member_11
-			}
-			generate_start_deposits_and_blockers = yes
-			generate_start_buildings_and_districts = yes
-			if = {
-				limit = {
-					owner = { 
-						any_owned_planet = {
-							has_building = building_hive_capital
-						}
-					}
-				}
-				owner = {
-					every_owned_planet = {
-						remove_building = building_hive_capital
-					}
-				}
-			}
-			else = {
-				owner = {
-					every_owned_planet = {
-						remove_building = building_colony_shelter
-					}
-				}
-			}
-			generate_start_pops = yes
-			event_target:fed_member_11 = {
-				country_event = { id = game_start.8 }
-				give_starting_resources_effect = yes
-				give_technology = { tech = tech_federation_code message = no }
-			}
-			solar_system = {
-				if = {
-					limit = {
-						event_target:fed_member_11 = {
-							is_gestalt = no
-						}
-					}
-					create_starbase = {
-						size = starbase_starport
-						module = shipyard
-						building = crew_quarters
-						owner = event_target:fed_member_11
-						effect = {
-							set_starbase_module = {
-								slot = 1
-								module = trading_hub
-							}
-							set_starbase_module = {
-								slot = 2
-								module = shipyard
-							}
-						}
-					}
-				}
-				else = {
-					create_starbase = {
-						size = starbase_starport
-						module = shipyard
-						building = crew_quarters
-						owner = event_target:fed_member_11
-						effect = {
-							if = {
-								limit = {
-									event_target:fed_member_11 = {
-										has_valid_civic = civic_machine_astromining_drones
-									}
-								}
-								set_starbase_module = {
-									slot = 1
-									module = astromining_bay
-								}
-							}
-							else = {
-								set_starbase_module = {
-									slot = 1
-									module = solar_panel_network
-								}
-							}
-							set_starbase_module = {
-								slot = 2
-								module = shipyard
-							}
-						}
-					}
-				}
-			}
-		}
-
-		# Finish setting up member empires
-		event_target:fed_member_1 = {
-			create_starting_leaders = yes
-			country_event = { id = game_start.9 } # create starter set of ships
-			country_event = { id = game_start.33 days = 1 } # needs delay for system ownership to settle
-			country_event = { id = origin.58 days = 1 } # delayed for federation assignment to settle
-			join_alliance = {
-				who = root
-				override_requirements = yes
-			}
-			set_name = random # Fixes some naming issues
-		}
-
-		event_target:fed_member_2 = {
-			create_starting_leaders = yes
-			country_event = { id = game_start.9 }
-			country_event = { id = game_start.33 days = 1 } # needs delay for system ownership to settle
-			country_event = { id = origin.58 days = 1 } # delayed for federation assignment to settle
-			join_alliance = {
-				who = root
-				override_requirements = yes
-			}
-			set_name = random # Fixes some naming issues
-		}
-
-		event_target:fed_member_3 = {
-			create_starting_leaders = yes
-			country_event = { id = game_start.9 }
-			country_event = { id = game_start.33 days = 1 } # needs delay for system ownership to settle
-			country_event = { id = origin.58 days = 1 } # delayed for federation assignment to settle
-			join_alliance = {
-				who = root
-				override_requirements = yes
-			}
-			set_name = random # Fixes some naming issues
-		}
-
-		event_target:fed_member_4 = {
-			create_starting_leaders = yes
-			country_event = { id = game_start.9 }
-			country_event = { id = game_start.33 days = 1 } # needs delay for system ownership to settle
-			country_event = { id = origin.58 days = 1 } # delayed for federation assignment to settle
-			join_alliance = {
-				who = root
-				override_requirements = yes
-			}
-			set_name = random # Fixes some naming issues
-		}
-
-		event_target:fed_member_5 = {
-			create_starting_leaders = yes
-			country_event = { id = game_start.9 }
-			country_event = { id = game_start.33 days = 1 } # needs delay for system ownership to settle
-			country_event = { id = origin.58 days = 1 } # delayed for federation assignment to settle
-			join_alliance = {
-				who = root
-				override_requirements = yes
-			}
-			set_name = random # Fixes some naming issues
-		}
-
-		event_target:fed_member_6 = {
-			create_starting_leaders = yes
-			country_event = { id = game_start.9 }
-			country_event = { id = game_start.33 days = 1 } # needs delay for system ownership to settle
-			country_event = { id = origin.58 days = 1 } # delayed for federation assignment to settle
-			join_alliance = {
-				who = root
-				override_requirements = yes
-			}
-			set_name = random # Fixes some naming issues
-		}
-
-		event_target:fed_member_7 = {
-			create_starting_leaders = yes
-			country_event = { id = game_start.9 }
-			country_event = { id = game_start.33 days = 1 } # needs delay for system ownership to settle
-			country_event = { id = origin.58 days = 1 } # delayed for federation assignment to settle
-			join_alliance = {
-				who = root
-				override_requirements = yes
-			}
-			set_name = random # Fixes some naming issues
-		}
-
-		event_target:fed_member_8 = {
-			create_starting_leaders = yes
-			country_event = { id = game_start.9 }
-			country_event = { id = game_start.33 days = 1 } # needs delay for system ownership to settle
-			country_event = { id = origin.58 days = 1 } # delayed for federation assignment to settle
-			join_alliance = {
-				who = root
-				override_requirements = yes
-			}
-			set_name = random # Fixes some naming issues
-		}
-
-		event_target:fed_member_9 = {
-			create_starting_leaders = yes
-			country_event = { id = game_start.9 }
-			country_event = { id = game_start.33 days = 1 } # needs delay for system ownership to settle
-			country_event = { id = origin.58 days = 1 } # delayed for federation assignment to settle
-			join_alliance = {
-				who = root
-				override_requirements = yes
-			}
-			set_name = random # Fixes some naming issues
-		}
-
-		event_target:fed_member_10 = {
-			create_starting_leaders = yes
-			country_event = { id = game_start.9 }
-			country_event = { id = game_start.33 days = 1 } # needs delay for system ownership to settle
-			country_event = { id = origin.58 days = 1 } # delayed for federation assignment to settle
-			join_alliance = {
-				who = root
-				override_requirements = yes
-			}
-			set_name = random # Fixes some naming issues
-		}
-
-		event_target:fed_member_11 = {
-			create_starting_leaders = yes
-			country_event = { id = game_start.9 }
-			country_event = { id = game_start.33 days = 1 } # needs delay for system ownership to settle
-			country_event = { id = origin.58 days = 1 } # delayed for federation assignment to settle
-			join_alliance = {
-				who = root
-				override_requirements = yes
-			}
-			set_name = random # Fixes some naming issues
+		# Leaders, starting ships, federation join, name randomisation.
+		event_target:fed_member_1 = { bto_finalize_fed_member = yes }
+		event_target:fed_member_2 = { bto_finalize_fed_member = yes }
+		event_target:fed_member_3 = { bto_finalize_fed_member = yes }
+		event_target:fed_member_4 = { bto_finalize_fed_member = yes }
+		if = {
+			limit = { has_origin = origin_clan_confederation }
+			event_target:fed_member_5  = { bto_finalize_fed_member = yes }
+			event_target:fed_member_6  = { bto_finalize_fed_member = yes }
+			event_target:fed_member_7  = { bto_finalize_fed_member = yes }
+			event_target:fed_member_8  = { bto_finalize_fed_member = yes }
+			event_target:fed_member_9  = { bto_finalize_fed_member = yes }
+			event_target:fed_member_10 = { bto_finalize_fed_member = yes }
+			event_target:fed_member_11 = { bto_finalize_fed_member = yes }
 		}
 
 		# Set Intel levels, Opinion, and Federation laws
 		if = {
 			limit = { has_origin = origin_stellar_union }
-			# event_target:fed_member_1 = {
-			# 	add_opinion_modifier = {
-			# 		who = root
-			# 		modifier = opinion_common_ground
-			# 	}
-			# 	add_trust = {
-			# 		amount = 50
-			# 		who = root
-			# 	}
-			# 	add_trust = {
-			# 		amount = 50
-			# 		who = event_target:fed_member_2
-			# 	}
-			# 	add_intel = {
-			# 		amount = 60
-			# 		who = root
-			# 	}
-			# 	add_intel = {
-			# 		amount = 60
-			# 		who = event_target:fed_member_2
-			# 	}
-			# }
-			# event_target:fed_member_2 = {
-			# 	add_opinion_modifier = {
-			# 		who = root
-			# 		modifier = opinion_common_ground
-			# 	}
-			# 	add_trust = {
-			# 		amount = 50
-			# 		who = root
-			# 	}
-			# 	add_trust = {
-			# 		amount = 50
-			# 		who = event_target:fed_member_1
-			# 	}
-			# 	add_intel = {
-			# 		amount = 60
-			# 		who = root
-			# 	}
-			# 	add_intel = {
-			# 		amount = 60
-			# 		who = event_target:fed_member_1
-			# 	}
-			# }
-			add_opinion_modifier = {
-				who = event_target:fed_member_1
-				modifier = opinion_common_ground
-			}
-			add_opinion_modifier = {
-				who = event_target:fed_member_2
-				modifier = opinion_common_ground
-			}
-			add_opinion_modifier = {
-				who = event_target:fed_member_3
-				modifier = opinion_common_ground
-			}
-			add_opinion_modifier = {
-				who = event_target:fed_member_4
-				modifier = opinion_common_ground
-			}
-			add_opinion_modifier = {
-				who = event_target:fed_member_5
-				modifier = opinion_common_ground
-			}
-			add_opinion_modifier = {
-				who = event_target:fed_member_6
-				modifier = opinion_common_ground
-			}
-			add_opinion_modifier = {
-				who = event_target:fed_member_7
-				modifier = opinion_common_ground
-			}
-			add_opinion_modifier = {
-				who = event_target:fed_member_8
-				modifier = opinion_common_ground
-			}
-			add_opinion_modifier = {
-				who = event_target:fed_member_9
-				modifier = opinion_common_ground
-			}
-			add_opinion_modifier = {
-				who = event_target:fed_member_10
-				modifier = opinion_common_ground
-			}
-			add_opinion_modifier = {
-				who = event_target:fed_member_11
-				modifier = opinion_common_ground
-			}
-			# add_trust = {
-			# 	amount = 50
-			# 	who = event_target:fed_member_1
-			# }
-			# add_trust = {
-			# 	amount = 50
-			# 	who = event_target:fed_member_2
-			# }
-			# add_intel = {
-			# 	amount = 60
-			# 	who = event_target:fed_member_1
-			# }
-			# add_intel = {
-			# 	amount = 60
-			# 	who = event_target:fed_member_2
-			# }
+			add_opinion_modifier = { who = event_target:fed_member_1 modifier = opinion_common_ground }
+			add_opinion_modifier = { who = event_target:fed_member_2 modifier = opinion_common_ground }
+			add_opinion_modifier = { who = event_target:fed_member_3 modifier = opinion_common_ground }
+			add_opinion_modifier = { who = event_target:fed_member_4 modifier = opinion_common_ground }
+			# add_trust / add_intel / set_closed_borders — deaktiviert, s. TODO im CLAUDE.md
 			set_federation_leader = root
 			country_event = { id = origin.57 days = 2 }
 		}
@@ -1918,58 +229,7 @@ country_event = {
 				add_federation_experience = 600
 				add_cohesion = 100
 			}
-			# event_target:fed_member_1 = {
-			# 	add_intel = {
-			# 		amount = 40
-			# 		who = root
-			# 	}
-			# 	add_intel = {
-			# 		amount = 40
-			# 		who = event_target:fed_member_2
-			# 	}
-			# 	set_closed_borders = {
-			# 		who = root
-			# 		status = no
-			# 	}
-			# 	set_closed_borders = {
-			# 		who = event_target:fed_member_2
-			# 		status = no
-			# 	}
-			# }
-			# event_target:fed_member_2 = {
-			# 	add_intel = {
-			# 		amount = 40
-			# 		who = root
-			# 	}
-			# 	add_intel = {
-			# 		amount = 40
-			# 		who = event_target:fed_member_1
-			# 	}
-			# 	set_closed_borders = {
-			# 		who = root
-			# 		status = no
-			# 	}
-			# 	set_closed_borders = {
-			# 		who = event_target:fed_member_1
-			# 		status = no
-			# 	}
-			# }
-			# add_intel = {
-			# 	amount = 40
-			# 	who = event_target:fed_member_1
-			# }
-			# set_closed_borders = {
-			# 	who = event_target:fed_member_1
-			# 	status = no
-			# }
-			# add_intel = {
-			# 	amount = 40
-			# 	who = event_target:fed_member_2
-			# }
-			# set_closed_borders = {
-			# 	who = event_target:fed_member_2
-			# 	status = no
-			# }
+			# add_intel / set_closed_borders — deaktiviert, s. TODO im CLAUDE.md
 		}
 	}
 }

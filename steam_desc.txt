@@ -1,0 +1,45 @@
+[h1]BattleTech-ish Origins[/h1]
+
+A Stellaris mod inspired by the BattleTech universe. Adds two new origins that spawn fully functional federation partners at game start.
+
+[b]Requires:[/b] Stellaris 4.3.7 (Cetus) · Federations DLC
+
+[hr]
+
+[h2]Origins[/h2]
+
+[h3]Clan Confederation[/h3]
+[i]Inspired by the BattleTech Clans.[/i]
+
+Your empire leads a confederation of up to 11 warrior clans, forming a [b]Hegemony Federation[/b] with you as permanent leader. Your species carries the mark of generations of selective breeding — the Trueborn trait grants +2 genetic points and +10% army damage.
+
+[list]
+[*]Requires: [code]civic_warrior_culture[/code], non-Imperial authority, biological species
+[*]Federation: Hegemony, 600 XP, 100 Cohesion, 20-year succession law
+[*]Partners: 11 clan empires (12 members total)
+[/list]
+
+[h3]Stellar Union[/h3]
+[i]Inspired by the Star League.[/i]
+
+Your empire stands at the head of a [b]Star League-style federation[/b] of four allied states, united under Imperial authority.
+
+[list]
+[*]Requires: [code]auth_imperial[/code], Militarist or Fanatic Militarist, non-Spiritualist, biological species
+[*]Federation: Standard, player as leader
+[*]Partners: 4 allied empires (5 members total)
+[/list]
+
+[hr]
+
+[h2]Rival Empire[/h2]
+
+Whichever origin you pick, a rival empire with the [b]opposing origin[/b] spawns in a distant part of the galaxy at game start — a Stellar Union if you lead the Clans, a Clan Confederation if you lead the Union. The rival builds its own full federation independently.
+
+AI empires will almost never randomly roll these origins (weight 1:100,000).
+
+[hr]
+
+[h2]Installation[/h2]
+
+Place the mod folder into [code]Documents/Paradox Interactive/Stellaris/mod/[/code] and enable it in the Stellaris launcher.

@@ -10,5 +10,6 @@ trait_bto_clan_trueborn = {
 	ai_weight = { weight = 0 }
 	modifier = {
 		army_damage_mult = 0.10
+		species_trait_points_add = 2
 	}
 }

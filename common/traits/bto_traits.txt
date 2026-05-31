@@ -7,9 +7,10 @@ trait_bto_clan_trueborn = {
 	cost = -2
 	allowed_archetypes = { BIOLOGICAL }
 	immortal_leaders = no
+	initial = no		# origin-granted only; not selectable in the Empire Creator
+	randomized = no		# never randomly assigned
 	ai_weight = { weight = 0 }
 	modifier = {
 		army_damage_mult = 0.10
-		species_trait_points_add = 2
 	}
 }

@@ -28,7 +28,7 @@ country_event = {
 					ORIGIN = origin_clan_confederation
 					AUTH = auth_oligarchic
 					CIVIC1 = civic_warrior_culture
-					CIVIC2 = civic_distinguished_admiralty
+					CIVIC2 = civic_aristocratic_elite
 				}
 			}
 		}
@@ -37,17 +37,14 @@ country_event = {
 		set_country_flag = Story2 # Already encountered spacefarers
 		give_technology = { tech = tech_federation_code message = no }
 
-		# Spawn federation partner home systems.
-		# Slots 1–2: vanilla anchor systems (always spawned by standard empire initializers).
-		# Slots 3–4: dynamic — nearest unowned system (both origins need 4 partners).
-		# Slots 5–11: dynamic — Clan Confederation only (needs 11 partners).
+		# Spawn federation partner home systems at the nearest unowned, unused systems.
+		# Slots 1–4: both origins (need 4 partners). Slots 5–11: Clan Confederation only (needs 11 partners).
 		capital_scope = {
 			solar_system = {
 				closest_system = {
-					limit = { has_star_flag = neighbor_t1_first_colony }
-					random_system_planet = {
-						limit = { has_planet_flag = prescripted_ideal }
-						change_pc = pc_barren
+					limit = {
+						has_owner = no
+						NOT = { has_star_flag = bto_fed_origin_used }
 					}
 					set_star_flag = bto_fed_origin_used
 					spawn_random_home_system = yes
@@ -56,10 +53,9 @@ country_event = {
 					}
 				}
 				closest_system = {
-					limit = { has_star_flag = neighbor_t2_second_colony }
-					random_system_planet = {
-						limit = { has_planet_flag = prescripted_ideal }
-						change_pc = pc_barren
+					limit = {
+						has_owner = no
+						NOT = { has_star_flag = bto_fed_origin_used }
 					}
 					set_star_flag = bto_fed_origin_used
 					spawn_random_home_system = yes
@@ -208,14 +204,13 @@ country_event = {
 			event_target:fed_member_11 = { bto_finalize_fed_member = yes }
 		}
 
-		# Set Intel levels, Opinion, and Federation laws
+		# Opinion and Federation laws
 		if = {
 			limit = { has_origin = origin_stellar_union }
 			add_opinion_modifier = { who = event_target:fed_member_1 modifier = opinion_common_ground }
 			add_opinion_modifier = { who = event_target:fed_member_2 modifier = opinion_common_ground }
 			add_opinion_modifier = { who = event_target:fed_member_3 modifier = opinion_common_ground }
 			add_opinion_modifier = { who = event_target:fed_member_4 modifier = opinion_common_ground }
-			# add_trust / add_intel / set_closed_borders — deaktiviert, s. TODO im CLAUDE.md
 			set_federation_leader = root
 			country_event = { id = origin.57 days = 2 }
 		}
@@ -229,7 +224,6 @@ country_event = {
 				add_federation_experience = 600
 				add_cohesion = 100
 			}
-			# add_intel / set_closed_borders — deaktiviert, s. TODO im CLAUDE.md
 		}
 	}
 }

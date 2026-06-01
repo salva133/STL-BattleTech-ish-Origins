@@ -5,9 +5,10 @@
 # cost = -2 → frees up 2 trait points for the player to spend on custom traits.
 trait_bto_clan_trueborn = {
 	cost = -2
+	icon = "gfx/interface/icons/traits/trait_strong.dds"
 	allowed_archetypes = { BIOLOGICAL }
 	immortal_leaders = no
-	initial = no		# origin-granted only; not selectable in the Empire Creator
+	initial = yes		# must be listable on the prescripted Clan species / origin-granted
 	randomized = no		# never randomly assigned
 	ai_weight = { weight = 0 }
 	modifier = {

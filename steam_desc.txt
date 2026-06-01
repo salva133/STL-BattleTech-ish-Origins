@@ -22,12 +22,12 @@ Your empire leads a confederation of up to 11 warrior clans, forming a [b]Hegemo
 [h3]Stellar Union[/h3]
 [i]Inspired by the Star League.[/i]
 
-Your empire stands at the head of a [b]Star League-style federation[/b] of four allied states, united under Imperial authority.
+Your empire stands at the centre of a [b]Star League-style federation[/b] of five great houses, united under Imperial authority.
 
 [list]
 [*]Requires: [code]auth_imperial[/code], Militarist or Fanatic Militarist, non-Spiritualist, biological species
-[*]Federation: Standard, player as leader
-[*]Partners: 4 allied empires (5 members total)
+[*]Federation: Hegemony, player as leader
+[*]Partners: 5 great houses (6 members total)
 [/list]
 
 [hr]

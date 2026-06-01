@@ -1,0 +1,136 @@
+# BTO test empires. spawn_enabled = no keeps them out of the AI pool (the
+# origins are max_once_global) while leaving them selectable by the player.
+
+bto_stellar_union_test = {
+	name = "EMPIRE_DESIGN_bto_stellar_union_test"
+	adjective = "PRESCRIPTED_adjective_bto_stellar_union_test"
+	spawn_enabled = no
+	ignore_portrait_duplication = yes
+
+	ship_prefix = "PRESCRIPTED_ship_prefix_bto_stellar_union_test"
+
+	species = {
+		class = "HUM"
+		portrait = "human"
+		name = "PRESCRIPTED_species_name_bto_stellar_union_test"
+		plural = "PRESCRIPTED_species_plural_bto_stellar_union_test"
+		adjective = "PRESCRIPTED_species_adjective_bto_stellar_union_test"
+		name_list = "HUMAN1"
+		trait = "trait_organic"
+		trait = "trait_adaptive"
+		trait = "trait_nomadic"
+		trait = "trait_wasteful"
+	}
+
+	room = "personality_hegemonic_imperialists_room"
+
+	ethic = "ethic_fanatic_militarist"
+	ethic = "ethic_authoritarian"
+	authority = "auth_imperial"
+	government = gov_despotic_empire
+	civics = { "civic_aristocratic_elite" "civic_distinguished_admiralty" }
+	origin = "origin_stellar_union"
+
+	planet_name = "PRESCRIPTED_planet_name_bto_stellar_union_test"
+	planet_class = "pc_continental"
+	system_name = "PRESCRIPTED_system_name_bto_stellar_union_test"
+	initializer = ""
+
+	graphical_culture = "mammalian_01"
+	city_graphical_culture = "mammalian_01"
+
+	empire_flag = {
+		icon = {
+			category = "human"
+			file = "flag_human_9.dds"
+		}
+		background = {
+			category = "backgrounds"
+			file = "00_solid.dds"
+		}
+		colors = {
+			"yellow"
+			"black"
+			"null"
+			"null"
+		}
+	}
+
+	ruler = {
+		name = "PRESCRIPTED_ruler_name_bto_stellar_union_test"
+		gender = male
+		portrait = "human_male_04"
+		texture = 0
+		attachment = 0
+		clothes = 0
+		ruler_title = "PRESCRIPTED_ruler_title_bto_stellar_union_test"
+		leader_class = official
+	}
+}
+
+bto_clan_confederation_test = {
+	name = "EMPIRE_DESIGN_bto_clan_confederation_test"
+	adjective = "PRESCRIPTED_adjective_bto_clan_confederation_test"
+	spawn_enabled = no
+	ignore_portrait_duplication = yes
+
+	ship_prefix = "PRESCRIPTED_ship_prefix_bto_clan_confederation_test"
+
+	species = {
+		class = "HUM"
+		portrait = "human"
+		name = "PRESCRIPTED_species_name_bto_clan_confederation_test"
+		plural = "PRESCRIPTED_species_plural_bto_clan_confederation_test"
+		adjective = "PRESCRIPTED_species_adjective_bto_clan_confederation_test"
+		name_list = "HUMAN2"
+		trait = "trait_organic"
+		trait = "trait_bto_clan_trueborn"
+		trait = "trait_strong"
+		trait = "trait_nomadic"
+	}
+
+	room = "personality_hegemonic_imperialists_room"
+
+	ethic = "ethic_fanatic_militarist"
+	ethic = "ethic_authoritarian"
+	authority = "auth_oligarchic"
+	government = gov_plutocratic_oligarchy
+	civics = { "civic_warrior_culture" "civic_aristocratic_elite" }
+	origin = "origin_clan_confederation"
+
+	planet_name = "PRESCRIPTED_planet_name_bto_clan_confederation_test"
+	planet_class = "pc_continental"
+	system_name = "PRESCRIPTED_system_name_bto_clan_confederation_test"
+	initializer = ""
+
+	graphical_culture = "mammalian_01"
+	city_graphical_culture = "mammalian_01"
+
+	empire_flag = {
+		icon = {
+			category = "human"
+			file = "flag_human_9.dds"
+		}
+		background = {
+			category = "backgrounds"
+			file = "00_solid.dds"
+		}
+		colors = {
+			"red"
+			"black"
+			"null"
+			"null"
+		}
+	}
+
+	ruler = {
+		name = "PRESCRIPTED_ruler_name_bto_clan_confederation_test"
+		gender = male
+		portrait = "human_male_04"
+		texture = 0
+		attachment = 0
+		clothes = 0
+		ruler_title = "PRESCRIPTED_ruler_title_bto_clan_confederation_test"
+		leader_class = official
+	}
+}

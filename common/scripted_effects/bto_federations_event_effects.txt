@@ -1,251 +1,155 @@
 ### Federations Scripted Effects
 
-# Create The Lesser Messenger effect
+# Federation member builders. Every member shares the founder's species
+# (saved as event_target:fed_planet_<NUM>_species in bto_setup_fed_member),
+# so only a weighted-random non-gestalt ethic is rolled here. Stellar Union
+# members use origin_common_ground_npc; Clan Confederation members use
+# origin_hegemon_npc.
 
 create_stellar_union_member = {
-	# If the federation member species is a machine, make them a machine intelligence.
-	if = {
-		limit = {
-			event_target:fed_planet_$NUM$_species = {
-				is_species_class = MACHINE
+	random_list = {
+		1 = {	# Fanatic Spiritualist
+			modifier = {
+				factor = 10
+				root = { is_spiritualist = yes }
 			}
-		}
-		event_target:fed_planet_$NUM$_species = {
-			modify_species = {
-				species = this
-				add_trait = trait_machine_unit
+			create_country = {
+				name_list = random
+				species = event_target:fed_planet_$NUM$_species
+				type = default
+				origin = "origin_common_ground_npc"
+				authority = auth_imperial
+				ignore_initial_colony_error = yes
+				day_zero_contact = no
+				randomize_ethos = yes
+				ethos = {
+					ethic = "ethic_xenophile"
+					ethic = "ethic_spiritualist"
+					ethic = "ethic_fanatic_spiritualist"
+				}
 				effect = {
-					save_event_target_as = fed_planet_$NUM$_species
+					save_event_target_as = fed_member_$NUM$
+					establish_communications_no_message = root
 				}
 			}
 		}
-		create_country = {
-			name_list = random
-			species = event_target:fed_planet_$NUM$_species
-			type = default
-			origin = "origin_default"
-			ignore_initial_colony_error = yes
-			day_zero_contact = no
-			ethos = {
-				ethic = "ethic_gestalt_consciousness"
+		1 = {	# Fanatic Militarist
+			modifier = {
+				factor = 10
+				root = { is_militarist = yes }
 			}
-			authority = auth_machine_intelligence
-			effect = {
-				machine_federation_member_civic_fix = yes
-				save_event_target_as = fed_member_$NUM$
-				establish_communications_no_message = root
+			create_country = {
+				name_list = random
+				species = event_target:fed_planet_$NUM$_species
+				type = default
+				origin = "origin_common_ground_npc"
+				authority = auth_imperial
+				ignore_initial_colony_error = yes
+				day_zero_contact = no
+				randomize_ethos = yes
+				ethos = {
+					ethic = "ethic_xenophile"
+					ethic = "ethic_militarist"
+					ethic = "ethic_fanatic_militarist"
+				}
+				effect = {
+					save_event_target_as = fed_member_$NUM$
+					establish_communications_no_message = root
+				}
 			}
 		}
-	}
-	# Otherwise, weighted random for their ethics.
-	else = {
-		random_list = {
-			1 = {	# Hive-Mind
-				modifier = {
-					factor = 10
-					root = { is_hive_empire = yes }
+		1 = {	# Fanatic Pacifist
+			modifier = {
+				factor = 10
+				root = { is_pacifist = yes }
+			}
+			create_country = {
+				name_list = random
+				species = event_target:fed_planet_$NUM$_species
+				type = default
+				origin = "origin_common_ground_npc"
+				authority = auth_imperial
+				ignore_initial_colony_error = yes
+				day_zero_contact = no
+				randomize_ethos = yes
+				ethos = {
+					ethic = "ethic_xenophile"
+					ethic = "ethic_pacifist"
+					ethic = "ethic_fanatic_pacifist"
 				}
-				modifier = {
-					factor = 0
-					has_utopia = no
-				}
-				event_target:fed_planet_$NUM$_species = {
-					modify_species = {
-						species = this
-						add_trait = trait_hive_mind
-						effect = {
-							save_event_target_as = fed_planet_$NUM$_species
-						}
-					}
-				}
-				create_country = {
-					name_list = random
-					species = event_target:fed_planet_$NUM$_species
-					type = default
-					origin = "origin_default"
-					ignore_initial_colony_error = yes
-					day_zero_contact = no
-					ethos = {
-						ethic = "ethic_gestalt_consciousness"
-					}
-					authority = auth_hive_mind
-					effect = {
-						hive_federation_member_civic_fix = yes
-						save_event_target_as = fed_member_$NUM$
-						establish_communications_no_message = root
-					}
+				effect = {
+					save_event_target_as = fed_member_$NUM$
+					establish_communications_no_message = root
 				}
 			}
-			1 = {	# Fanatic Spiritualist
-				modifier = {
-					factor = 10
-					root = { is_spiritualist = yes }
+		}
+		1 = {	# Fanatic Materialist
+			modifier = {
+				factor = 10
+				root = { is_materialist = yes }
+			}
+			create_country = {
+				name_list = random
+				species = event_target:fed_planet_$NUM$_species
+				type = default
+				origin = "origin_common_ground_npc"
+				authority = auth_imperial
+				ignore_initial_colony_error = yes
+				day_zero_contact = no
+				randomize_ethos = yes
+				ethos = {
+					ethic = "ethic_xenophile"
+					ethic = "ethic_materialist"
+					ethic = "ethic_fanatic_materialist"
 				}
-				modifier = {
-					factor = 0
-					root = { is_machine_empire = yes }
-				}
-				create_country = {
-					name_list = random
-					species = event_target:fed_planet_$NUM$_species
-					type = default
-					origin = "origin_common_ground_npc"
-					ignore_initial_colony_error = yes
-					day_zero_contact = no
-					randomize_ethos = yes
-					ethos = {
-						ethic = "ethic_xenophile"
-						ethic = "ethic_spiritualist"
-						ethic = "ethic_fanatic_spiritualist"
-					}
-					effect = {
-						save_event_target_as = fed_member_$NUM$
-						establish_communications_no_message = root
-					}
+				effect = {
+					save_event_target_as = fed_member_$NUM$
+					establish_communications_no_message = root
 				}
 			}
-			1 = {	# Fanatic Militarist
-				modifier = {
-					factor = 10
-					root = { is_militarist = yes }
+		}
+		1 = {	# Fanatic Authoritarian
+			modifier = {
+				factor = 10
+				root = { is_authoritarian = yes }
+			}
+			create_country = {
+				name_list = random
+				species = event_target:fed_planet_$NUM$_species
+				type = default
+				origin = "origin_common_ground_npc"
+				authority = auth_imperial
+				ignore_initial_colony_error = yes
+				day_zero_contact = no
+				randomize_ethos = yes
+				ethos = {
+					ethic = "ethic_xenophile"
+					ethic = "ethic_authoritarian"
+					ethic = "ethic_fanatic_authoritarian"
 				}
-				create_country = {
-					name_list = random
-					species = event_target:fed_planet_$NUM$_species
-					type = default
-					origin = "origin_common_ground_npc"
-					ignore_initial_colony_error = yes
-					day_zero_contact = no
-					randomize_ethos = yes
-					ethos = {
-						ethic = "ethic_xenophile"
-						ethic = "ethic_militarist"
-						ethic = "ethic_fanatic_militarist"
-					}
-					effect = {
-						save_event_target_as = fed_member_$NUM$
-						establish_communications_no_message = root
-					}
+				effect = {
+					save_event_target_as = fed_member_$NUM$
+					establish_communications_no_message = root
 				}
 			}
-			1 = {	# Fanatic Pacifist
-				modifier = {
-					factor = 10
-					root = { is_pacifist = yes }
+		}
+		5 = {	# Fanatic Xenophile
+			create_country = {
+				name_list = random
+				species = event_target:fed_planet_$NUM$_species
+				type = default
+				origin = "origin_common_ground_npc"
+				authority = auth_imperial
+				ignore_initial_colony_error = yes
+				day_zero_contact = no
+				randomize_ethos = yes
+				ethos = {
+					ethic = "ethic_xenophile"
+					ethic = "ethic_fanatic_xenophile"
 				}
-				create_country = {
-					name_list = random
-					species = event_target:fed_planet_$NUM$_species
-					type = default
-					origin = "origin_common_ground_npc"
-					ignore_initial_colony_error = yes
-					day_zero_contact = no
-					randomize_ethos = yes
-					ethos = {
-						ethic = "ethic_xenophile"
-						ethic = "ethic_pacifist"
-						ethic = "ethic_fanatic_pacifist"
-					}
-					effect = {
-						save_event_target_as = fed_member_$NUM$
-						establish_communications_no_message = root
-					}
-				}
-			}
-			1 = {	# Fanatic Materialist
-				modifier = {
-					factor = 10
-					root = {
-						OR = {
-							is_materialist = yes
-							is_machine_empire = yes
-						}
-					}
-				}
-				create_country = {
-					name_list = random
-					species = event_target:fed_planet_$NUM$_species
-					type = default
-					origin = "origin_common_ground_npc"
-					ignore_initial_colony_error = yes
-					day_zero_contact = no
-					randomize_ethos = yes
-					ethos = {
-						ethic = "ethic_xenophile"
-						ethic = "ethic_materialist"
-						ethic = "ethic_fanatic_materialist"
-					}
-					effect = {
-						save_event_target_as = fed_member_$NUM$
-						establish_communications_no_message = root
-					}
-				}
-			}
-			1 = {	# Fanatic Authoritarian
-				modifier = {
-					factor = 10
-					root = { is_authoritarian = yes }
-				}
-				create_country = {
-					name_list = random
-					species = event_target:fed_planet_$NUM$_species
-					type = default
-					origin = "origin_common_ground_npc"
-					ignore_initial_colony_error = yes
-					day_zero_contact = no
-					randomize_ethos = yes
-					ethos = {
-						ethic = "ethic_xenophile"
-						ethic = "ethic_authoritarian"
-						ethic = "ethic_fanatic_authoritarian"
-					}
-					effect = {
-						save_event_target_as = fed_member_$NUM$
-						establish_communications_no_message = root
-					}
-				}
-			}
-			1 = {	# Fanatic Egalitarian
-				modifier = {
-					factor = 10
-					root = { is_egalitarian = yes }
-				}
-				create_country = {
-					name_list = random
-					species = event_target:fed_planet_$NUM$_species
-					type = default
-					origin = "origin_common_ground_npc"
-					ignore_initial_colony_error = yes
-					day_zero_contact = no
-					randomize_ethos = yes
-					ethos = {
-						ethic = "ethic_xenophile"
-						ethic = "ethic_egalitarian"
-						ethic = "ethic_fanatic_egalitarian"
-					}
-					effect = {
-						save_event_target_as = fed_member_$NUM$
-						establish_communications_no_message = root
-					}
-				}
-			}
-			5 = {	# Fanatic Xenophile
-				create_country = {
-					name_list = random
-					species = event_target:fed_planet_$NUM$_species
-					type = default
-					origin = "origin_common_ground_npc"
-					ignore_initial_colony_error = yes
-					day_zero_contact = no
-					randomize_ethos = yes
-					ethos = {
-						ethic = "ethic_xenophile"
-						ethic = "ethic_fanatic_xenophile"
-					}
-					effect = {
-						save_event_target_as = fed_member_$NUM$
-						establish_communications_no_message = root
-					}
+				effect = {
+					save_event_target_as = fed_member_$NUM$
+					establish_communications_no_message = root
 				}
 			}
 		}
@@ -253,672 +157,304 @@ create_stellar_union_member = {
 }
 
 create_clan_confederation_member = {
-	# If the federation member species is a machine, make them a machine intelligence.
-	if = {
-		limit = {
-			event_target:fed_planet_$NUM$_species = {
-				is_species_class = MACHINE
+	random_list = {
+		1 = {	# Fanatic Spiritualist
+			modifier = {
+				factor = 10
+				root = { is_spiritualist = yes }
 			}
-		}
-		event_target:fed_planet_$NUM$_species = {
-			modify_species = {
-				species = this
-				add_trait = trait_machine_unit
+			create_country = {
+				name = random
+				name_list = random
+				species = event_target:fed_planet_$NUM$_species
+				type = default
+				origin = "origin_hegemon_npc"
+				ignore_initial_colony_error = yes
+				day_zero_contact = no
+				randomize_ethos = yes
+				ethos = {
+					ethic = "ethic_xenophile"
+					ethic = "ethic_spiritualist"
+					ethic = "ethic_fanatic_spiritualist"
+				}
 				effect = {
-					save_event_target_as = fed_planet_$NUM$_species
+					save_event_target_as = fed_member_$NUM$
+					establish_communications_no_message = root
 				}
 			}
 		}
-		create_country = {
-			name_list = random
-			species = event_target:fed_planet_$NUM$_species
-			type = default
-			origin = "origin_default"
-			ignore_initial_colony_error = yes
-			day_zero_contact = no
-			ethos = {
-				ethic = "ethic_gestalt_consciousness"
+		1 = {	# Fanatic Militarist
+			modifier = {
+				factor = 10
+				root = { is_militarist = yes }
 			}
-			authority = auth_machine_intelligence
-			effect = {
-				machine_federation_member_civic_fix = yes
-				save_event_target_as = fed_member_$NUM$
-				establish_communications_no_message = root
+			create_country = {
+				name = random
+				name_list = random
+				species = event_target:fed_planet_$NUM$_species
+				type = default
+				origin = "origin_hegemon_npc"
+				ignore_initial_colony_error = yes
+				day_zero_contact = no
+				randomize_ethos = yes
+				ethos = {
+					ethic = "ethic_xenophile"
+					ethic = "ethic_militarist"
+					ethic = "ethic_fanatic_militarist"
+				}
+				effect = {
+					save_event_target_as = fed_member_$NUM$
+					establish_communications_no_message = root
+				}
 			}
 		}
-	}
-	else = {
-		random_list = {
-			1 = {	# Hive-Mind
-				modifier = {
-					factor = 10
-					root = { is_hive_empire = yes }
+		1 = {	# Fanatic Pacifist
+			modifier = {
+				factor = 10
+				root = { is_pacifist = yes }
+			}
+			create_country = {
+				name = random
+				name_list = random
+				species = event_target:fed_planet_$NUM$_species
+				type = default
+				origin = "origin_hegemon_npc"
+				ignore_initial_colony_error = yes
+				day_zero_contact = no
+				randomize_ethos = yes
+				ethos = {
+					ethic = "ethic_xenophile"
+					ethic = "ethic_pacifist"
+					ethic = "ethic_fanatic_pacifist"
 				}
-				modifier = {
-					factor = 0
-					has_utopia = no
-				}
-				event_target:fed_planet_$NUM$_species = {
-					modify_species = {
-						species = this
-						add_trait = trait_hive_mind
-						effect = {
-							save_event_target_as = fed_planet_$NUM$_species
-						}
-					}
-				}
-				create_country = {
-					name_list = random
-					species = event_target:fed_planet_$NUM$_species
-					type = default
-					origin = "origin_default"
-					ignore_initial_colony_error = yes
-					day_zero_contact = no
-					ethos = {
-						ethic = "ethic_gestalt_consciousness"
-					}
-					authority = auth_hive_mind
-					effect = {
-						hive_federation_member_civic_fix = yes
-						save_event_target_as = fed_member_$NUM$
-						establish_communications_no_message = root
-					}
+				effect = {
+					save_event_target_as = fed_member_$NUM$
+					establish_communications_no_message = root
 				}
 			}
-			1 = {	# Fanatic Spiritualist
-				modifier = {
-					factor = 10
-					root = { is_spiritualist = yes }
+		}
+		1 = {	# Fanatic Materialist
+			modifier = {
+				factor = 10
+				root = { is_materialist = yes }
+			}
+			create_country = {
+				name = random
+				name_list = random
+				species = event_target:fed_planet_$NUM$_species
+				type = default
+				origin = "origin_hegemon_npc"
+				ignore_initial_colony_error = yes
+				day_zero_contact = no
+				randomize_ethos = yes
+				ethos = {
+					ethic = "ethic_xenophile"
+					ethic = "ethic_materialist"
+					ethic = "ethic_fanatic_materialist"
 				}
-				modifier = {
-					factor = 0
-					root = { is_machine_empire = yes }
-				}
-				create_country = {
-					name = random
-					name_list = random
-					species = event_target:fed_planet_$NUM$_species
-					type = default
-					origin = "origin_hegemon_npc"
-					ignore_initial_colony_error = yes
-					day_zero_contact = no
-					randomize_ethos = yes
-					ethos = {
-						ethic = "ethic_xenophile"
-						ethic = "ethic_spiritualist"
-						ethic = "ethic_fanatic_spiritualist"
-					}
-					effect = {
-						save_event_target_as = fed_member_$NUM$
-						establish_communications_no_message = root
-					}
+				effect = {
+					save_event_target_as = fed_member_$NUM$
+					establish_communications_no_message = root
 				}
 			}
-			1 = {	# Fanatic Militarist
-				modifier = {
-					factor = 10
-					root = { is_militarist = yes }
+		}
+		1 = {	# Fanatic Authoritarian
+			modifier = {
+				factor = 10
+				root = { is_authoritarian = yes }
+			}
+			create_country = {
+				name = random
+				name_list = random
+				species = event_target:fed_planet_$NUM$_species
+				type = default
+				origin = "origin_hegemon_npc"
+				ignore_initial_colony_error = yes
+				day_zero_contact = no
+				randomize_ethos = yes
+				ethos = {
+					ethic = "ethic_xenophile"
+					ethic = "ethic_authoritarian"
+					ethic = "ethic_fanatic_authoritarian"
 				}
-				create_country = {
-					name = random
-					name_list = random
-					species = event_target:fed_planet_$NUM$_species
-					type = default
-					origin = "origin_hegemon_npc"
-					ignore_initial_colony_error = yes
-					day_zero_contact = no
-					randomize_ethos = yes
-					ethos = {
-						ethic = "ethic_xenophile"
-						ethic = "ethic_militarist"
-						ethic = "ethic_fanatic_militarist"
-					}
-					effect = {
-						save_event_target_as = fed_member_$NUM$
-						establish_communications_no_message = root
-					}
+				effect = {
+					save_event_target_as = fed_member_$NUM$
+					establish_communications_no_message = root
 				}
 			}
-			1 = {	# Fanatic Pacifist
-				modifier = {
-					factor = 10
-					root = { is_pacifist = yes }
+		}
+		1 = {	# Fanatic Egalitarian
+			modifier = {
+				factor = 10
+				root = { is_egalitarian = yes }
+			}
+			create_country = {
+				name = random
+				name_list = random
+				species = event_target:fed_planet_$NUM$_species
+				type = default
+				origin = "origin_hegemon_npc"
+				ignore_initial_colony_error = yes
+				day_zero_contact = no
+				randomize_ethos = yes
+				ethos = {
+					ethic = "ethic_xenophile"
+					ethic = "ethic_egalitarian"
+					ethic = "ethic_fanatic_egalitarian"
 				}
-				create_country = {
-					name = random
-					name_list = random
-					species = event_target:fed_planet_$NUM$_species
-					type = default
-					origin = "origin_hegemon_npc"
-					ignore_initial_colony_error = yes
-					day_zero_contact = no
-					randomize_ethos = yes
-					ethos = {
-						ethic = "ethic_xenophile"
-						ethic = "ethic_pacifist"
-						ethic = "ethic_fanatic_pacifist"
-					}
-					effect = {
-						save_event_target_as = fed_member_$NUM$
-						establish_communications_no_message = root
-					}
+				effect = {
+					save_event_target_as = fed_member_$NUM$
+					establish_communications_no_message = root
 				}
 			}
-			1 = {	# Fanatic Materialist
-				modifier = {
-					factor = 10
-					root = {
-						OR = {
-							is_materialist = yes
-							is_machine_empire = yes
-						}
-					}
+		}
+		5 = {	# Regular Xenophile
+			create_country = {
+				name = random
+				name_list = random
+				species = event_target:fed_planet_$NUM$_species
+				type = default
+				origin = "origin_hegemon_npc"
+				ignore_initial_colony_error = yes
+				day_zero_contact = no
+				randomize_ethos = yes
+				ethos = {
+					ethic = "ethic_xenophile" # intentional outlier
 				}
-				create_country = {
-					name = random
-					name_list = random
-					species = event_target:fed_planet_$NUM$_species
-					type = default
-					origin = "origin_hegemon_npc"
-					ignore_initial_colony_error = yes
-					day_zero_contact = no
-					randomize_ethos = yes
-					ethos = {
-						ethic = "ethic_xenophile"
-						ethic = "ethic_materialist"
-						ethic = "ethic_fanatic_materialist"
-					}
-					effect = {
-						save_event_target_as = fed_member_$NUM$
-						establish_communications_no_message = root
-					}
-				}
-			}
-			1 = {	# Fanatic Authoritarian
-				modifier = {
-					factor = 10
-					root = { is_authoritarian = yes }
-				}
-				create_country = {
-					name = random
-					name_list = random
-					species = event_target:fed_planet_$NUM$_species
-					type = default
-					origin = "origin_hegemon_npc"
-					ignore_initial_colony_error = yes
-					day_zero_contact = no
-					randomize_ethos = yes
-					ethos = {
-						ethic = "ethic_xenophile"
-						ethic = "ethic_authoritarian"
-						ethic = "ethic_fanatic_authoritarian"
-					}
-					effect = {
-						save_event_target_as = fed_member_$NUM$
-						establish_communications_no_message = root
-					}
-				}
-			}
-			1 = {	# Fanatic Egalitarian
-				modifier = {
-					factor = 10
-					root = { is_egalitarian = yes }
-				}
-				create_country = {
-					name = random
-					name_list = random
-					species = event_target:fed_planet_$NUM$_species
-					type = default
-					origin = "origin_hegemon_npc"
-					ignore_initial_colony_error = yes
-					day_zero_contact = no
-					randomize_ethos = yes
-					ethos = {
-						ethic = "ethic_xenophile"
-						ethic = "ethic_egalitarian"
-						ethic = "ethic_fanatic_egalitarian"
-					}
-					effect = {
-						save_event_target_as = fed_member_$NUM$
-						establish_communications_no_message = root
-					}
-				}
-			}
-			5 = {	# Regular Xenophile
-				create_country = {
-					name = random
-					name_list = random
-					species = event_target:fed_planet_$NUM$_species
-					type = default
-					origin = "origin_hegemon_npc"
-					ignore_initial_colony_error = yes
-					day_zero_contact = no
-					randomize_ethos = yes
-					ethos = {
-						ethic = "ethic_xenophile" # intentional outlier
-					}
-					effect = {
-						save_event_target_as = fed_member_$NUM$
-						establish_communications_no_message = root
-					}
+				effect = {
+					save_event_target_as = fed_member_$NUM$
+					establish_communications_no_message = root
 				}
 			}
 		}
 	}
 }
 
-create_fed_planet_3_species = {
-	if = {
-		limit = {
-			root = {
-				is_machine_empire = yes
-			}
-		}
-		random_list = {
-			50 = {
-				create_species = {
-					name = random
-					class = MACHINE
-					portrait = random
-					traits = random
-					homeworld = this
-				}
-			}
-			50 = {
-				create_species = {
-					name = random
-					class = $CLASS$
-					portrait = random
-					traits = random
-					homeworld = this
-				}
-			}
-		}
+### BTO Galaxy Layout Helpers
+
+# All home spawners use the vanilla custom starting initialisers, the same
+# system templates spawn_random_home_system draws from. They additionally pin
+# orientation angle + distance so the realms form a deliberate layout.
+
+# Called in system scope (the leader's capital). Spawns one Inner Sphere ring
+# member at a fixed angle around the leader and registers it as fed_planet_$NUM$.
+bto_spawn_ring_home = {
+	spawn_system = {
+		min_distance = @bto_ring_distance
+		max_distance = @bto_ring_distance
+		min_orientation_angle = $ANGLE$
+		max_orientation_angle = $ANGLE$
+		hyperlane = yes
+		initializer = custom_starting_init_01
 	}
-	else = {
-		create_species = {
-			name = random
-			class = $CLASS$
-			portrait = random
-			traits = random
-			homeworld = this
-		}
-	}
-	last_created_species = {
-		save_event_target_as = fed_planet_3_species
+	last_created_system = {
+		set_star_flag = bto_fed_origin_used
+		federation_origin_planet_setup = { NUM = $NUM$ }
 	}
 }
 
-create_fed_planet_4_species = {
-	if = {
-		limit = {
-			root = {
-				is_machine_empire = yes
-			}
-		}
-		random_list = {
-			50 = {
-				create_species = {
-					name = random
-					class = MACHINE
-					portrait = random
-					traits = random
-					homeworld = this
-				}
-			}
-			50 = {
-				create_species = {
-					name = random
-					class = $CLASS$
-					portrait = random
-					traits = random
-					homeworld = this
-				}
-			}
+# Called in country scope. Spawns the first Clan home far beyond the galactic
+# rim (no_scope anchors on the galactic core) as an isolated system, saved as
+# event_target:bto_cluster_anchor and registered as fed_planet_$NUM$.
+bto_spawn_cluster_anchor = {
+	no_scope = {
+		spawn_system = {
+			min_distance = @bto_cluster_distance
+			max_distance = @bto_cluster_distance
+			min_orientation_angle = 0
+			max_orientation_angle = 0
+			hyperlane = no
+			initializer = custom_starting_init_01
 		}
 	}
-	else = {
-		create_species = {
-			name = random
-			class = $CLASS$
-			portrait = random
-			traits = random
-			homeworld = this
-		}
-	}
-	last_created_species = {
-		save_event_target_as = fed_planet_4_species
+	last_created_system = {
+		set_star_flag = bto_fed_origin_used
+		save_event_target_as = bto_cluster_anchor
+		federation_origin_planet_setup = { NUM = $NUM$ }
 	}
 }
 
-create_fed_planet_5_species = {
-	if = {
-		limit = {
-			root = {
-				is_machine_empire = yes
-			}
-		}
-		random_list = {
-			50 = {
-				create_species = {
-					name = random
-					class = MACHINE
-					portrait = random
-					traits = random
-					homeworld = this
-				}
-			}
-			50 = {
-				create_species = {
-					name = random
-					class = $CLASS$
-					portrait = random
-					traits = random
-					homeworld = this
-				}
-			}
+# Called in country scope. Spawns one more Clan home around the cluster anchor,
+# wires a hyperlane back to the anchor (keeping the cluster connected yet sealed
+# from the galaxy) and registers it as fed_planet_$NUM$.
+bto_spawn_cluster_home = {
+	event_target:bto_cluster_anchor = {
+		spawn_system = {
+			min_distance = @bto_cluster_spread
+			max_distance = @bto_cluster_spread
+			min_orientation_angle = $ANGLE$
+			max_orientation_angle = $ANGLE$
+			hyperlane = no
+			initializer = custom_starting_init_01
 		}
 	}
-	else = {
-		create_species = {
-			name = random
-			class = $CLASS$
-			portrait = random
-			traits = random
-			homeworld = this
-		}
-	}
-	last_created_species = {
-		save_event_target_as = fed_planet_5_species
+	last_created_system = {
+		set_star_flag = bto_fed_origin_used
+		add_hyperlane = { from = this to = event_target:bto_cluster_anchor }
+		federation_origin_planet_setup = { NUM = $NUM$ }
 	}
 }
 
-create_fed_planet_6_species = {
-	if = {
-		limit = {
-			root = {
-				is_machine_empire = yes
-			}
-		}
-		random_list = {
-			50 = {
-				create_species = {
-					name = random
-					class = MACHINE
-					portrait = random
-					traits = random
-					homeworld = this
-				}
-			}
-			50 = {
-				create_species = {
-					name = random
-					class = $CLASS$
-					portrait = random
-					traits = random
-					homeworld = this
-				}
-			}
-		}
+# Called in a member's home system scope. Claims two neighbour systems for the
+# member ($OWNER$) via outposts, each hyperlinked only to the home so a Clan
+# member's territory stays inside the sealed cluster.
+bto_claim_neighbors = {
+	save_event_target_as = bto_neighbor_home
+	spawn_system = {
+		min_distance = @bto_neighbor_distance
+		max_distance = @bto_neighbor_distance
+		min_orientation_angle = 45
+		max_orientation_angle = 45
+		hyperlane = no
+		initializer = custom_starting_init_05
 	}
-	else = {
-		create_species = {
-			name = random
-			class = $CLASS$
-			portrait = random
-			traits = random
-			homeworld = this
-		}
+	last_created_system = {
+		add_hyperlane = { from = this to = event_target:bto_neighbor_home }
+		create_starbase = { size = starbase_outpost owner = $OWNER$ }
 	}
-	last_created_species = {
-		save_event_target_as = fed_planet_6_species
+	spawn_system = {
+		min_distance = @bto_neighbor_distance
+		max_distance = @bto_neighbor_distance
+		min_orientation_angle = 315
+		max_orientation_angle = 315
+		hyperlane = no
+		initializer = custom_starting_init_05
+	}
+	last_created_system = {
+		add_hyperlane = { from = this to = event_target:bto_neighbor_home }
+		create_starbase = { size = starbase_outpost owner = $OWNER$ }
 	}
 }
 
-create_fed_planet_7_species = {
-	if = {
-		limit = {
-			root = {
-				is_machine_empire = yes
-			}
-		}
-		random_list = {
-			50 = {
-				create_species = {
-					name = random
-					class = MACHINE
-					portrait = random
-					traits = random
-					homeworld = this
-				}
-			}
-			50 = {
-				create_species = {
-					name = random
-					class = $CLASS$
-					portrait = random
-					traits = random
-					homeworld = this
-				}
-			}
+# Called in country scope (the Clan leader). Places a restored gateway in the
+# cluster and one at the leader's capital; gateways auto-network, so this is the
+# Clans' only link to the galaxy.
+bto_link_cluster_gateway = {
+	event_target:bto_cluster_anchor = {
+		spawn_megastructure = {
+			type = "gateway_restored"
+			coords_from = this
 		}
 	}
-	else = {
-		create_species = {
-			name = random
-			class = $CLASS$
-			portrait = random
-			traits = random
-			homeworld = this
-		}
-	}
-	last_created_species = {
-		save_event_target_as = fed_planet_7_species
-	}
-}
-
-create_fed_planet_8_species = {
-	if = {
-		limit = {
-			root = {
-				is_machine_empire = yes
+	capital_scope = {
+		solar_system = {
+			spawn_megastructure = {
+				type = "gateway_restored"
+				coords_from = this
 			}
 		}
-		random_list = {
-			50 = {
-				create_species = {
-					name = random
-					class = MACHINE
-					portrait = random
-					traits = random
-					homeworld = this
-				}
-			}
-			50 = {
-				create_species = {
-					name = random
-					class = $CLASS$
-					portrait = random
-					traits = random
-					homeworld = this
-				}
-			}
-		}
-	}
-	else = {
-		create_species = {
-			name = random
-			class = $CLASS$
-			portrait = random
-			traits = random
-			homeworld = this
-		}
-	}
-	last_created_species = {
-		save_event_target_as = fed_planet_8_species
-	}
-}
-
-create_fed_planet_9_species = {
-	if = {
-		limit = {
-			root = {
-				is_machine_empire = yes
-			}
-		}
-		random_list = {
-			50 = {
-				create_species = {
-					name = random
-					class = MACHINE
-					portrait = random
-					traits = random
-					homeworld = this
-				}
-			}
-			50 = {
-				create_species = {
-					name = random
-					class = $CLASS$
-					portrait = random
-					traits = random
-					homeworld = this
-				}
-			}
-		}
-	}
-	else = {
-		create_species = {
-			name = random
-			class = $CLASS$
-			portrait = random
-			traits = random
-			homeworld = this
-		}
-	}
-	last_created_species = {
-		save_event_target_as = fed_planet_9_species
-	}
-}
-
-create_fed_planet_10_species = {
-	if = {
-		limit = {
-			root = {
-				is_machine_empire = yes
-			}
-		}
-		random_list = {
-			50 = {
-				create_species = {
-					name = random
-					class = MACHINE
-					portrait = random
-					traits = random
-					homeworld = this
-				}
-			}
-			50 = {
-				create_species = {
-					name = random
-					class = $CLASS$
-					portrait = random
-					traits = random
-					homeworld = this
-				}
-			}
-		}
-	}
-	else = {
-		create_species = {
-			name = random
-			class = $CLASS$
-			portrait = random
-			traits = random
-			homeworld = this
-		}
-	}
-	last_created_species = {
-		save_event_target_as = fed_planet_10_species
-	}
-}
-
-create_fed_planet_11_species = {
-	if = {
-		limit = {
-			root = {
-				is_machine_empire = yes
-			}
-		}
-		random_list = {
-			50 = {
-				create_species = {
-					name = random
-					class = MACHINE
-					portrait = random
-					traits = random
-					homeworld = this
-				}
-			}
-			50 = {
-				create_species = {
-					name = random
-					class = $CLASS$
-					portrait = random
-					traits = random
-					homeworld = this
-				}
-			}
-		}
-	}
-	else = {
-		create_species = {
-			name = random
-			class = $CLASS$
-			portrait = random
-			traits = random
-			homeworld = this
-		}
-	}
-	last_created_species = {
-		save_event_target_as = fed_planet_11_species
 	}
 }
 
 ### BTO Setup Helpers
 
 # Called from planet scope (event_target:fed_planet_$NUM$).
-# Creates species, spawns the member empire, colonises the planet, builds deposits/pops/starbase.
+# Saves the founder's species for the member, spawns the member empire,
+# colonises the planet, builds deposits/pops/starbase, claims neighbour systems.
 bto_setup_fed_member = {
 	solar_system = { generate_home_system_resources = yes }
-	if = {
-		limit = {
-			root = {
-				NOT = { has_valid_civic = civic_selective_kinship }
-			}
-		}
-		create_fed_planet_$NUM$_species = { CLASS = random }
-	}
-	else = {
-		root = {
-			switch = {
-				trigger = is_species_class
-				HUM =		{ create_fed_planet_$NUM$_species = { CLASS = HUM } }
-				MAM =		{ create_fed_planet_$NUM$_species = { CLASS = MAM } }
-				FUN =		{ create_fed_planet_$NUM$_species = { CLASS = FUN } }
-				AVI =		{ create_fed_planet_$NUM$_species = { CLASS = AVI } }
-				PLANT =		{ create_fed_planet_$NUM$_species = { CLASS = PLANT } }
-				ART =		{ create_fed_planet_$NUM$_species = { CLASS = ART } }
-				REP =		{ create_fed_planet_$NUM$_species = { CLASS = REP } }
-				MOL =		{ create_fed_planet_$NUM$_species = { CLASS = MOL } }
-				LITHOID =	{ create_fed_planet_$NUM$_species = { CLASS = LITHOID } }
-				NECROID =	{ create_fed_planet_$NUM$_species = { CLASS = NECROID } }
-				AQUATIC =	{ create_fed_planet_$NUM$_species = { CLASS = AQUATIC } }
-				TOX =		{ create_fed_planet_$NUM$_species = { CLASS = TOX } }
-				default =	{ create_fed_planet_$NUM$_species = { CLASS = HUM } }
-			}
-		}
-	}
+	# Every federation member shares the founder's (root's) species.
+	root = { species = { save_event_target_as = fed_planet_$NUM$_species } }
 	if = {
 		limit = { root = { has_origin = origin_stellar_union } }
 		create_stellar_union_member = { NUM = $NUM$ }
@@ -930,20 +466,8 @@ bto_setup_fed_member = {
 	create_colony = { owner = event_target:fed_member_$NUM$ }
 	generate_start_deposits_and_blockers = yes
 	generate_start_buildings_and_districts = yes
-	if = {
-		limit = {
-			owner = {
-				any_owned_planet = { has_building = building_hive_capital }
-			}
-		}
-		owner = {
-			every_owned_planet = { remove_building = building_hive_capital }
-		}
-	}
-	else = {
-		owner = {
-			every_owned_planet = { remove_building = building_colony_shelter }
-		}
+	owner = {
+		every_owned_planet = { remove_building = building_colony_shelter }
 	}
 	generate_start_pops = yes
 	event_target:fed_member_$NUM$ = {
@@ -952,43 +476,20 @@ bto_setup_fed_member = {
 		give_technology = { tech = tech_federation_code message = no }
 	}
 	solar_system = {
-		if = {
-			limit = {
-				event_target:fed_member_$NUM$ = { is_gestalt = no }
-			}
-			create_starbase = {
-				size = starbase_starport
-				module = shipyard
-				building = crew_quarters
-				owner = event_target:fed_member_$NUM$
-				effect = {
-					set_starbase_module = { slot = 1 module = trading_hub }
-					set_starbase_module = { slot = 2 module = shipyard }
-				}
+		create_starbase = {
+			size = starbase_starport
+			module = shipyard
+			building = crew_quarters
+			owner = event_target:fed_member_$NUM$
+			effect = {
+				set_starbase_module = { slot = 1 module = trading_hub }
+				set_starbase_module = { slot = 2 module = shipyard }
 			}
 		}
-		else = {
-			create_starbase = {
-				size = starbase_starport
-				module = shipyard
-				building = crew_quarters
-				owner = event_target:fed_member_$NUM$
-				effect = {
-					if = {
-						limit = {
-							event_target:fed_member_$NUM$ = {
-								has_valid_civic = civic_machine_astromining_drones
-							}
-						}
-						set_starbase_module = { slot = 1 module = astromining_bay }
-					}
-					else = {
-						set_starbase_module = { slot = 1 module = solar_panel_network }
-					}
-					set_starbase_module = { slot = 2 module = shipyard }
-				}
-			}
-		}
+	}
+	# Two neighbour systems per realm (home + 2 = a small starting territory).
+	solar_system = {
+		bto_claim_neighbors = { OWNER = event_target:fed_member_$NUM$ }
 	}
 }
 
@@ -1084,7 +585,7 @@ bto_spawn_rival_empire = {
 			name_list = random
 			species = event_target:bto_rival_species
 			type = default
-			origin = "$ORIGIN$"
+			origin = origin_default
 			ignore_initial_colony_error = yes
 			day_zero_contact = no
 			ethos = {
@@ -1128,6 +629,10 @@ bto_spawn_rival_empire = {
 		}
 	}
 	event_target:bto_rival_empire = {
+		# Assign the BTO origin now that civics exist (the origin's possible
+		# requires civic_warrior_culture, which create_country sets after the
+		# origin would be validated — so it cannot be passed to create_country).
+		set_origin = $ORIGIN$
 		country_event = { id = game_start.8 }
 		give_starting_resources_effect = yes
 		give_technology = { tech = tech_federation_code message = no }

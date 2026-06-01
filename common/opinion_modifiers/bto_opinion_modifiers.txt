@@ -1,0 +1,8 @@
+# BTO federation unity.
+# Applied in both directions between every federation member by bto_origin.56
+# to lock mutual opinion at its maximum.
+opinion_bto_federation_unity = {
+	opinion = {
+		base = 1000
+	}
+}

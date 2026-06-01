@@ -1,6 +1,6 @@
 # Stellar Union/Clan Confederation Setup
-# Supposed size of Stellar Union = max 5
-# Supposed size of Clan Confederation = max 12
+# Stellar Union = the Inner Sphere: leader (centre) + 5 inner realms in a ring.
+# Clan Confederation = leader + 6 clans in a sealed cluster beyond the galactic rim.
 
 namespace = bto_origin
 
@@ -37,155 +37,41 @@ country_event = {
 		set_country_flag = Story2 # Already encountered spacefarers
 		give_technology = { tech = tech_federation_code message = no }
 
-		# Spawn federation partner home systems at the nearest unowned, unused systems.
-		# Slots 1–4: both origins (need 4 partners). Slots 5–11: Clan Confederation only (needs 11 partners).
-		capital_scope = {
-			solar_system = {
-				closest_system = {
-					limit = {
-						has_owner = no
-						NOT = { has_star_flag = bto_fed_origin_used }
-					}
-					set_star_flag = bto_fed_origin_used
-					spawn_random_home_system = yes
-					last_created_system = {
-						federation_origin_planet_setup = { NUM = 1 }
-					}
-				}
-				closest_system = {
-					limit = {
-						has_owner = no
-						NOT = { has_star_flag = bto_fed_origin_used }
-					}
-					set_star_flag = bto_fed_origin_used
-					spawn_random_home_system = yes
-					last_created_system = {
-						federation_origin_planet_setup = { NUM = 2 }
-					}
-				}
-				closest_system = {
-					limit = {
-						has_owner = no
-						NOT = { has_star_flag = bto_fed_origin_used }
-					}
-					set_star_flag = bto_fed_origin_used
-					spawn_random_home_system = yes
-					last_created_system = {
-						federation_origin_planet_setup = { NUM = 3 }
-					}
-				}
-				closest_system = {
-					limit = {
-						has_owner = no
-						NOT = { has_star_flag = bto_fed_origin_used }
-					}
-					set_star_flag = bto_fed_origin_used
-					spawn_random_home_system = yes
-					last_created_system = {
-						federation_origin_planet_setup = { NUM = 4 }
-					}
-				}
-			}
-		}
+		# Inner Sphere: the leader is the centre; 5 great houses ring around it.
 		if = {
-			limit = { has_origin = origin_clan_confederation }
+			limit = { has_origin = origin_stellar_union }
 			capital_scope = {
 				solar_system = {
-					closest_system = {
-						limit = {
-							has_owner = no
-							NOT = { has_star_flag = bto_fed_origin_used }
-						}
-						set_star_flag = bto_fed_origin_used
-						spawn_random_home_system = yes
-						last_created_system = {
-							federation_origin_planet_setup = { NUM = 5 }
-						}
-					}
-					closest_system = {
-						limit = {
-							has_owner = no
-							NOT = { has_star_flag = bto_fed_origin_used }
-						}
-						set_star_flag = bto_fed_origin_used
-						spawn_random_home_system = yes
-						last_created_system = {
-							federation_origin_planet_setup = { NUM = 6 }
-						}
-					}
-					closest_system = {
-						limit = {
-							has_owner = no
-							NOT = { has_star_flag = bto_fed_origin_used }
-						}
-						set_star_flag = bto_fed_origin_used
-						spawn_random_home_system = yes
-						last_created_system = {
-							federation_origin_planet_setup = { NUM = 7 }
-						}
-					}
-					closest_system = {
-						limit = {
-							has_owner = no
-							NOT = { has_star_flag = bto_fed_origin_used }
-						}
-						set_star_flag = bto_fed_origin_used
-						spawn_random_home_system = yes
-						last_created_system = {
-							federation_origin_planet_setup = { NUM = 8 }
-						}
-					}
-					closest_system = {
-						limit = {
-							has_owner = no
-							NOT = { has_star_flag = bto_fed_origin_used }
-						}
-						set_star_flag = bto_fed_origin_used
-						spawn_random_home_system = yes
-						last_created_system = {
-							federation_origin_planet_setup = { NUM = 9 }
-						}
-					}
-					closest_system = {
-						limit = {
-							has_owner = no
-							NOT = { has_star_flag = bto_fed_origin_used }
-						}
-						set_star_flag = bto_fed_origin_used
-						spawn_random_home_system = yes
-						last_created_system = {
-							federation_origin_planet_setup = { NUM = 10 }
-						}
-					}
-					closest_system = {
-						limit = {
-							has_owner = no
-							NOT = { has_star_flag = bto_fed_origin_used }
-						}
-						set_star_flag = bto_fed_origin_used
-						spawn_random_home_system = yes
-						last_created_system = {
-							federation_origin_planet_setup = { NUM = 11 }
-						}
-					}
+					bto_spawn_ring_home = { NUM = 1 ANGLE = 0 }
+					bto_spawn_ring_home = { NUM = 2 ANGLE = 72 }
+					bto_spawn_ring_home = { NUM = 3 ANGLE = 144 }
+					bto_spawn_ring_home = { NUM = 4 ANGLE = 216 }
+					bto_spawn_ring_home = { NUM = 5 ANGLE = 288 }
 				}
 			}
 		}
 
-		# Species, empire, colony, deposits, pops, starbase — one call per slot.
+		# Clans: 6 homes in a sealed cluster beyond the rim, linked by a gateway.
+		if = {
+			limit = { has_origin = origin_clan_confederation }
+			bto_spawn_cluster_anchor = { NUM = 1 }
+			bto_spawn_cluster_home = { NUM = 2 ANGLE = 60 }
+			bto_spawn_cluster_home = { NUM = 3 ANGLE = 120 }
+			bto_spawn_cluster_home = { NUM = 4 ANGLE = 180 }
+			bto_spawn_cluster_home = { NUM = 5 ANGLE = 240 }
+			bto_spawn_cluster_home = { NUM = 6 ANGLE = 300 }
+			bto_link_cluster_gateway = yes
+		}
+
+		# Species, empire, colony, deposits, pops, starbase, neighbours - per slot.
 		event_target:fed_planet_1 = { bto_setup_fed_member = { NUM = 1 } }
 		event_target:fed_planet_2 = { bto_setup_fed_member = { NUM = 2 } }
 		event_target:fed_planet_3 = { bto_setup_fed_member = { NUM = 3 } }
 		event_target:fed_planet_4 = { bto_setup_fed_member = { NUM = 4 } }
+		event_target:fed_planet_5 = { bto_setup_fed_member = { NUM = 5 } }
 		if = {
 			limit = { has_origin = origin_clan_confederation }
-			event_target:fed_planet_5  = { bto_setup_fed_member = { NUM = 5  } }
-			event_target:fed_planet_6  = { bto_setup_fed_member = { NUM = 6  } }
-			event_target:fed_planet_7  = { bto_setup_fed_member = { NUM = 7  } }
-			event_target:fed_planet_8  = { bto_setup_fed_member = { NUM = 8  } }
-			event_target:fed_planet_9  = { bto_setup_fed_member = { NUM = 9  } }
-			event_target:fed_planet_10 = { bto_setup_fed_member = { NUM = 10 } }
-			event_target:fed_planet_11 = { bto_setup_fed_member = { NUM = 11 } }
+			event_target:fed_planet_6 = { bto_setup_fed_member = { NUM = 6 } }
 		}
 
 		# Leaders, starting ships, federation join, name randomisation.
@@ -193,15 +79,10 @@ country_event = {
 		event_target:fed_member_2 = { bto_finalize_fed_member = yes }
 		event_target:fed_member_3 = { bto_finalize_fed_member = yes }
 		event_target:fed_member_4 = { bto_finalize_fed_member = yes }
+		event_target:fed_member_5 = { bto_finalize_fed_member = yes }
 		if = {
 			limit = { has_origin = origin_clan_confederation }
-			event_target:fed_member_5  = { bto_finalize_fed_member = yes }
-			event_target:fed_member_6  = { bto_finalize_fed_member = yes }
-			event_target:fed_member_7  = { bto_finalize_fed_member = yes }
-			event_target:fed_member_8  = { bto_finalize_fed_member = yes }
-			event_target:fed_member_9  = { bto_finalize_fed_member = yes }
-			event_target:fed_member_10 = { bto_finalize_fed_member = yes }
-			event_target:fed_member_11 = { bto_finalize_fed_member = yes }
+			event_target:fed_member_6 = { bto_finalize_fed_member = yes }
 		}
 
 		# Opinion and Federation laws
@@ -211,8 +92,15 @@ country_event = {
 			add_opinion_modifier = { who = event_target:fed_member_2 modifier = opinion_common_ground }
 			add_opinion_modifier = { who = event_target:fed_member_3 modifier = opinion_common_ground }
 			add_opinion_modifier = { who = event_target:fed_member_4 modifier = opinion_common_ground }
-			set_federation_leader = root
-			country_event = { id = origin.57 days = 2 }
+			add_opinion_modifier = { who = event_target:fed_member_5 modifier = opinion_common_ground }
+			federation = {
+				set_federation_type = hegemony_federation
+				set_federation_leader = root
+				set_name = random
+				set_federation_law = succession_term_years_20
+				add_federation_experience = 600
+				add_cohesion = 100
+			}
 		}
 		if = {
 			limit = { has_origin = origin_clan_confederation }
@@ -223,6 +111,44 @@ country_event = {
 				set_federation_law = succession_term_years_20
 				add_federation_experience = 600
 				add_cohesion = 100
+			}
+		}
+
+		# Lock cohesion and inter-member relations at maximum once the
+		# federation has settled.
+		country_event = { id = bto_origin.56 days = 3 }
+	}
+}
+
+# Maximises federation cohesion and the mutual relations of every member.
+# Fired by bto_origin.55 for the player and, independently, for the rival.
+country_event = {
+	id = bto_origin.56
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		if = {
+			limit = { has_federation = yes }
+			federation = {
+				add_cohesion = 100
+				# Max mutual opinion and trust between every pair of members.
+				every_member = {
+					save_event_target_as = bto_unity_member
+					federation = {
+						every_member = {
+							limit = { NOT = { is_same_value = event_target:bto_unity_member } }
+							add_trust = {
+								who = event_target:bto_unity_member
+								amount = 100
+							}
+							add_opinion_modifier = {
+								who = event_target:bto_unity_member
+								modifier = opinion_bto_federation_unity
+							}
+						}
+					}
+				}
 			}
 		}
 	}

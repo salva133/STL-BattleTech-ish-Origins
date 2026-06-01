@@ -1,1 +1,11 @@
 @has_battletech_origins_mod = 1
+
+# --- Galaxy layout tunables (BattleTech "Inner Sphere" start) ---
+# Radius of the Inner Sphere ring (Stellar Union great houses) around the leader.
+@bto_ring_distance = 30
+# Distance of each realm's claimed neighbour systems from its home.
+@bto_neighbor_distance = 12
+# Distance of the Clan cluster from the galactic core (large = beyond the rim).
+@bto_cluster_distance = 600
+# Spread of the individual Clan homes around the cluster anchor.
+@bto_cluster_spread = 16

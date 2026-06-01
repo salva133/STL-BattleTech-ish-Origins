@@ -1,6 +1,6 @@
 [h1]BattleTech-ish Origins[/h1]
 
-A Stellaris mod inspired by the BattleTech universe. Adds two new origins that spawn fully functional federation partners at game start.
+A Stellaris mod inspired by the BattleTech universe. Adds two new origins that spawn a fully functional federation — laid out like the Inner Sphere — at game start.
 
 [b]Requires:[/b] Stellaris 4.3.7 (Cetus) · Federations DLC
 
@@ -11,18 +11,18 @@ A Stellaris mod inspired by the BattleTech universe. Adds two new origins that s
 [h3]Clan Confederation[/h3]
 [i]Inspired by the BattleTech Clans.[/i]
 
-Your empire leads a confederation of up to 11 warrior clans, forming a [b]Hegemony Federation[/b] with you as permanent leader. Your species carries the mark of generations of selective breeding — the Trueborn trait grants +2 genetic points and +10% army damage.
+Your empire leads a confederation of six warrior clans, forming a [b]Hegemony Federation[/b] with you as permanent leader. The clans dwell in a sealed cluster beyond the galactic rim, reachable only through a gateway at your home — their staging ground for the invasion to come. Your species carries the mark of generations of selective breeding: the Trueborn trait grants +2 genetic points and +10% army damage. Every clan is of your own species, holds a small home territory, and starts at maximum cohesion with relations between all members locked at their peak.
 
 [list]
 [*]Requires: [code]civic_warrior_culture[/code], non-Imperial authority, biological species
 [*]Federation: Hegemony, 600 XP, 100 Cohesion, 20-year succession law
-[*]Partners: 11 clan empires (12 members total)
+[*]Partners: 6 clans beyond the rim (7 members total)
 [/list]
 
 [h3]Stellar Union[/h3]
 [i]Inspired by the Star League.[/i]
 
-Your empire stands at the centre of a [b]Star League-style federation[/b] of five great houses, united under Imperial authority.
+Your empire stands at the centre of a [b]Star League-style federation[/b] — the heart of the Inner Sphere. You are the centre, and five great houses ring around your throne. All are of your own species, each holding a small home territory, beginning at full cohesion with relations between every member at their maximum.
 
 [list]
 [*]Requires: [code]auth_imperial[/code], Militarist or Fanatic Militarist, non-Spiritualist, biological species
@@ -34,7 +34,7 @@ Your empire stands at the centre of a [b]Star League-style federation[/b] of fiv
 
 [h2]Rival Empire[/h2]
 
-Whichever origin you pick, a rival empire with the [b]opposing origin[/b] spawns in a distant part of the galaxy at game start — a Stellar Union if you lead the Clans, a Clan Confederation if you lead the Union. The rival builds its own full federation independently.
+Whichever origin you pick, a rival empire with the [b]opposing origin[/b] spawns in a distant part of the galaxy at game start — a Stellar Union if you lead the Clans, a Clan Confederation if you lead the Union. The rival builds its own full federation independently: an Inner Sphere of its own, or a Clan cluster beyond the rim.
 
 AI empires will almost never randomly roll these origins (weight 1:100,000).
 
